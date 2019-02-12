@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/models/Empresa.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/views/transporte.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/segmentos/footerJs.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/models/Recorrido.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/funciones/editRecorrido.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/models/Connection.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/funciones/deleteRecorrido.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/funcionesPublico/login.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/funciones/deleteEmpresa.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/segmentos/footer.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/funciones/addRecorrido.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/views/admin/transporte.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/segmentos/topVar.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/segmentos/headerPublico.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/views/login.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/controllers/EmpresaService.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/index.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/controllers/RecorridoService.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/funciones/editEmpresa.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/funciones/addEmpresa.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/funciones/transporte.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/funcionesPublico/transporte.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/segmentos/headPublico.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristicoAdmin/segmentos/footerPublico.php</file>
+        </group>
+    </open-files>
+</project-private>
