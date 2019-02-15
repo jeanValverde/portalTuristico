@@ -14,9 +14,19 @@
 class Connection {
     private $server = "localhost:3306";
     private $username = "root";
-    private $password = "clave";
-    private $database = "portalturistico";
+    private $password = "root";
+    private $database = "riohurta_riohurtado";
     private $link;
+    
+    /*
+
+     *  private $server = "localhost:3306";
+    private $username = "riohurta1";
+    private $password = "Rhurta354*";
+    private $database = "riohurta_riohurtado";
+    private $link;
+     * 
+     *      */
 
     function __construct() {
         $this->link = mysqli_connect($this->server, $this->username, $this->password, $this->database);

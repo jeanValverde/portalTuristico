@@ -1,1 +1,1 @@
-<META HTTP-EQUIV="REFRESH" CONTENT="1;URL=http://localhost/portalTuristico/views/transporte">
+<META HTTP-EQUIV="REFRESH" CONTENT="1;URL=views/transporte.php">
