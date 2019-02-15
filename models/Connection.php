@@ -14,7 +14,7 @@
 class Connection {
     private $server = "localhost:3306";
     private $username = "root";
-    private $password = "root";
+    private $password = "rootc";
     private $database = "riohurta_riohurtado";
     private $link;
     
