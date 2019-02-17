@@ -46,10 +46,10 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="card text-justify " >
-                                        <div class="card-body">
-                                            <h4 class="display-4">A beautiful Design System
-                                            </h4>
-                                            <p >The design system comes with four pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
+                                        <div class="card-body text-justify">
+                                            <h5 class="card-title text-justify">Transporte público</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Recorrido de buses Iterurbano Rio Hurtado</h6>
+                                            <p class="card-text">Salida desde Terminal Buses Rurales Feria Modelo.</p>
                                             <div class="btn-wrapper">
                                                 <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="btn bg-riohurtado mb-3 mb-sm-0">
                                                     <span class="text-white">Ver más</span>

@@ -64,6 +64,10 @@ if (isset($_POST["localidad"])) {
 }
 ?>
 
+
+
+
+
 <!--aca-->
 <section class="section section-components pb-0" id="section-components">
     <div class="container">
@@ -218,7 +222,7 @@ if (isset($_POST["localidad"])) {
                                             while ($recorrido = array_shift($recorridosTarde)) {
                                                 $hora = $recorrido->getHoraSalida()[0] . $recorrido->getHoraSalida()[1] . $recorrido->getHoraSalida()[3] . $recorrido->getHoraSalida()[4];
                                                 ?>
-                                                <?php if ($hora > 1200 ) { ?>
+                                                <?php if ($hora > 1200) { ?>
                                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                         <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
                                                         <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino <?= $recorrido->getTrayectoInicio(); ?> <?= $recorrido->getDiaRecorrido(); ?></span>
@@ -681,8 +685,8 @@ if (isset($_POST["localidad"])) {
         <div class="container">
             <!-- Inputs (alternative) -->
             <div class="mb-3 text-center">
-            <small class="text-uppercase font-weight-bold">Recorrido de Aseo comunal en la semana</small>
-        </div>
+                <small class="text-uppercase font-weight-bold">Recorrido de Aseo comunal en la semana</small>
+            </div>
             <div class="row justify-content-center">
                 <div class="row">
                     <div class="row">
