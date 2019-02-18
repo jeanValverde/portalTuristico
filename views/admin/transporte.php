@@ -53,7 +53,7 @@ $paginaActiva = "transporte";
             <!-- Top navbar -->
             <?php include_once '../../segmentos/topVar.php'; ?>
             <!-- Header -->
-            <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8" >
+            <div class="header bg-gradient-primary pb-8 pt-5 pt-md-6" >
                 <div class="container-fluid">
                     <div class="header-body">
                         <!-- Card stats -->

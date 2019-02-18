@@ -131,15 +131,15 @@ $paginaActiva = "emergencia";
             $('#emergencia').DataTable({
                 language: {
                     processing: "Traitement en cours...",
-                    search: "  Buscar numero: <input class='form-control form-control-alternative' ></input> ",
+                    search: "  Buscar registro:  ",
                     lengthMenu: " <span class='badge badge-success'>Mostrar _MENU_ Elementos</span> ",
                     info: " <br/> <span class='badge badge-success'>Se muestran _START_ a _END_ de _TOTAL_ elementos  </span>",
-                    infoEmpty: "No hay elementos",
+                    infoEmpty: " <span class='badge badge-danger'>No hay elementos</span> ",
                     infoFiltered: "<span class='badge badge-danger'>(filtrado de _MAX_ elementos en total)<br/></span>",
                     infoPostFix: "",
                     loadingRecords: "Chargement en cours...",
-                    zeroRecords: " No existe el libro que busca",
-                    emptyTable: "No se encuentran libros disponibles",
+                    zeroRecords: " No existe el registro de la emergencia que busca",
+                    emptyTable: "No se encuentran registros disponibles",
                     paginate: {
                         first: "   Primero   ",
                         previous: "  <br/> <button class='btn btn-primary' >Anterior</button>   ",

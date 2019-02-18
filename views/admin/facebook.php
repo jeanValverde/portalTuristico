@@ -1,4 +1,5 @@
 
+
 <?php
 
 //session - config
@@ -50,7 +51,7 @@ $paginaActiva = "facebook";
             <!-- Top navbar -->
      <?php include_once '../../segmentos/topVar.php'; ?>
             <!-- Header -->
-            <div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+            <div class="header bg-gradient-info pb-8 pt-5 pt-md-4">
                 <div class="container-fluid">
                     <div class="header-body">
                         <!-- Card stats -->
