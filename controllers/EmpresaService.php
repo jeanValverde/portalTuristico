@@ -32,7 +32,7 @@ class EmpresaService {
      *      */
     public function create_empresa($nombre, $cantidadBuses, $contacto, $direccion, $rutaInicio, $rutaFin, $tipo) {
 
-        $sql = " INSERT INTO `portalturistico`.`empresa` (`nombre`, `cantidad_buses`, `Contacto`, `direccion`, `ruta_inicio`, `ruta_fin`, `tipo`) 
+        $sql = " INSERT INTO `riohurta_riohurtado`.`empresa` (`nombre`, `cantidad_buses`, `Contacto`, `direccion`, `ruta_inicio`, `ruta_fin`, `tipo`) 
                  VALUES ('$nombre', $cantidadBuses , '$contacto', '$direccion', '$rutaInicio', '$rutaFin', '$tipo'); ";
 
         return $this->con->query($sql);
@@ -84,6 +84,9 @@ class EmpresaService {
 
         return $empresa;
     }
+    
+    
+    
     
     
     public function update_empresa($idEmpresa , $nombre, $cantidadBuses, $contacto, $direccion, $rutaInicio, $rutaFin, $tipo) {

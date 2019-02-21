@@ -14,9 +14,10 @@
 class Connection {
     private $server = "localhost:3306";
     private $username = "root";
-    private $password = "rootc";
+    private $password = "root";
     private $database = "riohurta_riohurtado";
     private $link;
+    
     
     /*
 
@@ -36,4 +37,6 @@ class Connection {
     public function query($sql) {
         return $this->link->query($sql);
     }
+    
+    
 }

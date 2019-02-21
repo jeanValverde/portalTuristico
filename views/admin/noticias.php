@@ -66,6 +66,9 @@ $paginaActiva = "noticias";
 
               <!--contenido-->
 
+               <?php include_once '../../funciones/noticias.php'; ?>
+              
+              
                 <!-- Footer -->
                 <?php include_once '../../segmentos/footer.php'; ?>
 

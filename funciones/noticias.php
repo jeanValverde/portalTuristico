@@ -1,145 +1,207 @@
-
 <?php
 include_once '../../models/Connection.php';
-include_once '../../controllers/EmergenciaService.php';
-include_once '../../models/Emergencia.php';
+include_once '../../controllers/NoticiasService.php';
+include_once '../../models/Noticia.php';
 
-$servicio = new EmergenciaService();
+$servicio = new NoticiasService();
 
-$arrayEmergencia = $servicio->read_emergencias();
+$noticiaCargar = $servicio->read_noticia_max_id();
+
+$noticas = $servicio->read_noticias();
 
 $form = "agregar";
 
-$tiposEmergencia = array(
-    "Salud" => "Salud",
-    "Carabineros" => "Carabineros",
-    "Bomberos" => "Bomberos",
-);
+if (isset($_GET['views'])) {
 
-
-
-
-if (isset($_GET["idEmergencia"])) {
-
-
-    $form = "editar";
-    $idEmergencia = $_GET["idEmergencia"];
-    $emergencia = $servicio->read_emergencias_by_id($idEmergencia);
+    $noticiaCargar = $servicio->read_noticia_by_id($_GET['views']);
 }
+
+if (isset($_GET['idNoticia'])) {
+    $form = "editar";
+    $noticiaEdit = $servicio->read_noticia_by_id($_GET['idNoticia']);
+}
+
+if (isset($_GET['viewsEdit'])) {
+
+    $noticiaCargar = $servicio->read_noticia_by_id($_GET['viewsEdit']);
+}
+
+
 ?>
 
-<div class="row" >
+<div class="row">
+    <?php if (!empty($noticas)) { ?>
+        <div class="col-xl-4" >
+            <div class="alert alert-default" role="alert">
+                <strong>Vista previa</strong> Seleccione la noticia
+                <nav aria-label="...">
+                    <br/>
+                    <ul class="pagination">
+                        <?php
+                        while ($noticia = array_shift($noticas)) {
+                            ?>
+                            <li class="page-item <?= ($noticiaCargar->getIdNoticia() == $noticia->getIdNoticia() ) ? 'active' : '' ?>" title="<?= $noticia->getEncabezado() ?>" >
+                                <a class="page-link" href="../admin/noticias?views=<?= $noticia->getIdNoticia(); ?>"><?= $noticia->getIdNoticia() ?></a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </nav>
+            </div>
+            <div style="height: 20px;" ></div>
+            <div class="row" >
+                <div class="col-lg-12">
+                    <div class="card card-lift--hover shadow border-0 text-justify ">
+                        <img src="<?php echo '../../funciones/imgNoticias/' . $noticiaCargar->getFoto(); ?>" class="card-img-top" alt="...">
+                        <div class="card-body text-center">
+                            <h3 class="text-primary text-uppercase text-justify"><?= $noticiaCargar->getEncabezado() ?></h3>
+                            <p class="description text-justify"><?= $noticiaCargar->getDescripcion() ?></p>
+                            <a href="<?= $noticiaCargar->getLink() ?>" class="btn btn-primary" target="_black" >Más información</a>
+                            <a href="../admin/noticias?idNoticia=<?= $noticiaCargar->getIdNoticia(); ?>" class="btn btn-warning">Editar</a>
+                            <a href="../../funciones/deleteNoticia.php?idNoticia=<?= $noticiaCargar->getIdNoticia(); ?>" class="btn btn-danger">Elminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 50px;" ></div>
+        </div>
 
-    <div class="col-xl-6 order-xl-1">
+    <?php } ?>
+
+    <div class="col-xl-8 order-xl-1">
         <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="mb-0">Emergencias</h3>
+                        <h3 class="mb-0">My account</h3>
+                    </div>
+                    <div class="col-4 text-right">
+                        <a href="#!" class="btn btn-sm btn-primary">Settings</a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                <form action="<?php
+                <form id="formNoticia"  enctype="multipart/form-data" method="POST" action="
+                <?php
                 if ($form == "agregar") {
-                    echo "../../funciones/addEmergencia.php";
+                    echo "../../funciones/addNoticia.php";
                 } else {
-                    echo "../../funciones/editEmergencia.php";
+                    echo "../../funciones/editNoticia.php";
                 }
-                ?>"  method="POST" id="formEmergencia" >
-                    <h6 class="heading-small text-muted mb-4">Agrega o edita</h6>
+                ?>"  >
+                    <h6 class="heading-small text-muted mb-4">Encabezado de la noticia</h6>
                     <div class="pl-lg-4">
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect2">Tipo de emergencia</label>
-                                    <select name="tipo" class="form-control" id="exampleForamControlSelect1">
-                                        <option value="select" >Seleccione</option>
-                                        <?php
-                                        if (isset($emergencia)) {
-                                             foreach ($tiposEmergencia as $tipo) {
-                                                 if($tipo == $emergencia->getTipo()){
-                                                      echo "<option value='$tipo' selected='true' >$tipo</option>";
-                                                 }else{
-                                                 echo "<option value='$tipo'>$tipo</option>";
-                                                 
-                                                 }
-                                              }
-                                        } else {
-                                            if (isset($tiposEmergencia)) {
-                                                foreach ($tiposEmergencia as $tipo) {
-                                                    echo "<option value='$tipo'>$tipo</option>";
-                                                }
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="input-email">Ubicacion</label>
-                                    <input name="ubicacion" value="<?php
-                                           if(isset($emergencia)){
-                                               echo $emergencia->getUbicacion();
-                                           }
-                                           ?>" type="text" id="input-email" class="form-control form-control-alternative" placeholder="Samo Alto">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="input-first-name">Numero telefonico</label>
-                                    <input name="numero" value="<?php
-                                    
-                                    if(isset($emergencia)){
-                                        echo $emergencia->getNumero();
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="input-username">Encabezado</label>
+                                    <input name="encabezado" type="text" id="input-username" class="form-control form-control-alternative" placeholder="Noticia" value="<?php
+                                    if (isset($noticiaEdit)) {
+                                        echo $noticiaEdit->getEncabezado();
                                     }
-                                    
-                                    ?>" type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="133">
+                                    ?>">
                                 </div>
                             </div>
                         </div>
-                        <input type="hidden" value="<?php if (isset($emergencia)){echo $emergencia->getIdEmergencia();} ?>" name="idEmergencia" />
-                        <button type="submit" class="btn btn-primary" >Agregar</button>
                     </div>
+                    <hr class="my-4">
+                    <!-- Description -->
+                    <h6 class="heading-small text-muted mb-4">Pequeña descripción de la noticia</h6>
+                    <div class="pl-lg-4">
+                        <div class="form-group focused">
+                            <label>Descripción</label>
+                            <textarea name="descripcion" rows="4" class="form-control form-control-alternative"  id="exampleFormControlTextarea1"  placeholder="A few words about you ..."><?php
+                                if (isset($noticiaEdit)) {
+                                    echo $noticiaEdit->getDescripcion();
+                                }
+                                ?></textarea>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <!-- Address -->
+                    <h6 class="heading-small text-muted mb-4">sd</h6>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="input-address">Link de la noticia completa</label>
+                                    <input  name="link" id="input-address" class="form-control form-control-alternative" placeholder="www.riohurtado.cl/la-noticia-a-publicar" value="<?php
+                                    if (isset($noticiaEdit)) {
+                                        echo $noticiaEdit->getLink();
+                                    }
+                                    ?>" type="text">
+                                </div>
+                            </div>
+                            <?php if(!isset($noticiaEdit) ){ ?>
+                            <div class="col-md-3"  >
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1" >
+                                    <label class="custom-control-label" for="customControlValidation1"><i class="fab fa-twitter"></i> Twiter</label>
+                                    <small id="checkboxHelp" class="form-text text-muted">Selecciona para<a href="#" class="alert-link"> publicar la noticia en Twiter</a></small>
+                                    <div class="valid-feedback">
+                                        ¡Se publicara en la red social!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        ¡No se publicara en la red social!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"  >
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1d" >
+                                    <label class="custom-control-label" for="customControlValidation1d"><i class="fab fa-facebook"></i> Facebook</label>
+                                    <small id="checkboxHelp" class="form-text text-muted">Selecciona para <a href="#" class="alert-link">publicar la noticia en Facebook</a></small>
+                                    <div class="valid-feedback">
+                                        ¡Se publicara en la red social!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        ¡No se publicara en la red social!
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                        <div class="row" >
+                            <div class="col-md-6" >
+                                <div class="custom-file">
+                                    <input name="archivo"  type="file" class="custom-file-input" id="validatedCustomFile" lang="es" <?php
+                                if (isset($noticiaEdit)) {
+                                    echo 'required' . $noticiaEdit->getFoto();
+                                }
+                                ?> >
+                                    <label class="custom-file-label" for="validatedCustomFile">Sube una imagen para la noticia</label>
+                                    <small id="fileHelp" class="form-text text-muted">Suba el archivo que tenga las extensiones .jpeg / .jpg / .png / .gif solamente.</small>
+                                    <?php if (!isset($noticiaEdit)) {?>
+                                    <div class="valid-feedback">
+                                        Se ve bien!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Debes ingresar una imagen.
+                                    </div>
+                                    <?php }?>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-center" >
+                                <img id="imagePreview" src="<?php
+                                if (isset($noticiaEdit)) {
+                                    echo '../../funciones/imgNoticias/' . $noticiaEdit->getFoto();
+                                } else {
+                                    echo "../assets/img/theme/isologotipo_full_color.png";
+                                }
+                                ?>" alt="" class="" style="height: 250px;" >
+                            </div>
+                        </div>
+                        <?php if(isset($noticiaEdit)) {?>
+                        <input name="idNoticia" value="<?= $noticiaEdit->getIdNoticia() ?>" type="hidden"  />
+                        <?php }?>
+                        <button type="submit" class="btn btn-primary" >Registrar noticia</button>
+                    </div>
+
 
                 </form>
             </div>
         </div>
     </div>
 
-    <div class="col-xl-6 order-xl-2 mb-5 mb-xl-0"   >
-
-        <div class="card">
-            <div class="card-body">
-                <table class="table align-items-center table-dark" id="emergencia"  style="width:100%; ">
-                    <thead class="thead-light" >
-                        <tr><th>Tipo</th>
-                            <th>Ubicación</th>
-                            <th>Numero</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($emergencia = array_shift($arrayEmergencia)) { ?>
-                            <tr>
-                                <td><?= $emergencia->getTipo(); ?></td>
-                                <td><?= $emergencia->getUbicacion(); ?></td>
-                                <td><?= $emergencia->getNumero(); ?></td>
-                                <td>
-                                    <a href="../admin/emergencia.php?idEmergencia=<?= $emergencia->getIdEmergencia(); ?>" class="btn btn-warning" >Editar</a>
-                                    <a href="../../funciones/deleteEmergencia.php?idEmergencia=<?= $emergencia->getIdEmergencia(); ?>"   class="btn btn-danger" >Eliminar</a>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-    </div>
 
 
 </div>
@@ -153,7 +215,7 @@ if (isset($_GET["idEmergencia"])) {
 
     (function () {
         //Obtener el primer formulario cuyo name es form 
-        var formulario = document.getElementById("formEmergencia");
+        var formulario = document.getElementById("formNoticia");
         /**
          * 
          * @param {Elements} rut
@@ -479,7 +541,6 @@ if (isset($_GET["idEmergencia"])) {
                         formulario.elements[i].setAttribute("class", "custom-control-input is-valid");
                     } else {
                         formulario.elements[i].setAttribute("class", "custom-control-input is-invalid");
-                        e.preventDefault(e);
                     }
                 }
                 //validar select-one
@@ -518,7 +579,7 @@ if (isset($_GET["idEmergencia"])) {
                         formulario.elements[i].setAttribute("class", "custom-file-input is-valid");
                     } else {
                         formulario.elements[i].setAttribute("class", "custom-file-input is-invalid");
-                        e.preventDefault(e);
+                       
                     }
                 }
             }
@@ -541,5 +602,3 @@ if (isset($_GET["idEmergencia"])) {
 
 
 </script>
-
-

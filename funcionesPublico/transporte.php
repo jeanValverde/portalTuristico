@@ -82,7 +82,7 @@ if (isset($_POST["localidad"])) {
                     </li>
                 </ul>
             </div>
-
+            <a name="transporte" id="lancha"></a> 
             <div class="card shadow">
                 <div class="card-body">
                     <div class="tab-content" id="myTabContent">

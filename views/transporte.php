@@ -60,7 +60,7 @@
                                             <h6 class="card-subtitle mb-2 text-muted">Recorrido de buses Iterurbano Rio Hurtado</h6>
                                             <p class="card-text">Salida desde Terminal Buses Rurales Feria Modelo.</p>
                                             <div class="btn-wrapper">
-                                                <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="btn bg-riohurtado mb-3 mb-sm-0">
+                                                <a href="#transporte" class="btn bg-riohurtado mb-3 mb-sm-0">
                                                     <span class="text-white">Ver más</span>
                                                 </a>
                                             </div>
