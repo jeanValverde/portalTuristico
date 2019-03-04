@@ -29,12 +29,12 @@
                 </div>
                 <div class="text-center">
                     <h3>
-                        Jessica Jones<span class="font-weight-light">, RUT</span>
+                        <?= $usuario->getNombre() . " " . $usuario->getApellido(); ?> <span class="font-weight-light">, <?= $usuario->getRut(); ?></span>
                     </h3>
-                    <span class="badge badge-pill badge-info">Area</span>
-                    <span class="badge badge-pill badge-primary">Correo</span>
-                    <span class="badge badge-pill badge-danger">Tipo</span>
-                    <span class="badge badge-pill badge-success">Cargo</span>
+                    <span class="badge badge-pill badge-info"><?= $usuario->getArea(); ?></span>
+                    <span class="badge badge-pill badge-primary"><?= $usuario->getCorreo(); ?></span>
+                    <span class="badge badge-pill badge-danger"><?= $usuario->getTipo(); ?></span>
+                    <span class="badge badge-pill badge-success"><?= $usuario->getCargo(); ?></span>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="mb-0">My account</h3>
+                        <h3 class="mb-0">Cambiar Contraseña</h3>
                     </div>
                     <div class="col-4 text-right">
 
@@ -58,24 +58,24 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-username">RUT</label>
-                                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                                    <label class="form-control-label" for="input-username">Contraseña actual</label>
+                                    <input type="password" id="input-username"  class="form-control form-control-alternative" placeholder="" value="">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-username">RUT</label>
-                                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                                    <label class="form-control-label" for="input-username">Nueva Contraseña</label>
+                                    <input type="password" id="input-username" class="form-control form-control-alternative" placeholder="" value="">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-username">RUT</label>
-                                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                                    <label class="form-control-label" for="input-username">Repita la contraseña</label>
+                                    <input type="password" id="input-username" class="form-control form-control-alternative" placeholder="" value="">
                                 </div>
                             </div>
                         </div>
@@ -91,28 +91,27 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="mb-0">My account</h3>
+                        <h3 class="mb-0">Mi cuenta</h3>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">Settings</a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <form>
-                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                    <h6 class="heading-small text-muted mb-4">Información Personal</h6>
                     <div class="pl-lg-4">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-username">RUT</label>
-                                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                                    <input type="text" disabled="" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="<?= $usuario->getRut(); ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-email">Email</label>
-                                    <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                                    <input type="email" id="input-email" disabled="" class="form-control form-control-alternative" placeholder="<?= $usuario->getCorreo(); ?>" value="<?= $usuario->getCorreo(); ?>" >
                                 </div>
                             </div>
                         </div>
@@ -120,13 +119,13 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-first-name">Nombre</label>
-                                    <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                                    <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="<?= $usuario->getNombre(); ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-last-name">Apellido</label>
-                                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="<?= $usuario->getApellido(); ?>">
                                 </div>
                             </div>
                         </div>
@@ -138,20 +137,20 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-city">City</label>
-                                    <input disabled="" type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                                    <label class="form-control-label" for="input-city">Area</label>
+                                    <input disabled="" type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="<?= $usuario->getArea(); ?>">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-country">Country</label>
-                                    <input disabled="" type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="United States">
+                                    <label class="form-control-label" for="input-country">Cargo</label>
+                                    <input disabled="" type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="<?= $usuario->getCargo(); ?>">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-country">Postal code</label>
-                                    <input disabled="" type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                                    <label class="form-control-label" for="input-country">Tipo</label>
+                                    <input disabled="" type="text" id="input-postal-code" class="form-control form-control-alternative" placeholder="" value="<?= $usuario->getTipo(); ?>" >
                                 </div>
                             </div>
                         </div>

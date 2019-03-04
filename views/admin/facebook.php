@@ -4,6 +4,9 @@
 
 //session - config
 
+//session - config
+include_once '../../segmentos/session.php';
+
 
 
 $paginaActiva = "facebook";
@@ -76,7 +79,7 @@ $paginaActiva = "facebook";
                                 <!-- Chart -->
                                 <div class="chartj">
                                     <!--facebook -->
-                                    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#recorridoDesarrollo" data-width="100%" data-numposts="10"></div>
+                                    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#recorrido" data-width="100%" data-numposts="10"></div>
                                 </div>
                             </div>
                         </div>

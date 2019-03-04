@@ -1,23 +1,25 @@
 
 <?php
+if (isset($_GET['encode'])) {
 
-if(isset($_GET['error'])){
-    
-    $error = '<div class="alert alert-warning" role="alert">
-    <span class="alert-inner--icon"><i class="ni ni-circle-08"></i></span>
-    <span class="alert-inner--text"><strong>Error!</strong> Nombre de usuario o contraseña erroneos</span>
-</div>';
+    $encode = $_GET['encode'];
+
+    include_once '../models/Connection.php';
+    include_once '../controllers/UsuarioService.php';
+    include_once '../models/Usuario.php';
+
+    $service = new UsuarioService();
+
+    $resultado = $service->read_usuario_encode_contrasena($encode);
+
+
+    if ($resultado == 1) {
+        $usuario = new Usuario();
+        $usuario = $service->read_usuario_by_id_contrasena_recuperar($encode);
+    } else {
+        header("Location: ../login");
+    }
 }
-
-if(isset($_GET['errorV'])){
-    
-    $errorV = '<div class="alert alert-warning" role="alert">
-    <span class="alert-inner--icon"><i class="ni ni-circle-08"></i></span>
-    <span class="alert-inner--text"><strong>Error!</strong> Usuario inactivo (Comunícate con el administrador de la pagina)</span>
-</div>';
-}
-
-
 ?>
 
 <section class="section section-shaped section-lg" style="background-image: url('assets/img/theme/riohurtado.jpg');height: 1000px;" >
@@ -39,7 +41,7 @@ if(isset($_GET['errorV'])){
                 <div class="card bg-secondary shadow border-0 text-center">
                     <div class="card-header bg-white pb-5">
                         <div class="text-muted text-center mb-3">
-                            <small>Ingresar</small>
+                            <small>Restablecer</small>
                         </div>
                         <img src="assets/img/theme/isologotipo_full_color.png"  alt="" class="card-img-top" style="width: 50%;" />
                     </div>
@@ -48,15 +50,9 @@ if(isset($_GET['errorV'])){
                             <div class="form-group mb-3">
                                 <div class="input-group mb-4">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                     </div>
-                                    <input id="rut" name="rut" class="form-control" placeholder="19.552.208-1" type="text">
-                                    <div class="valid-feedback">
-                                        
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Rut invalido
-                                    </div>
+                                    <input id="rut" name="rut" class="form-control" placeholder="Nueva Contraseña" type="password">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -64,13 +60,13 @@ if(isset($_GET['errorV'])){
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                     </div>
-                                    <input name="password" class="form-control" required="" placeholder="Password" type="password">
+                                    <input name="password" class="form-control" required="" placeholder="Repita la contraseña" type="password">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <a href="restart" class="text-light">
-                                        <small>¿Olvide la contraseña o es primera vez que accedo?</small>
+                                    <a href="login" class="text-light">
+                                        <small>Iniciar Sesión</small>
                                     </a>
                                 </div>
                             </div>
@@ -78,8 +74,16 @@ if(isset($_GET['errorV'])){
                                 <button type="submit" class="btn btn-primary my-4">Ingresar</button>
                             </div>
                         </form>
-                        <?php if(isset($error)){echo $error;} ?>
-                        <?php if(isset($errorV)){echo $errorV;} ?>
+                        <?php
+                        if (isset($error)) {
+                            echo $error;
+                        }
+                        ?>
+                        <?php
+                        if (isset($errorV)) {
+                            echo $errorV;
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -192,7 +196,7 @@ if(isset($_GET['errorV'])){
          */
         function validarPassword(elemento) {
             var password = document.getElementById(elemento.id).value;
-            if ( password.length == 0 || password == "" || password == null) {
+            if (password.length == 0 || password == "" || password == null) {
                 return true;
             } else {
                 return false;

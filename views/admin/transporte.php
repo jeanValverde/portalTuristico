@@ -2,6 +2,9 @@
 <?php
 //session - config
 
+//session - config
+include_once '../../segmentos/session.php';
+
 
 $paginaActiva = "transporte";
 
@@ -113,6 +116,45 @@ $paginaActiva = "transporte";
         </script>
 
 
+        
+        
+        
+           <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+
+
+
+
+
+        <script>
+            $('#emergencia').DataTable({
+                language: {
+                    processing: "Traitement en cours...",
+                    search: "  Buscar registro:  ",
+                    lengthMenu: " <span class='badge badge-success'>Mostrar _MENU_ Elementos</span> ",
+                    info: " <br/> <span class='badge badge-success'>Se muestran _START_ a _END_ de _TOTAL_ elementos  </span>",
+                    infoEmpty: " <span class='badge badge-danger'>No hay elementos</span> ",
+                    infoFiltered: "<span class='badge badge-danger'>(filtrado de _MAX_ elementos en total)<br/></span>",
+                    infoPostFix: "",
+                    loadingRecords: "Chargement en cours...",
+                    zeroRecords: " No existe el registro de la emergencia que busca",
+                    emptyTable: "No se encuentran registros disponibles",
+                    paginate: {
+                        first: "   Primero   ",
+                        previous: "  <br/> <button class='btn btn-primary' >Anterior</button>   ",
+                        next: " <button class='btn btn-primary' >Siguiente</button>    ",
+                        last: "  <br/> <button class='btn btn-primary' >Ultimo</button>   "
+                    },
+                    aria: {
+                        sortAscending: ": activer pour trier la colonne par ordre croissant",
+                        sortDescheadending: ": activer pour trier la colonne par ordre décroissant"
+                    }
+                }
+            });
+        </script>
+
+        
+        
+        
 
     </body>
 

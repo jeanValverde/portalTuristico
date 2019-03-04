@@ -2,6 +2,9 @@
 <?php
 //session - config
 
+//session - config
+include_once '../../segmentos/session.php';
+
 
 $paginaActiva = "perfil";
 ?>

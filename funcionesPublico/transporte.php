@@ -38,19 +38,39 @@ $recorridosTarde = $recorridoService->read_recorridos_by_dia_actual();
 
 $lunes = $recorridoService->read_recorridos_by_dia_trayecto("Lunes", "All");
 $martes = $recorridoService->read_recorridos_by_dia_trayecto("Martes", "All");
-$miercoles = $recorridoService->read_recorridos_by_dia_trayecto("Miercoles", "All");
+$miercoles = $recorridoService->read_recorridos_by_dia_trayecto("Miércoles", "All");
 $jueves = $recorridoService->read_recorridos_by_dia_trayecto("Jueves", "All");
 $viernes = $recorridoService->read_recorridos_by_dia_trayecto("Viernes", "All");
-$sabado = $recorridoService->read_recorridos_by_dia_trayecto("Sabado", "All");
+$sabado = $recorridoService->read_recorridos_by_dia_trayecto("Sábado", "All");
 $domigo = $recorridoService->read_recorridos_by_dia_trayecto("Domingo", "All");
 
 $lunesOvalle = $recorridoService->read_recorridos_by_dia_trayecto("Lunes", "Ovalle");
 $martesOvalle = $recorridoService->read_recorridos_by_dia_trayecto("Martes", "Ovalle");
-$miercolesOvalle = $recorridoService->read_recorridos_by_dia_trayecto("Miercoles", "Ovalle");
+$miercolesOvalle = $recorridoService->read_recorridos_by_dia_trayecto("Miércoles", "Ovalle");
 $juevesOvalle = $recorridoService->read_recorridos_by_dia_trayecto("Jueves", "Ovalle");
 $viernesOvalle = $recorridoService->read_recorridos_by_dia_trayecto("Viernes", "Ovalle");
-$sabadoOvalle = $recorridoService->read_recorridos_by_dia_trayecto("Sabado", "Ovalle");
+$sabadoOvalle = $recorridoService->read_recorridos_by_dia_trayecto("Sábado", "Ovalle");
 $domigoOvalle = $recorridoService->read_recorridos_by_dia_trayecto("Domingo", "Ovalle");
+
+#aseo
+
+$lunesAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Lunes", "All");
+$martesAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Martes", "All");
+$miercolesAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Miércoles", "All");
+$juevesAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Jueves", "All");
+$viernesAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Viernes", "All");
+$sabadoAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Sábado", "All");
+$domigoAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Domingo", "All");
+
+
+$lunesOvalleAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Lunes", "Ovalle");
+$martesOvalleAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Martes", "Ovalle");
+$miercolesOvalleAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Miércoles", "Ovalle");
+$juevesOvalleAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Jueves", "Ovalle");
+$viernesOvalleAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Viernes", "Ovalle");
+$sabadoOvalleAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Sábado", "Ovalle");
+$domigoOvalleAseo = $recorridoService->read_recorridos_by_dia_trayecto_aseo("Domingo", "Ovalle");
+
 
 
 if (isset($_POST["localidad"])) {
@@ -75,10 +95,10 @@ if (isset($_POST["localidad"])) {
             <div class="nav-wrapper">
                 <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-cloud-upload-96 mr-2"></i>Rio Hurtado - Ovalle </a>
+                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-bus-front-12 mr-2"></i>Rio Hurtado - Ovalle </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false"><i class="ni ni-bell-55 mr-2"></i>Ovalle - Rio Hurtado</a>
+                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false"><i class="ni ni-calendar-grid-58 mr-2"></i>Ovalle - Rio Hurtado</a>
                     </li>
                 </ul>
             </div>
@@ -92,10 +112,10 @@ if (isset($_POST["localidad"])) {
                                 <div class="col-md-6">
                                     <h3 class="h4 text-center font-weight-bold mb-4">¿Dónde te encuentras?</h3>
                                     <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                        <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
-                                        <span class="alert-inner--text"><strong>Info!</strong> This is an info alert—check it out!</span>
+                                        <span class="alert-inner--icon"><i class="ni ni-square-pin"></i></span>
+                                        <span class="alert-inner--text"><strong>Horarios </strong> pueden variar segun la localidad</span>
                                     </div>
-                                    <form action="transporte" method="post">
+                                    <form action="transporte#transporte" method="POST">
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Localidad</label>
                                             <select name="localidad" class="form-control" id="exampleFormControlSelect1">
@@ -106,13 +126,13 @@ if (isset($_POST["localidad"])) {
                                         </div>
                                         <div class="row">
                                             <div class="col-md-7">
-                                                <button class="btn btn-icon btn-3 btn-primary" type="submit">
+                                                <button  class="btn btn-icon btn-3 btn-primary" type="submit" title="Buscar un recorrido a partir de hoy y de la localidad más próxima que te encuentras" >
                                                     <span class="btn-inner--icon"><i class="ni ni-bag-17 fa fa-bus"></i></span>
                                                     <span class="btn-inner--text">Buscar transporte</span>
                                                 </button>
                                             </div>
                                             <div class="col-md-3">
-                                                <a href="#recorridos" class="btn btn-icon btn-3 btn-primary" >
+                                                <a href="#recorridos" title="Ver todos los recorridos de la semana." class="btn btn-icon btn-3 btn-primary" >
                                                     <span class="btn-inner--icon"><i class="ni ni-bag-17 fa fa-heart"></i></span>
                                                     <span class="btn-inner--text">Ver todo</span>
                                                 </a>
@@ -126,8 +146,8 @@ if (isset($_POST["localidad"])) {
                                         <small class="text-uppercase font-weight-bold">Horarios estimados disponibles</small>
                                     </div>
                                     <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                        <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
-                                        <span class="alert-inner--text"><strong>Info!</strong> This is an info alert—check it out!</span>
+                                        <span class="alert-inner--icon"><i class="ni ni-watch-time"></i></span>
+                                        <span class="alert-inner--text"><strong>Horarios </strong> informados a la municipalidad</span>
                                     </div>
                                     <!--resultados inicio-->
 
@@ -136,7 +156,7 @@ if (isset($_POST["localidad"])) {
 
                                         while ($recorrido = array_shift($recorridos)) {
                                             ?>
-                                            <button type="button" class="btn btn-block btn-warning mb-3" data-toggle="modal" data-target="#modal-notification-<?= $recorrido->getIdRecorrido(); ?>"><?= $recorrido->getHoraSalida(); ?></button>
+                                            <button type="button" class="btn btn-block btn-warning mb-3" data-toggle="modal" data-target="#modal-notification-<?= $recorrido->getIdRecorrido(); ?>">Salida a las <?= $recorrido->getHoraSalida(); ?></button>
                                             <div class="modal fade" id="modal-notification-<?= $recorrido->getIdRecorrido(); ?>" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
                                                 <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                                     <div class="modal-content bg-gradient-danger">
@@ -176,8 +196,15 @@ if (isset($_POST["localidad"])) {
                                             <!--resultados fin-->
                                             <?php
                                         }
-                                    }
-                                    ?>
+                                    } else if (empty($recorrido)) {
+                                        ?>
+                                        <div class="alert alert-primary bg-riohurtado" role="alert">
+                                            <strong>1</strong> Selecciona en qué localidad te encuentras 
+                                        </div>
+                                        <div class="alert alert-primary bg-riohurtado" role="alert">
+                                            <strong>2</strong> Visualiza los resultados haciendo click
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
 
@@ -197,10 +224,10 @@ if (isset($_POST["localidad"])) {
                                             while ($recorrido = array_shift($recorridosTodos)) {
                                                 $hora = $recorrido->getHoraSalida()[0] . $recorrido->getHoraSalida()[1] . $recorrido->getHoraSalida()[3] . $recorrido->getHoraSalida()[4];
                                                 ?>
-                                                <?php if ($hora < 1200) { ?>
+                                                <?php if ($hora < 1200 & $recorrido->getTrayectoInicio() == "Ovalle") { ?>
                                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                         <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
-                                                        <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino <?= $recorrido->getTrayectoInicio(); ?> <?= $recorrido->getDiaRecorrido(); ?></span>
+                                                        <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino <?= $recorrido->getTrayectoFinal(); ?></span>
                                                     </div>
                                                     <?php
                                                 }
@@ -222,10 +249,10 @@ if (isset($_POST["localidad"])) {
                                             while ($recorrido = array_shift($recorridosTarde)) {
                                                 $hora = $recorrido->getHoraSalida()[0] . $recorrido->getHoraSalida()[1] . $recorrido->getHoraSalida()[3] . $recorrido->getHoraSalida()[4];
                                                 ?>
-                                                <?php if ($hora > 1200) { ?>
+                                                <?php if ($hora > 1200 & $recorrido->getTrayectoInicio() == "Ovalle") { ?>
                                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                         <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
-                                                        <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino <?= $recorrido->getTrayectoInicio(); ?> <?= $recorrido->getDiaRecorrido(); ?></span>
+                                                        <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino <?= $recorrido->getTrayectoFinal(); ?></span>
                                                     </div>
                                                     <?php
                                                 }
@@ -257,7 +284,7 @@ if (isset($_POST["localidad"])) {
         <!-- Custom controls -->
         <div class="row justify-content-center mt-md">
             <div class="col-lg-12">
-                <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#recorridoDesarrollo" data-width="100%" data-numposts="10"></div>
+                <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#recorrido" data-width="100%" data-numposts="10"></div>
             </div>
         </div>
     </div>
@@ -266,7 +293,7 @@ if (isset($_POST["localidad"])) {
     <a name="recorridos" id="lancha"></a> 
     <div class="container">
         <div class="mb-3 text-center">
-            <small class="text-uppercase font-weight-bold">Recorrido de buses interurbano la semana</small>
+            <small class="text-uppercase font-weight-bold">Recorrido de buses interurbano en la semana</small>
         </div>
         <div class="row justify-content-center">
             <div class="row">
@@ -284,16 +311,16 @@ if (isset($_POST["localidad"])) {
                                 <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-2-tab" data-toggle="tab" href="#tabs-text-2" role="tab" aria-controls="tabs-text-2" aria-selected="false">Martes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-3-tab" data-toggle="tab" href="#tabs-text-3" role="tab" aria-controls="tabs-text-3" aria-selected="false">Miercoles</a>
+                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-3-tab" data-toggle="tab" href="#tabs-text-3" role="tab" aria-controls="tabs-text-3" aria-selected="false">Miércoles</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-4-tab" data-toggle="tab" href="#tabs-text-4" role="tab" aria-controls="tabs-text-3" aria-selected="false">Jueves</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-5-tab" data-toggle="tab" href="#tabs-text-5" role="tab" aria-controls="tabs-text-3" aria-selected="false">Vierner</a>
+                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-5-tab" data-toggle="tab" href="#tabs-text-5" role="tab" aria-controls="tabs-text-3" aria-selected="false">Viernes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-6-tab" data-toggle="tab" href="#tabs-text-6" role="tab" aria-controls="tabs-text-3" aria-selected="false">Sabado</a>
+                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-6-tab" data-toggle="tab" href="#tabs-text-6" role="tab" aria-controls="tabs-text-3" aria-selected="false">Sábado</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-7-tab" data-toggle="tab" href="#tabs-text-7" role="tab" aria-controls="tabs-text-3" aria-selected="false">Domingo</a>
@@ -703,16 +730,16 @@ if (isset($_POST["localidad"])) {
                                     <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-22-tab" data-toggle="tab" href="#tabs-text-22" role="tab" aria-controls="tabs-text-22" aria-selected="false">Martes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-33-tab" data-toggle="tab" href="#tabs-text-33" role="tab" aria-controls="tabs-text-33" aria-selected="false">Miercoles</a>
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-33-tab" data-toggle="tab" href="#tabs-text-33" role="tab" aria-controls="tabs-text-33" aria-selected="false">Miércoles</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-44-tab" data-toggle="tab" href="#tabs-text-44" role="tab" aria-controls="tabs-text-44" aria-selected="false">Jueves</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-55-tab" data-toggle="tab" href="#tabs-text-55" role="tab" aria-controls="tabs-text-55" aria-selected="false">Vierner</a>
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-55-tab" data-toggle="tab" href="#tabs-text-55" role="tab" aria-controls="tabs-text-55" aria-selected="false">Viernes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-66-tab" data-toggle="tab" href="#tabs-text-66" role="tab" aria-controls="tabs-text-66" aria-selected="false">Sabado</a>
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-66-tab" data-toggle="tab" href="#tabs-text-66" role="tab" aria-controls="tabs-text-66" aria-selected="false">Sábado</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-77-tab" data-toggle="tab" href="#tabs-text-77" role="tab" aria-controls="tabs-text-77" aria-selected="false">Domingo</a>
@@ -735,8 +762,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($lunes != null) {
-                                                            while ($recorrido = array_shift($lunes)) {
+                                                        if ($lunesAseo != null) {
+                                                            while ($recorrido = array_shift($lunesAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Origen en <?= $recorrido->getTrayectoInicio(); ?></span>
@@ -759,8 +786,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($lunesOvalle != null) {
-                                                            while ($recorrido = array_shift($lunesOvalle)) {
+                                                        if ($lunesOvalleAseo != null) {
+                                                            while ($recorrido = array_shift($lunesOvalleAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino a <?= $recorrido->getTrayectoFinal(); ?></span>
@@ -787,8 +814,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($martes != null) {
-                                                            while ($recorrido = array_shift($martes)) {
+                                                        if ($martesAseo != null) {
+                                                            while ($recorrido = array_shift($martesAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Origen en <?= $recorrido->getTrayectoInicio(); ?></span>
@@ -811,8 +838,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($martesOvalle != null) {
-                                                            while ($recorrido = array_shift($martesOvalle)) {
+                                                        if ($martesOvalleAseo != null) {
+                                                            while ($recorrido = array_shift($martesOvalleAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino a <?= $recorrido->getTrayectoFinal(); ?></span>
@@ -839,8 +866,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($miercoles != null) {
-                                                            while ($recorrido = array_shift($miercoles)) {
+                                                        if ($miercolesAseo != null) {
+                                                            while ($recorrido = array_shift($miercolesAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Origen en <?= $recorrido->getTrayectoInicio(); ?></span>
@@ -863,8 +890,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($miercolesOvalle != null) {
-                                                            while ($recorrido = array_shift($miercolesOvalle)) {
+                                                        if ($miercolesOvalleAseo != null) {
+                                                            while ($recorrido = array_shift($miercolesOvalleAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino a <?= $recorrido->getTrayectoFinal(); ?></span>
@@ -891,8 +918,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($jueves != null) {
-                                                            while ($recorrido = array_shift($jueves)) {
+                                                        if ($juevesAseo != null) {
+                                                            while ($recorrido = array_shift($juevesAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Origen en <?= $recorrido->getTrayectoInicio(); ?></span>
@@ -915,8 +942,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($juevesOvalle != null) {
-                                                            while ($recorrido = array_shift($juevesOvalle)) {
+                                                        if ($juevesOvalleAseo != null) {
+                                                            while ($recorrido = array_shift($juevesOvalleAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino a <?= $recorrido->getTrayectoFinal(); ?></span>
@@ -943,8 +970,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($viernes != null) {
-                                                            while ($recorrido = array_shift($viernes)) {
+                                                        if ($viernesAseo != null) {
+                                                            while ($recorrido = array_shift($viernesAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Origen en <?= $recorrido->getTrayectoInicio(); ?></span>
@@ -967,8 +994,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($viernesOvalle != null) {
-                                                            while ($recorrido = array_shift($viernesOvalle)) {
+                                                        if ($viernesOvalleAseo != null) {
+                                                            while ($recorrido = array_shift($viernesOvalleAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino a <?= $recorrido->getTrayectoFinal(); ?></span>
@@ -995,8 +1022,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($sabado != null) {
-                                                            while ($recorrido = array_shift($sabado)) {
+                                                        if ($sabadoAseo != null) {
+                                                            while ($recorrido = array_shift($sabadoAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Origen en <?= $recorrido->getTrayectoInicio(); ?></span>
@@ -1019,8 +1046,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($sabadoOvalle != null) {
-                                                            while ($recorrido = array_shift($sabadoOvalle)) {
+                                                        if ($sabadoOvalleAseo != null) {
+                                                            while ($recorrido = array_shift($sabadoOvalleAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino a <?= $recorrido->getTrayectoFinal(); ?></span>
@@ -1047,8 +1074,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($domigo != null) {
-                                                            while ($recorrido = array_shift($domigo)) {
+                                                        if ($domigoAseo != null) {
+                                                            while ($recorrido = array_shift($domigoAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Origen en <?= $recorrido->getTrayectoInicio(); ?></span>
@@ -1071,8 +1098,8 @@ if (isset($_POST["localidad"])) {
                                                         </div>
                                                         <!--while-->
                                                         <?php
-                                                        if ($domigoOvalle != null) {
-                                                            while ($recorrido = array_shift($domigoOvalle)) {
+                                                        if ($domigoOvalleAseo != null) {
+                                                            while ($recorrido = array_shift($domigoOvalleAseo)) {
                                                                 ?>
                                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                     <span class="alert-inner--text"><strong><?= $recorrido->getHoraSalida(); ?></strong> Destino a <?= $recorrido->getTrayectoFinal(); ?></span>

@@ -61,6 +61,26 @@ class EmergenciaService {
         }
         return $emergencias;
     }
+    
+    
+     public function read_emergencias_by_tipo($tipo) {
+        $emergencias = array();
+        $emergencia = null;
+
+        $sql = " SELECT id_emergencia, tipo, ubicacion, numero FROM riohurta_riohurtado.emergencia WHERE tipo='$tipo'; ";
+
+        $result = $this->con->query($sql);
+
+        while ($fila = mysqli_fetch_array($result)) {
+            $emergencia = new Emergencia();
+            $emergencia->setIdEmergencia($fila['id_emergencia']);
+            $emergencia->setTipo($fila['tipo']);
+            $emergencia->setUbicacion($fila['ubicacion']);
+            $emergencia->setNumero($fila['numero']);
+            array_push($emergencias, $emergencia);
+        }
+        return $emergencias;
+    }
 
     public function read_emergencias_by_id($idEmergencia) {
 

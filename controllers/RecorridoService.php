@@ -75,13 +75,13 @@ class RecorridoService {
                 break;
             case "Tuesday": $dia = "Martes";
                 break;
-            case "Wednesday": $dia = "Miercoles";
+            case "Wednesday": $dia = "Miércoles";
                 break;
             case "Thursday": $dia = "Jueves";
                 break;
             case "Friday": $dia = "Viernes";
                 break;
-            case "Saturday": $dia = "Saturday";
+            case "Saturday": $dia = "Sábado";
                 break;
             case "Sunday": $dia = "Domingo";
         }
@@ -121,6 +121,38 @@ class RecorridoService {
              $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
                  FROM riohurta_riohurtado.recorrido r
                  join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia' and trayecto_inicio='Ovalle' ";
+        }
+       
+        $result = $this->con->query($sql);
+        while ($fila = mysqli_fetch_array($result)) {
+            $recorrido = new Recorrido();
+            $recorrido->setIdRecorrido($fila['id_recorrido']);
+            $recorrido->setTrayectoInicio($fila["trayecto_inicio"]);
+            $recorrido->setTrayectoFinal($fila["trayeto_final"]);
+            $recorrido->setHoraSalida($fila["hora_salida"]);
+            $recorrido->setDiaRecorrido($fila["dia_recorrido"]);
+            $empresa = new Empresa();
+            $empresa->setId($fila['id_empresa']);
+            $empresa->setNombre($fila["nombre"]);$empresa->setTipo($fila["tipo"]);
+            $recorrido->setEmpresa($empresa);
+            array_push($recorridos, $recorrido);
+        }
+        return $recorridos;
+    }
+    
+    
+     public function read_recorridos_by_dia_trayecto_aseo($dia, $trayecto) {
+        $recorridos = array();
+        $recorrido = null;
+        $sql = "";
+        if($trayecto == "All"){
+             $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
+                 FROM riohurta_riohurtado.recorrido r
+                 join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia'  and trayecto_inicio NOT LIKE 'Ovalle' and tipo='aseo' ";
+        }else{
+             $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
+                 FROM riohurta_riohurtado.recorrido r
+                 join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia' and trayecto_inicio='Ovalle' and tipo='aseo'";
         }
        
         $result = $this->con->query($sql);
@@ -188,13 +220,13 @@ class RecorridoService {
                 break;
             case "Tuesday": $dia = "Martes";
                 break;
-            case "Wednesday": $dia = "Miercoles";
+            case "Wednesday": $dia = "Miércoles";
                 break;
             case "Thursday": $dia = "Jueves";
                 break;
             case "Friday": $dia = "Viernes";
                 break;
-            case "Saturday": $dia = "Saturday";
+            case "Saturday": $dia = "Sábado";
                 break;
             case "Sunday": $dia = "Domingo";
         }
@@ -249,7 +281,7 @@ class RecorridoService {
 
         $recorridosHoras = array();
         foreach ($recorridos as $recorrido) {
-            $datoH = $hora - 100;
+            $datoH = $hora - 200;
             if ($datoH < $recorrido->getHoraSalida()) {
                 array_push($recorridosHoras, $recorrido);
             }
@@ -303,8 +335,10 @@ class RecorridoService {
                     $suma = $suma + 0;
                 } else if ($localidadPunto == "Pichasca") {
                     $suma = $suma + 10;
-                } else if ($localidadPunto == "Espinal") {
+                } else if ($localidadPunto == "San Pedro") {
                     $suma = $suma + 13;
+                } else if ($localidadPunto == "El Espinal") {
+                    $suma = $suma + 15;
                 } else if ($localidadPunto == "Samo Alto") {
                     $suma = $suma + 30;
                 } else if ($localidadPunto == "Huampulla") {
@@ -361,16 +395,18 @@ class RecorridoService {
                     $suma = $suma + 80;
                 } else if ($localidadPunto == "Pichasca") {
                     $suma = $suma + 90;
-                } else if ($localidadPunto == "Espinal") {
+                }else if ($localidadPunto == "San Pedro") {
                     $suma = $suma + 93;
+                } else if ($localidadPunto == "El Espinal") {
+                    $suma = $suma + 95;
                 } else if ($localidadPunto == "Samo Alto") {
-                    $suma = $suma + 100;
+                    $suma = $suma + 140;
                 } else if ($localidadPunto == "Huampulla") {
-                    $suma = $suma + 110;
+                    $suma = $suma + 150;
                 } else if ($localidadPunto == "Tabaqueros") {
-                    $suma = $suma + 120;
+                    $suma = $suma + 160;
                 } else if ($localidadPunto == "Algarrobos") {
-                    $suma = $suma + 130;
+                    $suma = $suma + 170;
                 }
 
                 //descomponer 
@@ -383,7 +419,7 @@ class RecorridoService {
                 $numeroMin = $suma[$menosFin] . $suma[$finalN];
 
 
-                if ($numeroMin > 60) {
+                if ($numeroMin >= 60) {
                     $suma = $suma + 40;
                 }
 

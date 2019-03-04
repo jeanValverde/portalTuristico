@@ -72,10 +72,9 @@ if (isset($_GET['viewsEdit'])) {
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                     <div class="col-8">
-                        <h3 class="mb-0">My account</h3>
+                        <h3 class="mb-0">Noticia</h3>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">Settings</a>
                     </div>
                 </div>
             </div>
@@ -131,34 +130,6 @@ if (isset($_GET['viewsEdit'])) {
                                     ?>" type="text">
                                 </div>
                             </div>
-                            <?php if(!isset($noticiaEdit) ){ ?>
-                            <div class="col-md-3"  >
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1" >
-                                    <label class="custom-control-label" for="customControlValidation1"><i class="fab fa-twitter"></i> Twiter</label>
-                                    <small id="checkboxHelp" class="form-text text-muted">Selecciona para<a href="#" class="alert-link"> publicar la noticia en Twiter</a></small>
-                                    <div class="valid-feedback">
-                                        ¡Se publicara en la red social!
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        ¡No se publicara en la red social!
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3"  >
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1d" >
-                                    <label class="custom-control-label" for="customControlValidation1d"><i class="fab fa-facebook"></i> Facebook</label>
-                                    <small id="checkboxHelp" class="form-text text-muted">Selecciona para <a href="#" class="alert-link">publicar la noticia en Facebook</a></small>
-                                    <div class="valid-feedback">
-                                        ¡Se publicara en la red social!
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        ¡No se publicara en la red social!
-                                    </div>
-                                </div>
-                            </div>
-                            <?php } ?>
                         </div>
                         <div class="row" >
                             <div class="col-md-6" >
@@ -591,8 +562,6 @@ if (isset($_GET['viewsEdit'])) {
         formulario.addEventListener("change", validar);
         //Evento de envio de formulario
         formulario.addEventListener("submit", validar);
-
-
 
 
 

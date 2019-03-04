@@ -1,23 +1,13 @@
 
 <?php
-
-if(isset($_GET['error'])){
+if(isset($_GET['send'])){
     
-    $error = '<div class="alert alert-warning" role="alert">
+    $mensaje = '<div class="alert alert-info" role="alert">
     <span class="alert-inner--icon"><i class="ni ni-circle-08"></i></span>
-    <span class="alert-inner--text"><strong>Error!</strong> Nombre de usuario o contraseña erroneos</span>
+    <span class="alert-inner--text"><strong>Hemos enviado un correo electrónico a tu cuenta para restablecer tu contraseña!</strong> (Si no lo recibiste contáctate con el administrador de la página )</span>
 </div>';
-}
-
-if(isset($_GET['errorV'])){
     
-    $errorV = '<div class="alert alert-warning" role="alert">
-    <span class="alert-inner--icon"><i class="ni ni-circle-08"></i></span>
-    <span class="alert-inner--text"><strong>Error!</strong> Usuario inactivo (Comunícate con el administrador de la pagina)</span>
-</div>';
 }
-
-
 ?>
 
 <section class="section section-shaped section-lg" style="background-image: url('assets/img/theme/riohurtado.jpg');height: 1000px;" >
@@ -39,38 +29,32 @@ if(isset($_GET['errorV'])){
                 <div class="card bg-secondary shadow border-0 text-center">
                     <div class="card-header bg-white pb-5">
                         <div class="text-muted text-center mb-3">
-                            <small>Ingresar</small>
+                            <small>Restablecer</small>
                         </div>
                         <img src="assets/img/theme/isologotipo_full_color.png"  alt="" class="card-img-top" style="width: 50%;" />
                     </div>
                     <div class="card-body px-lg-5 py-lg-5">
-                        <form id="form"  method="POST"  action="../funcionesPublico/startSession.php" >
+                        <div class="alert alert-warning" role="alert">
+                            <span class="alert-inner--text"><strong>Escribe tu Rut para restablecer tu contraseña</strong></span>
+                        </div>
+                        <?php
+                        if (isset($mensaje)) {
+                            echo $mensaje;
+                        }
+                        ?>
+                        <form id="form"  method="POST"  action="../funcionesPublico/sendRestar.php" >
                             <div class="form-group mb-3">
                                 <div class="input-group mb-4">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                        <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                                     </div>
                                     <input id="rut" name="rut" class="form-control" placeholder="19.552.208-1" type="text">
-                                    <div class="valid-feedback">
-                                        
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Rut invalido
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                    </div>
-                                    <input name="password" class="form-control" required="" placeholder="Password" type="password">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <a href="restart" class="text-light">
-                                        <small>¿Olvide la contraseña o es primera vez que accedo?</small>
+                                    <a href="login" class="text-light">
+                                        <small>Iniciar Sesión</small>
                                     </a>
                                 </div>
                             </div>
@@ -78,8 +62,7 @@ if(isset($_GET['errorV'])){
                                 <button type="submit" class="btn btn-primary my-4">Ingresar</button>
                             </div>
                         </form>
-                        <?php if(isset($error)){echo $error;} ?>
-                        <?php if(isset($errorV)){echo $errorV;} ?>
+                        
                     </div>
                 </div>
             </div>
@@ -192,7 +175,7 @@ if(isset($_GET['errorV'])){
          */
         function validarPassword(elemento) {
             var password = document.getElementById(elemento.id).value;
-            if ( password.length == 0 || password == "" || password == null) {
+            if (password.length == 0 || password == "" || password == null) {
                 return true;
             } else {
                 return false;

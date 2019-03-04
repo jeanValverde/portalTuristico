@@ -22,9 +22,9 @@
                     <script>
                         document.write(new Date().getFullYear())
                     </script>
-                    <a href="https://www.creative-tim.com" target="_blank">Rio Hurtado</a>
+                    <a href="https://www.riohurtado.cl" target="_blank">Rio Hurtado</a>
                     | Desarrollo
-                    <a href="https://www.creative-tim.com" target="_blank">Jean González</a>
+                    <a href="https://jeanvalverde.github.io/" target="_blank">Jean González</a>
                     | Diseño
                     <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
                 </div>
@@ -32,16 +32,16 @@
             <div class="col-md-6">
                 <ul class="nav nav-footer justify-content-end">
                     <li class="nav-item">
-                        <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">Rio Hurtado</a>
+                        <a href="https://www.riohurtado.cl" class="nav-link" target="_blank">Rio Hurtado</a>
                     </li>
                      <li class="nav-item">
-                        <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">Jean González</a>
+                        <a href="https://jeanvalverde.github.io/" class="nav-link" target="_blank">Jean González</a>
                     </li>
                     <li class="nav-item">
                         <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+                        <a href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License (GUI)</a>
                     </li>
                 </ul>
             </div>

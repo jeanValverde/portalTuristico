@@ -1,4 +1,5 @@
 <?php
+
 include_once '../../models/Connection.php';
 include_once '../../controllers/EmpresaService.php';
 include_once '../../models/Empresa.php';
@@ -40,10 +41,10 @@ $localidades = array(
 $dias = array(
     "Lunes" => "Lunes",
     "Martes" => "Martes",
-    "Miercoles" => "Miercoles",
+    "Miércoles" => "Miércoles",
     "Juves" => "Juves",
     "Viernes" => "Viernes",
-    "Sabado" => "Sabado",
+    "Sábado" => "Sábado",
     "Domingo" => "Domingo"
 );
 
@@ -95,6 +96,7 @@ if (isset($_GET["editViews"])) {
         $recorridoView = $recorridoService->read_recorrido_by_id($idRecorrido);
     }
 }
+
 ?>
 
 
@@ -102,7 +104,7 @@ if (isset($_GET["editViews"])) {
     <div class="col-md-6">
         <div class="col-xl-12 order-xl-1">
             <?php if (isset($_GET["transporteAdd"])) { ?>
-                <div class="alert alert-<?= $color ?> alert-dismissible fade show" role="alert">
+                <div class="alert <?= 'alert-' . $color . ' alert-dismissible fade show'?> " role="alert">
                     <span class="alert-inner--icon"><i class="<?= $icon ?>"></i></span>
                     <span class="alert-inner--text"><strong><?= $mensaje ?>!</strong></span>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -136,7 +138,7 @@ if (isset($_GET["editViews"])) {
                                         if (isset($empresaView)) {
                                             echo $empresaView->getNombre();
                                         }
-                                        ?>" name="nombre" type="text" id="input-email" class="form-control form-control-alternative" placeholder="JyD">
+                                        ?>" name="nombre" type="text" id="input-emailsd" class="form-control form-control-alternative" placeholder="JyD">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -176,7 +178,7 @@ if (isset($_GET["editViews"])) {
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect2">Ruta Inicio</label>
-                                        <select name="rutainicio" class="form-control" id="exampleFormControlSelect1">
+                                        <select name="rutainicio" class="form-control" id="exampleFormsControlSelect1">
                                             <option value="select" >Seleccione</option>
                                             <?php
                                             if (isset($empresaView)) {
@@ -202,7 +204,7 @@ if (isset($_GET["editViews"])) {
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect2">Ruta Fin</label>
-                                        <select name="rutafin" class="form-control" id="exampleFormControlSelect1">
+                                        <select name="rutafin" class="form-control" id="exampleFordfmControlSelect1">
                                             <option value="select" >Seleccione</option>
                                             <?php
                                             if (isset($empresaView)) {
@@ -228,7 +230,7 @@ if (isset($_GET["editViews"])) {
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect2">Tipo de transporte</label>
-                                        <select name="tipo" class="form-control" id="exampleFormControlSelect1">
+                                        <select name="tipo" class="form-control" id="exampleFormConsdsdtrolSelect1">
                                             <option value="select" >Seleccione</option>
                                             <option value="bus" <?php
                                             if (isset($empresaView)) {
@@ -283,7 +285,7 @@ if (isset($_GET["editViews"])) {
     <!-- recorridos  --->
     <div class="col-md-6">
         <?php if (isset($_GET["recorridoAdd"])) { ?>
-            <div class="alert alert-<?= $color ?> alert-dismissible fade show" role="alert">
+            <div class="alert <?= 'alert-' . $color . ' alert-dismissible fade show' ?> " role="alert">
                 <span class="alert-inner--icon"><i class="<?= $icon ?>"></i></span>
                 <span class="alert-inner--text"><strong><?= $mensaje ?>!</strong></span>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -323,7 +325,7 @@ if (isset($_GET["editViews"])) {
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect2">Empresa</label>
-                                        <select name="empresa" class="form-control" id="exampleFormControlSelect76">
+                                        <select name="empresa" class="form-control" id="exampleFormControlSelec34t76">
                                             <option value="select" >Seleccione</option>
                                             <?php
                                             if (isset($recorridoView)) {
@@ -356,7 +358,7 @@ if (isset($_GET["editViews"])) {
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect2">Trayecto inicio</label>
-                                        <select name="trayectoinicio" class="form-control" id="kj">
+                                        <select name="trayectoinicio" class="form-control" id="k2323j">
                                             <option value="select" >Seleccione</option>
                                             <?php
                                             if (isset($recorridoView)) {
@@ -382,7 +384,7 @@ if (isset($_GET["editViews"])) {
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect2">Trayecto final</label>
-                                        <select name="trayectofinal" class="form-control" id="exampleFormControlSelect091">
+                                        <select name="trayectofinal" class="form-control" id="exampleFormControlSelesdsdct091">
                                             <option value="select" >Seleccione</option>
                                             <?php
                                             if (isset($recorridoView)) {
@@ -408,7 +410,7 @@ if (isset($_GET["editViews"])) {
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-first-name">Hora Salida</label>
-                                        <input value="<?php if(isset($recorridoView)) { echo $recorridoView->getHoraSalida(); } ?>"  id="time" name="horasalida" type="text"  class="form-control floating-labe" placeholder="Hora salida" >
+                                        <input id="time" value="<?php if(isset($recorridoView)) { echo $recorridoView->getHoraSalida(); } ?>"   name="horasalida" type="text"  class="form-control floating-labe" placeholder="Hora salida" >
                                     </div>
                                 </div>
                             </div>
@@ -416,7 +418,7 @@ if (isset($_GET["editViews"])) {
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="diarecorrido">Dia</label>
-                                        <select name="dia" class="form-control" id="exampleFormControlSelect1">
+                                        <select name="dia" class="form-control" id="exampleFormsdsdControlSelect1">
                                             <option value="select" >Seleccione</option>
                                             <?php
                                             if (isset($recorridoView)) {
@@ -460,9 +462,9 @@ if (isset($_GET["editViews"])) {
 </div>
 <div style="height: 40px;" ></div>
 <div class="row">
-    <div class="col-md-12">
-        <div class="table-responsive">
-            <table class="table align-items-center table-dark text-center">
+    <div class="card col-md-12">
+        <div class="card-body table-responsive">
+            <table id="emergencia" class="table align-items-center table-dark text-center">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Transporte</th>
@@ -512,9 +514,6 @@ if (isset($_GET["editViews"])) {
                                             <img  alt="Image placeholder" src="../../assets-admin/img/theme/colectivos.png" class="rounded-circle">
                                         <?php } ?>
                                     </a>
-
-
-
                                     <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?= "Destino " . $recorrido->getTrayectoFinal(); ?>">
                                         <img alt="Image placeholder" src="../../assets-admin/img/theme/destino.png" class="rounded-circle">
                                     </a>
@@ -544,7 +543,6 @@ if (isset($_GET["editViews"])) {
 
 
 <div class="row">
-
     <?php while ($empresa = array_shift($arrayResultadosEmpresa)) { ?>
         <!--Para cada fila-->
         <div class="col-md-4">

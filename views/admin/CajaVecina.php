@@ -7,9 +7,7 @@ include_once '../../segmentos/session.php';
 
 
 
-$paginaActiva = "administracion";
-
-
+$paginaActiva = "CajaVecina";
 ?>
 
 
@@ -21,8 +19,8 @@ $paginaActiva = "administracion";
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
         <meta name="author" content="Creative Tim">
-        
-        
+
+
         <title><?= $paginaActiva ?></title>
         <!-- Favicon -->
         <link href="../../assets-admin/img/brand/favicon.png" rel="icon" type="image/png">
@@ -39,9 +37,15 @@ $paginaActiva = "administracion";
 
 
 
+
         <link rel="stylesheet" href="../../css/bootstrap-material-datetimepicker.css" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+        <!--<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.csss" rel="stylesheet">--->
 
 
     </head>
@@ -56,7 +60,7 @@ $paginaActiva = "administracion";
             <!-- Top navbar -->
             <?php include_once '../../segmentos/topVar.php'; ?>
             <!-- Header -->
-            <div class="header bg-gradient-info pb-8 pt-5 pt-md-8" >
+            <div class="header bg-gradient-warning pb-8 pt-5 pt-md-8" >
                 <div class="container-fluid">
                     <div class="header-body">
                         <!-- Card stats -->
@@ -68,12 +72,8 @@ $paginaActiva = "administracion";
             <div class="container-fluid mt--7">
 
 
-              <!--contenido-->
-              
-              
-              <?php include_once '../../funciones/administracion.php'; ?>
-              
-
+                <!--contenido-->
+                <?php include_once '../../funciones/cajaVecina.php'; ?>
                 <!-- Footer -->
                 <?php include_once '../../segmentos/footer.php'; ?>
 
@@ -101,7 +101,12 @@ $paginaActiva = "administracion";
         <script type="text/javascript" src="https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/js/material.min.js"></script>
         <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
 
+
         <script type="text/javascript" src="../../assets-admin/js/bootstrap-material-datetimepicker.js"></script>
+
+
+
+
         <script type="text/javascript">
             $(document).ready(function ()
             {
@@ -118,9 +123,13 @@ $paginaActiva = "administracion";
                 $.material.init();
             });
         </script>
-        
-        
+
+
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+
+
+
+
 
         <script>
             $('#emergencia').DataTable({
@@ -149,8 +158,8 @@ $paginaActiva = "administracion";
             });
         </script>
 
-
-
+        
+        
     </body>
 
 </html>

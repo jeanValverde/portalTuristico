@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
     <div class="container-fluid">
         <!-- Brand -->
@@ -11,26 +13,26 @@
                             <img alt="Image placeholder" src="../../assets-admin/img/theme/usuario.png">
                         </span>
                         <div class="media-body ml-2 d-none d-lg-block">
-                            <span class="mb-0 text-sm  font-weight-bold">Nombre usurario</span>
+                            <span class="mb-0 text-sm  font-weight-bold"> <?= $usuario->getNombre() . " " . $usuario->getApellido() ; ?></span>
                         </div>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                     <div class=" dropdown-header noti-title">
-                        <h6 class="text-overflow m-0">Welcome!</h6>
+                        <h6 class="text-overflow m-0">Bienvenido <?= $usuario->getNombre(); ?>!</h6>
                     </div>
-                    <a href="./examples/profile.html" class="dropdown-item">
+                    <a href="./perfil" class="dropdown-item">
                         <i class="ni ni-single-02"></i>
-                        <span>My profile</span>
+                        <span>Mi Perfil</span>
                     </a>
-                    <a href="./examples/profile.html" class="dropdown-item">
+                    <a href="#" class="dropdown-item">
                         <i class="ni ni-support-16"></i>
-                        <span>Support</span>
+                        <span>Soporte</span>
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#!" class="dropdown-item">
                         <i class="ni ni-user-run"></i>
-                        <span>Logout</span>
+                        <span>Salir</span>
                     </a>
                 </div>
             </li>

@@ -6,9 +6,9 @@
 include_once '../../segmentos/session.php';
 
 
+$paginaActiva = "restaurante";
 
-$paginaActiva = "administracion";
-
+$tipo = "Restaurante";
 
 ?>
 
@@ -21,8 +21,8 @@ $paginaActiva = "administracion";
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
         <meta name="author" content="Creative Tim">
-        
-        
+
+
         <title><?= $paginaActiva ?></title>
         <!-- Favicon -->
         <link href="../../assets-admin/img/brand/favicon.png" rel="icon" type="image/png">
@@ -43,6 +43,16 @@ $paginaActiva = "administracion";
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+        
+        
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+
+<script src="https://mappinggis.com/visores_webmapping/leaflet-routing-machine-3.2.5/dist/leaflet-routing-machine.js"></script>
+<link rel="stylesheet" href="https://mappinggis.com/visores_webmapping/leaflet-routing-machine-3.2.5/dist/leaflet-routing-machine.css" />
+
+
 
     </head>
 
@@ -56,7 +66,7 @@ $paginaActiva = "administracion";
             <!-- Top navbar -->
             <?php include_once '../../segmentos/topVar.php'; ?>
             <!-- Header -->
-            <div class="header bg-gradient-info pb-8 pt-5 pt-md-8" >
+            <div class="header bg-gradient-success pb-8 pt-5 pt-md-8" >
                 <div class="container-fluid">
                     <div class="header-body">
                         <!-- Card stats -->
@@ -68,11 +78,8 @@ $paginaActiva = "administracion";
             <div class="container-fluid mt--7">
 
 
-              <!--contenido-->
-              
-              
-              <?php include_once '../../funciones/administracion.php'; ?>
-              
+                <!--contenido-->
+                <?php include_once '../../funciones/turismo.php'; ?>
 
                 <!-- Footer -->
                 <?php include_once '../../segmentos/footer.php'; ?>
@@ -102,53 +109,25 @@ $paginaActiva = "administracion";
         <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
 
         <script type="text/javascript" src="../../assets-admin/js/bootstrap-material-datetimepicker.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function ()
-            {
 
-
-                $('#time').bootstrapMaterialDatePicker
-                        ({
-                            date: false,
-                            shortTime: false,
-                            format: 'HH:mm'
-                        });
-
-
-                $.material.init();
-            });
-        </script>
-        
-        
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+  <?= $id = "map-6"; ?>
 
         <script>
-            $('#emergencia').DataTable({
-                language: {
-                    processing: "Traitement en cours...",
-                    search: "  Buscar registro:  ",
-                    lengthMenu: " <span class='badge badge-success'>Mostrar _MENU_ Elementos</span> ",
-                    info: " <br/> <span class='badge badge-success'>Se muestran _START_ a _END_ de _TOTAL_ elementos  </span>",
-                    infoEmpty: " <span class='badge badge-danger'>No hay elementos</span> ",
-                    infoFiltered: "<span class='badge badge-danger'>(filtrado de _MAX_ elementos en total)<br/></span>",
-                    infoPostFix: "",
-                    loadingRecords: "Chargement en cours...",
-                    zeroRecords: " No existe el registro de la emergencia que busca",
-                    emptyTable: "No se encuentran registros disponibles",
-                    paginate: {
-                        first: "   Primero   ",
-                        previous: "  <br/> <button class='btn btn-primary' >Anterior</button>   ",
-                        next: " <button class='btn btn-primary' >Siguiente</button>    ",
-                        last: "  <br/> <button class='btn btn-primary' >Ultimo</button>   "
-                    },
-                    aria: {
-                        sortAscending: ": activer pour trier la colonne par ordre croissant",
-                        sortDescheadending: ": activer pour trier la colonne par ordre décroissant"
-                    }
-                }
-            });
-        </script>
 
+            var map = L.map('<?= $id; ?>').setView([<?= $turismoMax->getLatitud() ?>, <?= $turismoMax->getLongitud() ?>], 15);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            map.scrollWheelZoom.disable();
+
+            L.marker([<?= $turismoMax->getLatitud() ?>, <?= $turismoMax->getLongitud() ?>]).addTo(map)
+                    .bindPopup('<?= $turismoMax->getNombre(); ?> <br/> <a target="_black" href="<?= $turismoMax->getMapa(); ?>">Ampiar mapa</a>.')
+                    .openPopup();
+
+
+        </script>
 
 
     </body>

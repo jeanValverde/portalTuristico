@@ -90,7 +90,16 @@
                         echo "active";
                     }
                     ?> " href="transporte">
-                        <i class="ni ni-planet fa fa-bus text-blue"></i> Transporte Público
+                        <i class="ni ni-planet fa fa-bus text-blue"></i> Transporte 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php
+                    if ($paginaActiva == "CajaVecina") {
+                        echo "active";
+                    }
+                    ?> " href="CajaVecina">
+                        <i class="ni ni-credit-card text-warning"></i> Caja Vecina
                     </a>
                 </li>
                 <li class="nav-item">
@@ -102,6 +111,60 @@
                         <i class="ni ni-ambulance fas fa-ambulance text-danger"></i> Servicios de emergengia
                     </a>
                 </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link <?php
+                    if ($paginaActiva == "restaurante") {
+                        echo "active";
+                    }
+                    ?>" href="restaurante">
+                        <i class="ni ni-planet fa fa-utensils text-success"></i> Restaurantes
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link <?php
+                    if ($paginaActiva == "emergencia") {
+                        echo "active";
+                    }
+                    ?>" href="emergencia">
+                        <i class="ni ni-planet fa fa-tree text-warning"></i> Sitios para Acampar
+                    </a>
+                </li>
+                
+                
+                
+                <li class="nav-item">
+                    <a class="nav-link <?php
+                    if ($paginaActiva == "emergencia") {
+                        echo "active";
+                    }
+                    ?>" href="emergencia">
+                        <i class="ni ni-planet fa fa-bed text-info"></i> Alojamientos
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link <?php
+                    if ($paginaActiva == "emergencia") {
+                        echo "active";
+                    }
+                    ?>" href="emergencia">
+                        <i class="ni ni-user-run text-danger"></i> Actividades
+                    </a>
+                </li>
+               
+                
+                <li class="nav-item">
+                    <a class="nav-link <?php
+                    if ($paginaActiva == "emergencia") {
+                        echo "active";
+                    }
+                    ?>" href="emergencia">
+                        <i class="ni ni-image text-success"></i>  Atractivos Turísticos
+                    </a>
+                </li>
+                
                 <h4 class="ml-4">Redes Sociales</h4>
                 <li class="nav-item">
                     <a class="nav-link <?php

@@ -25,7 +25,7 @@
       
       <!--contenido-->
     
-      <?php include_once '../funcionesPublico/login.php'; ?>
+      <?php include_once '../funcionesPublico/restart.php'; ?>
       
       
       
