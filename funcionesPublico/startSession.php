@@ -20,7 +20,6 @@ if (!empty($_POST)) {
         //iniciar sesion 
         $usuario = $service->start_session_usuario($rut, $password);
 
-
         //estado 1 activo 0 inactivo 
         if ($usuario->getEstado() == 1) {
 

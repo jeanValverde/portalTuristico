@@ -17,9 +17,9 @@ if (!empty($_POST)) {
 
 
     $service = new TurismoService();
-    
+
     $resultado = false;
-    
+
     $turismo = new Turismo();
 
     if ($tipo == "cajaVecina") {
@@ -33,7 +33,6 @@ if (!empty($_POST)) {
         $turismo->setLongitud($longitud);
 
         $resultado = $service->create_turismo($turismo);
-        
     } else {
 
         /*
@@ -57,6 +56,7 @@ if (!empty($_POST)) {
 
          * 
          *          */
+
         $descripcion = $_POST['descripcion'];
         $contacto = $_POST['contacto'];
         $fono = $_POST['fono'];
@@ -64,8 +64,8 @@ if (!empty($_POST)) {
         $instagram = $_POST['instagram'];
         $twiter = $_POST['twiter'];
         $pagina = $_POST['pagina'];
-        
-        
+
+
         $turismo->setTipo($tipo);
         $turismo->setNombre($nombre);
         $turismo->setLocalidad($localidad);
@@ -82,46 +82,41 @@ if (!empty($_POST)) {
         $turismo->setFoto1('');
         $turismo->setFoto2('');
         $turismo->setFoto3('');
-        
-        if(){
-            
-        }
 
-        $ruta = "./imgTurismo/"; //ruta carpeta donde queremos copiar las imágenes 
-
-        
-        
         $uploadfile_temporal1 = $_FILES['foto1']['tmp_name'];
-        $extencion1 = substr($_FILES['foto1']['type'], 6);
-        $nombreFoto1 = $service->gen_uuid();
-        
-        if(!empty($uploadfile_temporal1)){
-            $img1 = $service->upload_imagen($uploadfile_temporal1, $extencion1, $ruta, $nombreFoto1);
-            $turismo->setFoto1($img1);
-        }
-
         $uploadfile_temporal2 = $_FILES['foto2']['tmp_name'];
-        $extencion2 = substr($_FILES['foto2']['type'], 6);
-        $nombreFoto2 = $service->gen_uuid();
-        
-        if(!empty($uploadfile_temporal2)){
-            $img2 = $service->upload_imagen($uploadfile_temporal2, $extencion2, $ruta, $nombreFoto2);
-            $turismo->setFoto2($img2);
-        }
-
         $uploadfile_temporal3 = $_FILES['foto3']['tmp_name'];
-        $extencion3 = substr($_FILES['foto3']['type'], 6);
-        $nombreFoto3 = $service->gen_uuid();
 
-        if(!empty($uploadfile_temporal3)){
-            $img3 = $service->upload_imagen($uploadfile_temporal3, $extencion3, $ruta, $nombreFoto3);
-            $turismo->setFoto3($img3);
+        if (!empty($uploadfile_temporal1) || !empty($uploadfile_temporal2) || !empty($uploadfile_temporal3)) {
+
+            $ruta = "./imgTurismo/"; //ruta carpeta donde queremos copiar las imágenes 
+
+
+            if (!empty($uploadfile_temporal1)) {
+                $extencion1 = substr($_FILES['foto1']['type'], 6);
+                $nombreFoto1 = $service->gen_uuid();
+                $img1 = $service->upload_imagen($uploadfile_temporal1, $extencion1, $ruta, $nombreFoto1);
+                $turismo->setFoto1($img1);
+            }
+
+
+            if (!empty($uploadfile_temporal2)) {
+                $extencion2 = substr($_FILES['foto2']['type'], 6);
+                $nombreFoto2 = $service->gen_uuid();
+                $img2 = $service->upload_imagen($uploadfile_temporal2, $extencion2, $ruta, $nombreFoto2);
+                $turismo->setFoto2($img2);
+            }
+
+
+            if (!empty($uploadfile_temporal3)) {
+                $extencion3 = substr($_FILES['foto3']['type'], 6);
+                $nombreFoto3 = $service->gen_uuid();
+                $img3 = $service->upload_imagen($uploadfile_temporal3, $extencion3, $ruta, $nombreFoto3);
+                $turismo->setFoto3($img3);
+            }
         }
-        
-        
-        
+
         $resultado = $service->create_turismo($turismo);
-        
     }
 
     if ($resultado) {
