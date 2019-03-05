@@ -5,8 +5,6 @@ include_once '../controllers/TurismoService.php';
 include_once '../models/Turismo.php';
 
 
-
-
 if (!empty($_POST)) {
 
 
@@ -19,11 +17,13 @@ if (!empty($_POST)) {
 
 
     $service = new TurismoService();
+    
     $resultado = false;
+    
+    $turismo = new Turismo();
 
     if ($tipo == "cajaVecina") {
 
-        $turismo = new Turismo();
 
         $turismo->setTipo($tipo);
         $turismo->setNombre($nombre);
@@ -33,6 +33,7 @@ if (!empty($_POST)) {
         $turismo->setLongitud($longitud);
 
         $resultado = $service->create_turismo($turismo);
+        
     } else {
 
         /*
@@ -60,17 +61,11 @@ if (!empty($_POST)) {
         $contacto = $_POST['contacto'];
         $fono = $_POST['fono'];
         $facebook = $_POST['facebook'];
-        $instragram = $_POST['instagram'];
+        $instagram = $_POST['instagram'];
         $twiter = $_POST['twiter'];
         $pagina = $_POST['pagina'];
-        $foto1 = $_POST['foto1'];
-        $foto2 = $_POST['foto2'];
-        $foto3 = $_POST['foto3'];
         
         
-         
-        $turismo = new Turismo();
-
         $turismo->setTipo($tipo);
         $turismo->setNombre($nombre);
         $turismo->setLocalidad($localidad);
@@ -84,8 +79,13 @@ if (!empty($_POST)) {
         $turismo->setInstagram($instagram);
         $turismo->setTwiter($twiter);
         $turismo->setPagina($pagina);
+        $turismo->setFoto1('');
+        $turismo->setFoto2('');
+        $turismo->setFoto3('');
         
-        
+        if(){
+            
+        }
 
         $ruta = "./imgTurismo/"; //ruta carpeta donde queremos copiar las imágenes 
 
@@ -113,18 +113,20 @@ if (!empty($_POST)) {
         $extencion3 = substr($_FILES['foto3']['type'], 6);
         $nombreFoto3 = $service->gen_uuid();
 
-        if(!empty($uploadfile_temporal2)){
+        if(!empty($uploadfile_temporal3)){
             $img3 = $service->upload_imagen($uploadfile_temporal3, $extencion3, $ruta, $nombreFoto3);
             $turismo->setFoto3($img3);
         }
         
-
+        
+        
         $resultado = $service->create_turismo($turismo);
+        
     }
 
     if ($resultado) {
         header("Location: ../views/admin/" . strtolower($tipo));
     } else {
-        header("Location: ../views/admin/" . strtolower($tipo));
+        header("Location: ../views/admin/" . strtolower($tipo) . "?error");
     }
 }

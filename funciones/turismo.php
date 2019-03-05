@@ -78,19 +78,26 @@ if (isset($_GET['idTurismo'])) {
 
                             <span class="badge badge-danger"><?= 'Fono: ' .  $turismoMax->getFono(); ?></span>
                             <br/><br/>
-                            
+                            <?php if($turismoMax->getFacebook() != ""){  ?>
                             <a href="#" target="_black" class="btn btn-icon btn-2 btn-primary" >
                                 <span class="btn-inner--icon"><i class="ni ni-facebook"></i>Facebook</span>
                             </a>
+                            <?php } ?>
+                            <?php if($turismoMax->getTwiter() != ""){  ?>
                             <a href="#" target="_black" class="btn btn-icon btn-2 btn-info" >
                                 <span class="btn-inner--icon"><i class="ni ni-"></i>Twitter</span>
                             </a>
+                            <?php } ?>
+                            <?php if($turismoMax->getInstagram() != ""){  ?>
                             <a href="#" target="_black" class="btn btn-icon btn-2 btn-danger" >
                                 <span class="btn-inner--icon"><i class="ni ni-"></i>Instagram</span>
                             </a>
+                            <?php } ?>
+                            <?php if($turismoMax->getPagina() != ""){  ?>
                             <a href="#" target="_black" class="btn btn-icon btn-2 btn-primary" >
                                 <span class="btn-inner--icon">Web</span>
                             </a>
+                            <?php } ?>
                             <br><br>
                             <a href="../admin/<?= $tipo ?>?idTurismo=<?= $turismoMax->getIdTurismo(); ?>" class="btn btn-warning">Editar</a>
                             <a href="../../funciones/deleteTurismo.php?idTurismo=<?= $turismoMax->getIdTurismo(); ?>&tipo=<?= $tipo ?>" class="btn btn-danger">Elminar</a>
@@ -281,11 +288,7 @@ if (isset($_GET['idTurismo'])) {
                         <div class="row" >
                             <div class="col-md-4" >
                                 <div class="custom-file">
-                                    <input name="foto1"  type="file" class="custom-file-input" id="foto1" lang="es" <?php
-                                    if (isset($turismoEdit)) {
-                                        echo 'required';
-                                    }
-                                    ?> >
+                                    <input name="foto1"  type="file" class="custom-file-input" id="foto1" lang="es" >
                                     <label class="custom-file-label" for="validatedCustomFile">Subir</label>
 
                                     <?php if (!isset($turismoEdit)) { ?>
@@ -301,11 +304,7 @@ if (isset($_GET['idTurismo'])) {
 
                             <div class="col-md-4" >
                                 <div class="custom-file">
-                                    <input name="foto2"  type="file" class="custom-file-input" id="foto2" lang="es" <?php
-                                    if (isset($turismoEdit)) {
-                                        echo 'required';
-                                    }
-                                    ?> >
+                                    <input name="foto2"  type="file" class="custom-file-input" id="foto2" lang="es" >
                                     <label class="custom-file-label" for="validatedCustomFile">Subir</label>
 
                                     <?php if (!isset($turismoEdit)) { ?>
@@ -321,11 +320,7 @@ if (isset($_GET['idTurismo'])) {
 
                             <div class="col-md-4" >
                                 <div class="custom-file">
-                                    <input name="foto3"  type="file" class="custom-file-input" id="foto3" lang="es" <?php
-                                    if (isset($turismoEdit)) {
-                                        echo 'required';
-                                    }
-                                    ?> >
+                                    <input name="foto3"  type="file" class="custom-file-input" id="foto3" lang="es" >
                                     <label class="custom-file-label" for="validatedCustomFile">Subir</label>
 
                                     <?php if (!isset($turismoEdit)) { ?>
@@ -338,6 +333,7 @@ if (isset($_GET['idTurismo'])) {
                                     <?php } ?>
                                 </div>
                             </div>
+                            
                         </div>
 
                         <br/>

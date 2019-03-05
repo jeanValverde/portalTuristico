@@ -18,7 +18,9 @@ $arrayEmergenciaCarabinero = $servicioEmergecia->read_emergencias_by_tipo('Carab
 
 $arrayEmergenciaSalud = $servicioEmergecia->read_emergencias_by_tipo('Salud');
 
-$arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bombero');
+$arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bomberos');
+
+
 ?>
 
 
@@ -30,7 +32,7 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bombero'
     <div class="container">
         <div class="card  bg-riohurtado shadow-lg border-0">
             <div class="p-5">
-                <h2 class="text-white">Numeros de emergencia</h2>
+                <h2 class="text-white">Teléfonos de emergencias</h2>
                 <div class="row align-items-center">
                     <div class="col-lg-4">
 
@@ -44,7 +46,8 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bombero'
                                         ?>
                                         <h6 class="card-subtitle mb-2 text-muted"><br/><?= $emergencia->getUbicacion(); ?></h6>
                                         <a href="tel:+34000000000" class="card-link" >+5698373837</a>
-                                    <?php }
+                                        <?php
+                                    }
                                 }
                                 ?>
                             </div>
@@ -63,7 +66,8 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bombero'
                                         ?>
                                         <h6 class="card-subtitle mb-2 text-muted"><br/><?= $emergencia->getUbicacion(); ?></h6>
                                         <a href="tel:+34000000000" class="card-link" >+5698373837</a>
-                                    <?php }
+                                        <?php
+                                    }
                                 }
                                 ?>
                             </div>
@@ -83,7 +87,8 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bombero'
                                         ?>
                                         <h6 class="card-subtitle mb-2 text-muted"><br/><?= $emergencia->getUbicacion(); ?></h6>
                                         <a href="tel:+34000000000" class="card-link" >+5698373837</a>
-                                    <?php }
+                                        <?php
+                                    }
                                 }
                                 ?>
 
@@ -128,10 +133,8 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bombero'
             if (isset($arrayCajasVecinas)) {
                 while ($cajasVecina = array_shift($arrayCajasVecinas)) {
                     ?>
-
-
-
-                    <?php $id = $cajasVecina->getIdTurismo();
+                    <?php
+                    $id = $cajasVecina->getIdTurismo();
                     if ($id % 2 == 0) {
                         ?>
 
@@ -160,11 +163,7 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bombero'
                                 </div>
                             </div>
                         </div>
-
-
-
-        <?php } else { ?>
-
+                    <?php } else { ?>
                         <div class="col-md-6 col-lg-6 mb-5 mb-lg-0">
                             <div class="px-6">
                                 <div id="<?= $id ?>" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="height: 500px;" ></div>
@@ -192,20 +191,10 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bombero'
                         </div>
 
                     <?php } ?>
-
                     <?php
                 }
             }
             ?>
-
-
-
-
-
-
-
-
-
         </div>
     </div>
 </section>

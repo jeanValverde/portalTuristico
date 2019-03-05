@@ -51,8 +51,6 @@ class TurismoService {
      */
     public function create_turismo($turismo) {
 
-
-
         $tipo = $turismo->getTipo();
         $nombre = $turismo->getNombre();
         $descripcion = $turismo->getDescripcion();
@@ -217,6 +215,54 @@ class TurismoService {
                 . " `foto_2`='$foto2', "
                 . " `foto_3`='$foto3' "
                 . " WHERE `id_turismo`='$idTurismo'; ";
+
+        return $this->con->query($sql);
+    }
+    
+    public function update_turismo_without_foto($turismo) {
+
+        $idTurismo = $turismo->getIdTurismo();
+        $tipo = $turismo->getTipo();
+        $nombre = $turismo->getNombre();
+        $descripcion = $turismo->getDescripcion();
+        $latitud = $turismo->getLatitud();
+        $longitud = $turismo->getLongitud();
+        $mapa = $turismo->getMapa();
+        $contacto = $turismo->getContacto();
+        $fono = $turismo->getFono();
+        $localidad = $turismo->getLocalidad();
+        $facebook = $turismo->getFacebook();
+        $instagram = $turismo->getInstagram();
+        $twiter = $turismo->getTwiter();
+        $pagina = $turismo->getPagina();
+
+
+        $sql = " UPDATE `riohurta_riohurtado`.`turismo` "
+                . " SET "
+                . " `tipo`='$tipo', "
+                . " `nombre`='$nombre', "
+                . " `descripcion`='$descripcion', "
+                . " `latitud`='$latitud', "
+                . " `longitud`='$longitud', "
+                . " `mapa`='$mapa', "
+                . " `contacto`='$contacto', "
+                . " `fono`='$fono', "
+                . " `localidad`='$localidad', "
+                . " `facebook`='$facebook', "
+                . " `instagram`='$instagram', "
+                . " `twiter`='$twiter', "
+                . " `pagina`='$pagina' "
+                . " WHERE `id_turismo`='$idTurismo'; ";
+
+        return $this->con->query($sql);
+    }
+    
+    public function update_turismo_foto($id, $parametro , $foto) {
+
+        $sql = " UPDATE `riohurta_riohurtado`.`turismo` "
+                . " SET " 
+                . " `$parametro`='$foto' "
+                . " WHERE `id_turismo`='$id'; ";
 
         return $this->con->query($sql);
     }

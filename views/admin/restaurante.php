@@ -1,7 +1,6 @@
 
 <?php
 //session - config
-
 //session - config
 include_once '../../segmentos/session.php';
 
@@ -9,6 +8,7 @@ include_once '../../segmentos/session.php';
 $paginaActiva = "restaurante";
 
 $tipo = "Restaurante";
+
 
 ?>
 
@@ -43,14 +43,14 @@ $tipo = "Restaurante";
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        
-        
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 
 
-<script src="https://mappinggis.com/visores_webmapping/leaflet-routing-machine-3.2.5/dist/leaflet-routing-machine.js"></script>
-<link rel="stylesheet" href="https://mappinggis.com/visores_webmapping/leaflet-routing-machine-3.2.5/dist/leaflet-routing-machine.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+
+        <script src="https://mappinggis.com/visores_webmapping/leaflet-routing-machine-3.2.5/dist/leaflet-routing-machine.js"></script>
+        <link rel="stylesheet" href="https://mappinggis.com/visores_webmapping/leaflet-routing-machine-3.2.5/dist/leaflet-routing-machine.css" />
 
 
 
@@ -110,7 +110,7 @@ $tipo = "Restaurante";
 
         <script type="text/javascript" src="../../assets-admin/js/bootstrap-material-datetimepicker.js"></script>
 
-  <?= $id = "map-6"; ?>
+        <?= $id = "map-6"; ?>
 
         <script>
 

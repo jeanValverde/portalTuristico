@@ -16,7 +16,7 @@
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-dark bg-riohurtado "  >
         <div class="container" >
             <img src="./assets/img/theme/isotipo_monotono_3.png" width="40"   >
-            <a class="navbar-brand mr-lg-5" href="./index.html" >
+            <a class="navbar-brand mr-lg-5" href="transporte" >
 
                 Portal turístico
             </a>
@@ -27,7 +27,7 @@
                 <div class="navbar-collapse-header">
                     <div class="row">
                         <div class="col-6 collapse-brand">
-                            <a href="./index.html">
+                            <a href="transporte">
                                 Transporte
                             </a>
                         </div>
@@ -121,7 +121,7 @@
                             <span class="nav-link-inner--text">Atractivos Turísticos</span>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="turismo?tipo=MonumentoNatural" class="dropdown-item">Monumento Natural Pichasca</a>
+                            <a href="turismo?tipo=MonumentoNatural" class="dropdown-item">Monumento Natural</a>
                             <a href="turismo?tipo=Ruta" class="dropdown-item">Rutas Arqueológicas</a>
                         </div>
                     </li>
