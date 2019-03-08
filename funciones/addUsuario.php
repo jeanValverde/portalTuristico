@@ -38,7 +38,10 @@ if (!empty($_POST)) {
         
     
     
-    $contrasena = $servicio->get_password();
+    $contrasenaPaso = $servicio->get_password();
+    
+    $contrasena = sha1($contrasenaPaso); 
+    
     //1 activo - 0 inactivo
     $estado = 1;
     $contraseniaRecuperar=$servicio->gen_uuid();

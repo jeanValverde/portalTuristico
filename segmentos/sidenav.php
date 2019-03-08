@@ -124,10 +124,10 @@
                 
                 <li class="nav-item">
                     <a class="nav-link <?php
-                    if ($paginaActiva == "emergencia") {
+                    if ($paginaActiva == "acampar") {
                         echo "active";
                     }
-                    ?>" href="emergencia">
+                    ?>" href="acampar">
                         <i class="ni ni-planet fa fa-tree text-warning"></i> Sitios para Acampar
                     </a>
                 </li>
@@ -136,20 +136,20 @@
                 
                 <li class="nav-item">
                     <a class="nav-link <?php
-                    if ($paginaActiva == "emergencia") {
+                    if ($paginaActiva == "alojamiento") {
                         echo "active";
                     }
-                    ?>" href="emergencia">
+                    ?>" href="alojamiento">
                         <i class="ni ni-planet fa fa-bed text-info"></i> Alojamientos
                     </a>
                 </li>
                 
                 <li class="nav-item">
                     <a class="nav-link <?php
-                    if ($paginaActiva == "emergencia") {
+                    if ($paginaActiva == "actividad") {
                         echo "active";
                     }
-                    ?>" href="emergencia">
+                    ?>" href="actividad">
                         <i class="ni ni-user-run text-danger"></i> Actividades
                     </a>
                 </li>
@@ -157,10 +157,10 @@
                 
                 <li class="nav-item">
                     <a class="nav-link <?php
-                    if ($paginaActiva == "emergencia") {
+                    if ($paginaActiva == "atractivo") {
                         echo "active";
                     }
-                    ?>" href="emergencia">
+                    ?>" href="atractivo">
                         <i class="ni ni-image text-success"></i>  Atractivos Turísticos
                     </a>
                 </li>

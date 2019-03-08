@@ -5,9 +5,11 @@ include_once '../../models/Turismo.php';
 
 $servicio = new TurismoService();
 
-$turismoMax = $servicio->read_turismos_by_max_id('Restaurante');
 
-$turismos = $servicio->read_turismos_by_tipo('Restaurante');
+
+$turismoMax = $servicio->read_turismos_by_max_id($tipo);
+
+$turismos = $servicio->read_turismos_by_tipo($tipo);
 
 $form = "agregar";
 
@@ -29,15 +31,20 @@ if (isset($_GET['idTurismo'])) {
                 <strong>Vista previa</strong>  
                 <nav aria-label="...">
                     <br/>
-                    <ul class="pagination">
-                        <?php
-                        while ($turismo = array_shift($turismos)) {
-                            ?>
+                    <div class="row"  >
+                       
+                             <?php
+                    while ($turismo = array_shift($turismos)) {
+                        ?>
+                         <div class="col-md-4" >
+                        <ul class="pagination">
                             <li class="page-item <?= ($turismoMax->getIdTurismo() == $turismo->getIdTurismo() ) ? 'active' : '' ?>" title="<?= $turismo->getNombre() ?>" >
-                                <a  href="../admin/restaurante?views=<?= $turismo->getIdTurismo(); ?>" class="badge badge-danger text-white"><?= $turismo->getNombre() ?></a>&nbsp;
+                                <a  href="../admin/restaurante?views=<?= $turismo->getIdTurismo(); ?>" class="badge badge-danger text-white"><?= $turismo->getNombre() ?></a>
                             </li>
-                        <?php } ?>
-                    </ul>
+                        </ul>
+                         </div>
+                    <?php } ?>
+                    </div>
                 </nav>
             </div>
             <div style="height: 20px;" ></div>
@@ -76,29 +83,31 @@ if (isset($_GET['idTurismo'])) {
 
                             <span class="badge badge-success"><?= 'Contacto: ' . $turismoMax->getContacto(); ?></span>
 
-                            <span class="badge badge-danger"><?= 'Fono: ' .  $turismoMax->getFono(); ?></span>
+                            <span class="badge badge-danger"><?= 'Fono: ' . $turismoMax->getFono(); ?></span>
                             <br/><br/>
-                            <?php if($turismoMax->getFacebook() != ""){  ?>
-                            <a href="#" target="_black" class="btn btn-icon btn-2 btn-primary" >
-                                <span class="btn-inner--icon"><i class="ni ni-facebook"></i>Facebook</span>
-                            </a>
+                            <?php if ($turismoMax->getFacebook() != "") { ?>
+                                <a href="#" target="_black" class="btn btn-icon btn-2 btn-primary" >
+                                    <span class="btn-inner--icon"><i class="ni ni-facebook"></i>Facebook: <?= $turismoMax->getFacebook(); ?></span>
+                                </a>
                             <?php } ?>
-                            <?php if($turismoMax->getTwiter() != ""){  ?>
-                            <a href="#" target="_black" class="btn btn-icon btn-2 btn-info" >
-                                <span class="btn-inner--icon"><i class="ni ni-"></i>Twitter</span>
-                            </a>
+                            <?php if ($turismoMax->getTwiter() != "") { ?>
+                                <a href="#" target="_black" class="btn btn-icon btn-2 btn-info" >
+                                    <span class="btn-inner--icon"><i class="ni ni-"></i>Twitter <?= $turismoMax->getTwiter(); ?></span>
+                                </a>
                             <?php } ?>
-                            <?php if($turismoMax->getInstagram() != ""){  ?>
-                            <a href="#" target="_black" class="btn btn-icon btn-2 btn-danger" >
-                                <span class="btn-inner--icon"><i class="ni ni-"></i>Instagram</span>
-                            </a>
+                            <?php if ($turismoMax->getInstagram() != "") { ?>
+                            <br><br>
+                                <a href="#" target="_black" class="btn btn-icon btn-2 btn-danger" >
+                                    <span class="btn-inner--icon"><i class="ni ni-"></i>Instagram <?= $turismoMax->getInstagram(); ?></span>
+                                </a>
                             <?php } ?>
-                            <?php if($turismoMax->getPagina() != ""){  ?>
-                            <a href="#" target="_black" class="btn btn-icon btn-2 btn-primary" >
-                                <span class="btn-inner--icon">Web</span>
-                            </a>
+                            <?php if ($turismoMax->getPagina() != "") { ?>
+                            <a href="#" target="_black" class="btn btn-icon btn-2 btn-warning" >
+                                    <span class="btn-inner--icon">Web <?= $turismoMax->getPagina(); ?></span>
+                                </a>
                             <?php } ?>
                             <br><br>
+                            <hr class="my-4">
                             <a href="../admin/<?= $tipo ?>?idTurismo=<?= $turismoMax->getIdTurismo(); ?>" class="btn btn-warning">Editar</a>
                             <a href="../../funciones/deleteTurismo.php?idTurismo=<?= $turismoMax->getIdTurismo(); ?>&tipo=<?= $tipo ?>" class="btn btn-danger">Elminar</a>
                         </div>
@@ -132,7 +141,12 @@ if (isset($_GET['idTurismo'])) {
                 }
                 ?>"  >
                     <h6 class="heading-small text-muted mb-4"><?= $tipo ?></h6>
+                    
+                    
                     <input name="tipo" value="<?= $tipo ?>" type="hidden"  />
+                    
+                    
+                    
                     <div class="pl-lg-4">
                         <div class="row">
                             <div class="col-lg-6">
@@ -333,7 +347,7 @@ if (isset($_GET['idTurismo'])) {
                                     <?php } ?>
                                 </div>
                             </div>
-                            
+
                         </div>
 
                         <br/>

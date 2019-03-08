@@ -137,9 +137,11 @@ class UsuarioService {
     }
 
     public function start_session_usuario($rut, $password) {
+        
+        $passwordSha1 = sha1($password);
 
         $sql = "  SELECT id_usuarios , rut , nombre , apellido , tipo , area, estado  , correo , cargo FROM riohurta_riohurtado.usuarios "
-                . " WHERE rut = '$rut' and contrasena = '$password';  ";
+                . " WHERE rut = '$rut' and contrasena = '$passwordSha1';  ";
 
         $result = $this->con->query($sql);
 
