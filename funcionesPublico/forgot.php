@@ -17,9 +17,21 @@ if (isset($_GET['encode'])) {
         $usuario = new Usuario();
         $usuario = $service->read_usuario_by_id_contrasena_recuperar($encode);
     } else {
-        header("Location: ../login");
+        
+        
     }
+    
 }
+
+if($_GET['mensaje']){
+    $mensaje = '<div class="alert alert-warning" role="alert">
+    <span class="alert-inner--icon"><i class="ni ni-circle-08"></i></span>
+    <span class="alert-inner--text"><strong>Error!</strong></span>
+</div>';
+    
+    
+}
+
 ?>
 
 <section class="section section-shaped section-lg" style="background-image: url('assets/img/theme/riohurtado.jpg');height: 1000px;" >

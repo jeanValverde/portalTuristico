@@ -16,7 +16,7 @@ if (!empty($_POST)) {
     if($cambio){
         header("Location: ../views/login");
     }else{
-        header("Location: ../views/login");
+        header("Location: ../views/forgot?mensaje=error");
     }
     
     

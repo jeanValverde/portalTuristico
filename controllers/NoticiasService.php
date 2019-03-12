@@ -35,23 +35,23 @@ class NoticiasService {
 
     public function create_noticia($encabezado, $descripcion, $link, $foto) {
 
-        $sql = " INSERT INTO `riohurta_riohurtado`.`noticia` (`encabezado`, `descripcion`, `link`, `foto`) VALUES ('$encabezado', '$descripcion', '$link', '$foto'); ";
+        $sql = " INSERT INTO `riohurta_turismo`.`noticia` (`encabezado`, `descripcion`, `link`, `foto`) VALUES ('$encabezado', '$descripcion', '$link', '$foto'); ";
 
         return $this->con->query($sql);
     }
 
     public function update_noticia_with_foto($idNoticia, $encabezado, $descripcion, $link, $foto) {
-        $sql = " UPDATE `riohurta_riohurtado`.`noticia` SET `encabezado`='$encabezado', `descripcion`='$descripcion', `link`='$link', `foto`='$foto' WHERE `id_noticia`=$idNoticia;  ";
+        $sql = " UPDATE `riohurta_turismo`.`noticia` SET `encabezado`='$encabezado', `descripcion`='$descripcion', `link`='$link', `foto`='$foto' WHERE `id_noticia`=$idNoticia;  ";
         return $this->con->query($sql);
     }
     
     public function update_noticia($idNoticia, $encabezado, $descripcion, $link) {
-        $sql = " UPDATE `riohurta_riohurtado`.`noticia` SET `encabezado`='$encabezado', `descripcion`='$descripcion', `link`='$link' WHERE `id_noticia`=$idNoticia;  ";
+        $sql = " UPDATE `riohurta_turismo`.`noticia` SET `encabezado`='$encabezado', `descripcion`='$descripcion', `link`='$link' WHERE `id_noticia`=$idNoticia;  ";
         return $this->con->query($sql);
     }
 
     public function delete_noticia($idNoticia) {
-        $sql = " DELETE FROM `riohurta_riohurtado`.`noticia` WHERE id_noticia=$idNoticia;  ";
+        $sql = " DELETE FROM `riohurta_turismo`.`noticia` WHERE id_noticia=$idNoticia;  ";
         return $this->con->query($sql);
     }
 
@@ -59,7 +59,7 @@ class NoticiasService {
         $noticias = array();
         $noticia = null;
 
-        $sql = " SELECT id_noticia ,  encabezado, descripcion, link, foto FROM riohurta_riohurtado.noticia; ";
+        $sql = " SELECT id_noticia ,  encabezado, descripcion, link, foto FROM riohurta_turismo.noticia; ";
 
         $result = $this->con->query($sql);
 
@@ -78,7 +78,7 @@ class NoticiasService {
     public function read_noticia_by_id($idNoticia) {
 
 
-        $sql = " SELECT id_noticia ,  encabezado, descripcion, link, foto FROM riohurta_riohurtado.noticia where id_noticia = $idNoticia ; ";
+        $sql = " SELECT id_noticia ,  encabezado, descripcion, link, foto FROM riohurta_turismo.noticia where id_noticia = $idNoticia ; ";
 
         $result = $this->con->query($sql);
 
@@ -98,8 +98,8 @@ class NoticiasService {
      public function read_noticia_max_id() {
 
 
-        $sql = " SELECT id_noticia ,  encabezado, descripcion, link, foto FROM riohurta_riohurtado.noticia where id_noticia = "
-                . " (select MAX(id_noticia) from riohurta_riohurtado.noticia); ";
+        $sql = " SELECT id_noticia ,  encabezado, descripcion, link, foto FROM riohurta_turismo.noticia where id_noticia = "
+                . " (select MAX(id_noticia) from riohurta_turismo.noticia); ";
 
         $result = $this->con->query($sql);
 
@@ -119,7 +119,7 @@ class NoticiasService {
 
         $numNoticias = null;
 
-        $sql = " SELECT COUNT(*) num_noticias  FROM riohurta_riohurtado.noticia; ";
+        $sql = " SELECT COUNT(*) num_noticias  FROM riohurta_turismo.noticia; ";
 
         $result = $this->con->query($sql);
 

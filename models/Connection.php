@@ -13,18 +13,18 @@
  */
 class Connection {
     private $server = "localhost:3306";
-    private $username = "riohurta_soporte";
-    private $password = "&S0p0rT319&";
-    private $database = "riohurta_riohurtado";
+    private $username = "root";
+    private $password = "root";
+    private $database = "riohurta_turismo";
     private $link;
     
     
     /*
 
-     *  private $server = "localhost:3306";
-    private $username = "riohurta1";
-    private $password = "Rhurta354*";
-    private $database = "riohurta_riohurtado";
+     * private $server = "localhost:3306";
+    private $username = "riohurta_soporte";
+    private $password = "&S0p0rT319&";
+    private $database = "riohurta_turismo";
     private $link;
      * 
      *      */

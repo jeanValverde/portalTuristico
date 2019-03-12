@@ -185,6 +185,7 @@
                         <i class="ni fas fa-user text-success"></i> Mi perfil
                     </a>
                 </li>
+                <?php if($usuario->getTipo() == "Admin"){ ?>
                 <li class="nav-item">
                     <a class="nav-link <?php
                     if ($paginaActiva == "administracion") {
@@ -194,6 +195,7 @@
                         <i class="ni ni-key-25 fas fa-users text-warning"></i> Administrar usuarios
                     </a>
                 </li>
+                <?php } ?>
             </ul>
             <!-- Divider -->
             <hr class="my-3">

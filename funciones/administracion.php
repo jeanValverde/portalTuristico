@@ -48,6 +48,7 @@ if (isset($_GET['idUsuario'])) {
                         <tr>
                             <th></th>
                             <th>ID</th>
+                            <th>Rut</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>Correo</th>
@@ -70,6 +71,7 @@ if (isset($_GET['idUsuario'])) {
                                         <a href="../../funciones/sendRestar.php?rut=<?= $usuario->getRut(); ?>"   class="btn btn-success" >Restablecer Contraseña</a>
                                     </td>
                                     <td><?= $usuario->getIdUsuario(); ?></td>
+                                    <td><?= $usuario->getRut(); ?></td>
                                     <td><?= $usuario->getNombre(); ?></td>
                                     <td><?= $usuario->getApellido(); ?></td>
                                     <td><?= $usuario->getCorreo(); ?></td>

@@ -338,8 +338,8 @@ if (isset($_POST["localidad"])) {
                                                     Rio Hurtado - Ovalle
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                        <span class="alert-inner--text"><strong>Salida</strong> Terminal Buses Rurales Feria Modelo</span>
+                                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                                        <span class="alert-inner--text"><strong>Horarios</strong>  pueden variar segun la localidad</span>
                                                     </div>
                                                     <!--while-->
                                                     <?php
@@ -390,8 +390,8 @@ if (isset($_POST["localidad"])) {
                                                     Rio Hurtado - Ovalle
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                        <span class="alert-inner--text"><strong>Salida</strong> Terminal Buses Rurales Feria Modelo</span>
+                                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                                        <span class="alert-inner--text"><strong>Horarios</strong>  pueden variar segun la localidad</span>
                                                     </div>
                                                     <!--while-->
                                                     <?php
@@ -442,8 +442,8 @@ if (isset($_POST["localidad"])) {
                                                     Rio Hurtado - Ovalle
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                        <span class="alert-inner--text"><strong>Salida</strong> Terminal Buses Rurales Feria Modelo</span>
+                                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                                        <span class="alert-inner--text"><strong>Horarios</strong>  pueden variar segun la localidad</span>
                                                     </div>
                                                     <!--while-->
                                                     <?php
@@ -494,8 +494,8 @@ if (isset($_POST["localidad"])) {
                                                     Rio Hurtado - Ovalle
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                        <span class="alert-inner--text"><strong>Salida</strong> Terminal Buses Rurales Feria Modelo</span>
+                                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                                        <span class="alert-inner--text"><strong>Horarios</strong>  pueden variar segun la localidad</span>
                                                     </div>
                                                     <!--while-->
                                                     <?php
@@ -546,8 +546,8 @@ if (isset($_POST["localidad"])) {
                                                     Rio Hurtado - Ovalle
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                        <span class="alert-inner--text"><strong>Salida</strong> Terminal Buses Rurales Feria Modelo</span>
+                                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                                        <span class="alert-inner--text"><strong>Horarios</strong>  pueden variar segun la localidad</span>
                                                     </div>
                                                     <!--while-->
                                                     <?php
@@ -598,8 +598,8 @@ if (isset($_POST["localidad"])) {
                                                     Rio Hurtado - Ovalle
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                        <span class="alert-inner--text"><strong>Salida</strong> Terminal Buses Rurales Feria Modelo</span>
+                                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                                        <span class="alert-inner--text"><strong>Horarios</strong>  pueden variar segun la localidad</span>
                                                     </div>
                                                     <!--while-->
                                                     <?php
@@ -650,8 +650,8 @@ if (isset($_POST["localidad"])) {
                                                     Rio Hurtado - Ovalle
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                        <span class="alert-inner--text"><strong>Salida</strong> Terminal Buses Rurales Feria Modelo</span>
+                                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                                        <span class="alert-inner--text"><strong>Horarios</strong>  pueden variar segun la localidad</span>
                                                     </div>
                                                     <!--while-->
                                                     <?php

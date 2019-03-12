@@ -3,34 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/editEmergencia.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/widget-admin.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/views/admin/perfil.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/segmentos/headerPublico.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/emergencia.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/models/Empresa.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/addEmergencia.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funcionesPublico/transporte.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/views/admin/facebook.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/addEmpresa.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/funcionesPublico/servicios.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/sendRestar.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/editTurismo.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/views/turismo.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/controllers/TurismoService.php</file>
             <file>file:/C:/xampp/htdocs/portalTuristico/models/Connection.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/noticias.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/views/admin/index.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/controllers/EmergenciaService.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/deleteEmpresa.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/segmentos/sidenav.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/views/admin/noticias.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/controllers/RecorridoService.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/deleteEmergencia.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/views/transporte.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funcionesPublico/noticias.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/views/admin/emergencia.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/models/Emergencia.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/views/servicios.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/addUsuario.php</file>
             <file>file:/C:/xampp/htdocs/portalTuristico/views/admin/transporte.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/transporte.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/editEmpresa.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/deleteRecorrido.php</file>
-            <file>file:/C:/xampp/htdocs/portalTuristico/controllers/EmpresaService.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/funciones/addTurismo.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/views/transporte.php</file>
+            <file>file:/C:/xampp/htdocs/portalTuristico/views/admin/CajaVecina.php</file>
         </group>
     </open-files>
 </project-private>

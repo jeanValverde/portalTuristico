@@ -31,7 +31,7 @@ class RecorridoService {
 
     public function create_recorrido($trayectoInicio, $trayectoFinal, $horaSalida, $diaRecorrido, $empresa) {
 
-        $sql = " INSERT INTO `riohurta_riohurtado`.`recorrido` (`trayecto_inicio`, `trayeto_final`, `hora_salida`, `dia_recorrido`, `id_empresaBus`)"
+        $sql = " INSERT INTO `riohurta_turismo`.`recorrido` (`trayecto_inicio`, `trayeto_final`, `hora_salida`, `dia_recorrido`, `id_empresaBus`)"
                 . " VALUES ('$trayectoInicio', '$trayectoFinal', '$horaSalida', '$diaRecorrido', $empresa ); ";
 
         return $this->con->query($sql);
@@ -43,8 +43,8 @@ class RecorridoService {
         $recorridos = array();
         $recorrido = null;
         $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
-                 FROM riohurta_riohurtado.recorrido r
-                 join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus; ";
+                 FROM riohurta_turismo.recorrido r
+                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus; ";
         $result = $this->con->query($sql);
         while ($fila = mysqli_fetch_array($result)) {
             $recorrido = new Recorrido();
@@ -89,8 +89,8 @@ class RecorridoService {
         $recorridos = array();
         $recorrido = null;
         $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
-                 FROM riohurta_riohurtado.recorrido r
-                 join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus where dia_recorrido='$dia'  ; ";
+                 FROM riohurta_turismo.recorrido r
+                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus where dia_recorrido='$dia'  ; ";
         $result = $this->con->query($sql);
         while ($fila = mysqli_fetch_array($result)) {
             $recorrido = new Recorrido();
@@ -115,12 +115,12 @@ class RecorridoService {
         $sql = "";
         if($trayecto == "All"){
              $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
-                 FROM riohurta_riohurtado.recorrido r
-                 join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia'  and trayecto_inicio NOT LIKE 'Ovalle' ";
+                 FROM riohurta_turismo.recorrido r
+                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia'  and trayecto_inicio NOT LIKE 'Ovalle' ";
         }else{
              $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
-                 FROM riohurta_riohurtado.recorrido r
-                 join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia' and trayecto_inicio='Ovalle' ";
+                 FROM riohurta_turismo.recorrido r
+                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia' and trayecto_inicio='Ovalle' ";
         }
        
         $result = $this->con->query($sql);
@@ -147,12 +147,12 @@ class RecorridoService {
         $sql = "";
         if($trayecto == "All"){
              $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
-                 FROM riohurta_riohurtado.recorrido r
-                 join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia'  and trayecto_inicio NOT LIKE 'Ovalle' and tipo='aseo' ";
+                 FROM riohurta_turismo.recorrido r
+                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia'  and trayecto_inicio NOT LIKE 'Ovalle' and tipo='aseo' ";
         }else{
              $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
-                 FROM riohurta_riohurtado.recorrido r
-                 join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia' and trayecto_inicio='Ovalle' and tipo='aseo'";
+                 FROM riohurta_turismo.recorrido r
+                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia' and trayecto_inicio='Ovalle' and tipo='aseo'";
         }
        
         $result = $this->con->query($sql);
@@ -175,7 +175,7 @@ class RecorridoService {
     public function read_recorrido_by_id($idRecorrido) {
 
         $sql = " SELECT id_recorrido , trayecto_inicio, trayeto_final, hora_salida, dia_recorrido, id_empresaBus "
-                . "FROM riohurta_riohurtado.recorrido WHERE id_recorrido = $idRecorrido;  ";
+                . "FROM riohurta_turismo.recorrido WHERE id_recorrido = $idRecorrido;  ";
         $result = $this->con->query($sql);
         $fila = mysqli_fetch_array($result);
         $recorrido = new Recorrido();
@@ -192,7 +192,7 @@ class RecorridoService {
 
     public function update_recorrido($idRecorrido, $trayectoInicio, $trayectoFinal, $horaSalida, $diaRecorrido, $empresa) {
 
-        $sql = " UPDATE riohurta_riohurtado.recorrido 
+        $sql = " UPDATE riohurta_turismo.recorrido 
                 SET trayecto_inicio='$trayectoInicio',
                 trayeto_final='$trayectoFinal', 
                 hora_salida='$horaSalida', 
@@ -204,7 +204,7 @@ class RecorridoService {
     }
 
     public function delete_recorrido($idRecorrido) {
-        $sql = " DELETE FROM riohurta_riohurtado.recorrido WHERE id_recorrido = $idRecorrido; ";
+        $sql = " DELETE FROM riohurta_turismo.recorrido WHERE id_recorrido = $idRecorrido; ";
         return $this->con->query($sql);
     }
 
@@ -234,8 +234,8 @@ class RecorridoService {
         $recorridos = array();
         $recorrido = null;
         $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
-                 FROM riohurta_riohurtado.recorrido r
-                 join riohurta_riohurtado.empresa e on e.id_empresa = r.id_empresaBus where dia_recorrido = '$dia' and tipo = 'bus';  ";
+                 FROM riohurta_turismo.recorrido r
+                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus where dia_recorrido = '$dia' and tipo = 'bus';  ";
         $result = $this->con->query($sql);
 
 

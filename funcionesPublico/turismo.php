@@ -11,9 +11,61 @@ $arrayTurismo = $service->read_turismos_by_tipo($_GET['tipo']);
 
 $arrayTurismoMapa = $service->read_turismos_by_tipo($_GET['tipo']);
 
-
-
+switch ($_GET['tipo']) {
+    case 'Restaurante' :
+        $titulo = 'Restaurantes';
+        $mensaje = "Comidas típicas, menú a la carta, atención a delegaciones, salón de eventos y más.";
+        break;
+    case 'Acampar':
+        $titulo = "Sitios para Acampar";
+        $mensaje = "Camping y agrocamping para acampar equipados de luz, agua potable, asaderas, baños, duchas, mesones, senderos y más.";
+        break;
+    case 'Alojamiento':
+        $titulo = "Alojamientos";
+        $mensaje = "Cabañas y habitaciones con estilo señorial equipados con quincho, piscina, servicios de alimentación y más.";
+        break;
+    case 'Festival':
+        $titulo = "Festivales";
+        $mensaje = "Diversas actividades que se llevan a cabo en diferentes localidades de la comuna. ";
+        break;
+    case 'Artesanal':
+        $titulo = "Productos Artesanales";
+        $mensaje = "Agrupaciones y Talleres dedicados en la elaboración de artesanías en arcilla, piedra y tejidos.";
+        break;
+    case 'Otro':
+        $titulo = "Ferias, Rodeos y más";
+        $mensaje = "Actividades culturales y fiestas religiosas, venta de productos típicos, gastronomía criolla, folclore y juegos populares.";
+        break;
+    case 'Monumento Natural':
+        $titulo = "Monumentos Naturales";
+        $mensaje = "Espacios protegidos por el Sistema de Protección Nacional de Áreas Silvestres del Estado en donde se conservan vestigios de vegetación y fauna.";
+        break;
+    case 'Ruta':
+        $titulo = "Rutas";
+        $mensaje = "";
+        break;
+    default :
+        $titulo = "";
+        $mensaje = "";
+        break;
+}
 ?>
+
+<a name="turismo" id="lancha"></a> 
+
+
+
+<section class="section">
+    <div class="container">
+        <div class="row row-grid align-items-center">
+            <h1 class="text-center">
+                <?= $titulo ?>
+                <br/> <small class="text-muted"><?= $mensaje ?></small>
+            </h1>
+        </div>
+    </div>
+</section>
+
 
 <?php
 if (isset($arrayTurismo)) {
@@ -21,6 +73,7 @@ if (isset($arrayTurismo)) {
         $id = $turismo->getIdTurismo();
         if ($id % 2 == 0) {
             ?>
+
             <section class="section bg-secondary">
                 <div class="container">
                     <div class="row row-grid align-items-center">

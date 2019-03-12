@@ -133,7 +133,7 @@
         </style>
 
 
-      
+
 
         <?php
         if (isset($arrayTurismoMapa)) {
@@ -157,7 +157,8 @@
 
                 </script>
 
-            <?php }
+            <?php
+            }
         }
         ?>
 

@@ -46,7 +46,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-xl">
                             <div class="dropdown-menu-inner">
-                                <a href="transporte" class="media d-flex align-items-center">
+                                <a href="transporte#transporte" class="media d-flex align-items-center">
                                     <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
                                         <i class="ni ni-spaceship fa fa-bus"></i>
                                     </div>
@@ -64,7 +64,7 @@
                                         <p class="description d-none d-md-inline-block mb-0">Recorrido de aseo comunal</p>
                                     </div>
                                 </a>
-                                <a href="turismo?tipo=Restaurante" class="media d-flex align-items-center">
+                                <a href="turismo?tipo=Restaurante#turismo" class="media d-flex align-items-center">
                                     <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
                                         <i class="ni ni-palette fa fa-cutlery"></i>
                                     </div>
@@ -73,7 +73,7 @@
                                         <p class="description d-none d-md-inline-block mb-0">Comidas típicas, menú a la carta, atención a delegaciones, salón de eventos y más.</p>
                                     </div>
                                 </a>
-                                <a href="turismo?tipo=Acampar" class="media d-flex align-items-center">
+                                <a href="turismo?tipo=Acampar#turismo" class="media d-flex align-items-center">
                                     <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
                                         <i class="ni ni-ui-04 fa fa-tree"></i>
                                     </div>
@@ -82,7 +82,7 @@
                                         <p class="description d-none d-md-inline-block mb-0">Camping y agrocamping para acampar equipados de luz, agua potable, asaderas, baños, duchas, mesones, senderos y más.</p>
                                     </div>
                                 </a>
-                                <a href="turismo?tipo=Alojamiento" class="media d-flex align-items-center">
+                                <a href="turismo?tipo=Alojamiento#turismo" class="media d-flex align-items-center">
                                     <div class="icon icon-shape bg-gradient-info rounded-circle text-white">
                                         <i class="ni ni-ui-04 fa fa-bed"></i>
                                     </div>
@@ -91,7 +91,7 @@
                                         <p class="description d-none d-md-inline-block mb-0">Cabañas y habitaciones con estilo señorial equipados con quincho, piscina, servicios de alimentación y más.</p>
                                     </div>
                                 </a>
-                                <a href="Servicios" class="media d-flex align-items-center">
+                                <a href="servicios" class="media d-flex align-items-center">
                                     <div class="icon icon-shape bg-gradient-danger rounded-circle text-white">
                                         <i class="ni ni-ui-04 fa fa-medkit "></i>
                                     </div>
@@ -109,9 +109,9 @@
                             <span class="nav-link-inner--text">Actividades</span>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="turismo?tipo=Festival" class="dropdown-item">Festivales</a>
-                            <a href="turismo?tipo=Artesanal" class="dropdown-item">Productos artesanales</a>
-                            <a href="turismo?tipo=Otro" class="dropdown-item">Ferias, Rodeos y más</a>
+                            <a href="turismo?tipo=Festival#turismo" class="dropdown-item">Festivales</a>
+                            <a href="turismo?tipo=Artesanal#turismo" class="dropdown-item">Productos artesanales</a>
+                            <a href="turismo?tipo=Otro#turismo" class="dropdown-item">Ferias, Rodeos y más</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -120,26 +120,20 @@
                             <span class="nav-link-inner--text">Atractivos Turísticos</span>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="turismo?tipo=Monumento Natural" class="dropdown-item">Monumento Natural</a>
-                            <a href="turismo?tipo=Ruta" class="dropdown-item">Rutas Arqueológicas</a>
+                            <a href="turismo?tipo=Monumento Natural#turismo" class="dropdown-item">Monumento Natural</a>
+                            <a href="turismo?tipo=Ruta#turismo" class="dropdown-item">Rutas Arqueológicas</a>
                         </div>
                     </li>
                 </ul>
                 <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="https://www.facebook.com" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
+                        <a class="nav-link nav-link-icon" href="https://www.facebook.com/municipioriohurtado/" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
                             <i class="fa fa-facebook-square"></i>
                             <span class="nav-link-inner--text d-lg-none">Facebook</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="https://www.instagram.com" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
-                            <i class="fa fa-instagram"></i>
-                            <span class="nav-link-inner--text d-lg-none">Instagram</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="https://twitter.com" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
+                        <a class="nav-link nav-link-icon" href="https://twitter.com/muniriohurtado?lang=es" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
                             <i class="fa fa-twitter-square"></i>
                             <span class="nav-link-inner--text d-lg-none">Twitter</span>
                         </a>

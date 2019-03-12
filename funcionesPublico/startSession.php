@@ -26,7 +26,7 @@ if (!empty($_POST)) {
             session_start();
             $_SESSION["usuario"] = $usuario;
             
-             header("Location: ../views/admin/index");
+            header("Location: ../views/admin/index");
 
         } else {
             header("Location: ../views/login?errorV=2");

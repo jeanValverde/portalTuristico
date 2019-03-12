@@ -4,6 +4,7 @@
 //session - config
 include_once '../../segmentos/session.php';
 
+
 $paginaActiva = "index";
 
 
@@ -61,7 +62,7 @@ $paginaActiva = "index";
               
                 
                 <!-- graficos -->
-                <?php include_once '../../funciones/graficos-admin.php'; ?>
+                <?php //include_once '../../funciones/graficos-admin.php'; ?>
 
 
                 <div class="row mt-5" >

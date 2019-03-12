@@ -69,7 +69,7 @@ class TurismoService {
         $foto3 = $turismo->getFoto3();
 
 
-        $sql = "  INSERT INTO `riohurta_riohurtado`.`turismo` (`tipo`, `nombre`, `descripcion`, `latitud`, `longitud`, `mapa`, `contacto`, `fono`, `localidad`, `facebook`, `instagram`, `twiter`, `pagina`, `foto_1`, `foto_2`, `foto_3`) "
+        $sql = "  INSERT INTO `riohurta_turismo`.`turismo` (`tipo`, `nombre`, `descripcion`, `latitud`, `longitud`, `mapa`, `contacto`, `fono`, `localidad`, `facebook`, `instagram`, `twiter`, `pagina`, `foto_1`, `foto_2`, `foto_3`) "
                 . " VALUES ('$tipo', '$nombre', '$descripcion', '$latitud', '$longitud', '$mapa', '$contacto', '$fono', '$localidad', '$facebook', '$instagram', '$twiter', '$pagina', '$foto1', '$foto2', '$foto3');  ";
 
         return $this->con->query($sql);
@@ -92,7 +92,7 @@ class TurismoService {
         $mapa = $turismo->getMapa();
         $localidad = $turismo->getLocalidad();
         
-        $sql = "  INSERT INTO `riohurta_riohurtado`.`turismo` (`tipo`, `nombre`, `latitud`, `longitud`, `mapa`, `localidad`) "
+        $sql = "  INSERT INTO `riohurta_turismo`.`turismo` (`tipo`, `nombre`, `latitud`, `longitud`, `mapa`, `localidad`) "
                 . " VALUES ('$tipo', '$nombre', '$latitud', '$longitud', '$mapa', '$localidad');  ";
 
         return $this->con->query($sql);
@@ -103,7 +103,7 @@ class TurismoService {
         $turismo = null;
 
         $sql = " SELECT id_turismo , tipo, nombre, descripcion, latitud, longitud, mapa, contacto, fono, localidad, facebook, instagram, twiter, pagina, foto_1, foto_2, foto_3 "
-                . " FROM riohurta_riohurtado.turismo WHERE tipo = '$tipo'; ";
+                . " FROM riohurta_turismo.turismo WHERE tipo = '$tipo'; ";
 
         $result = $this->con->query($sql);
 
@@ -156,7 +156,7 @@ class TurismoService {
         $where = $where . " " . $andTipos;
 
         $sql = " SELECT id_turismo , tipo, nombre, descripcion, latitud, longitud, mapa, contacto, fono, localidad, facebook, instagram, twiter, pagina, foto_1, foto_2, foto_3 "
-                . " FROM riohurta_riohurtado.turismo " . $where . " ;";
+                . " FROM riohurta_turismo.turismo " . $where . " ;";
 
         $result = $this->con->query($sql);
 
@@ -190,7 +190,7 @@ class TurismoService {
         $turismo = null;
 
         $sql = " SELECT id_turismo , tipo, nombre, descripcion, latitud, longitud, mapa, contacto, fono, localidad, facebook, instagram, twiter, pagina, foto_1, foto_2, foto_3
-                 FROM riohurta_riohurtado.turismo WHERE id_turismo = (SELECT MAX(id_turismo) FROM riohurta_riohurtado.turismo WHERE tipo = '$tipo'); ";
+                 FROM riohurta_turismo.turismo WHERE id_turismo = (SELECT MAX(id_turismo) FROM riohurta_turismo.turismo WHERE tipo = '$tipo'); ";
 
         $result = $this->con->query($sql);
         $fila = mysqli_fetch_array($result);
@@ -234,7 +234,7 @@ class TurismoService {
         }
 
         $sql = " SELECT id_turismo , tipo, nombre, descripcion, latitud, longitud, mapa, contacto, fono, localidad, facebook, instagram, twiter, pagina, foto_1, foto_2, foto_3 
-FROM riohurta_riohurtado.turismo where id_turismo = (SELECT MAX(id_turismo)  FROM riohurta_riohurtado.turismo where $where); ";
+FROM riohurta_turismo.turismo where id_turismo = (SELECT MAX(id_turismo)  FROM riohurta_turismo.turismo where $where); ";
 
         $result = $this->con->query($sql);
         $fila = mysqli_fetch_array($result);
@@ -260,14 +260,14 @@ FROM riohurta_riohurtado.turismo where id_turismo = (SELECT MAX(id_turismo)  FRO
     }
 
     public function deleteTurismo_by_id($idTurismo) {
-        $sql = " DELETE FROM riohurta_riohurtado.turismo WHERE id_turismo='$idTurismo';  ";
+        $sql = " DELETE FROM riohurta_turismo.turismo WHERE id_turismo='$idTurismo';  ";
         return $this->con->query($sql);
     }
 
     public function read_turismo_by_id($idTurismo) {
 
         $sql = " SELECT id_turismo , tipo, nombre, descripcion, latitud, longitud, mapa, contacto, fono, localidad, facebook, instagram, twiter, pagina, foto_1, foto_2, foto_3
-                 FROM riohurta_riohurtado.turismo WHERE id_turismo = $idTurismo; ";
+                 FROM riohurta_turismo.turismo WHERE id_turismo = $idTurismo; ";
 
         $result = $this->con->query($sql);
         $fila = mysqli_fetch_array($result);
@@ -315,7 +315,7 @@ FROM riohurta_riohurtado.turismo where id_turismo = (SELECT MAX(id_turismo)  FRO
         $foto3 = $turismo->getFoto3();
 
 
-        $sql = " UPDATE `riohurta_riohurtado`.`turismo` "
+        $sql = " UPDATE `riohurta_turismo`.`turismo` "
                 . " SET "
                 . " `tipo`='$tipo', "
                 . " `nombre`='$nombre', "
@@ -356,7 +356,7 @@ FROM riohurta_riohurtado.turismo where id_turismo = (SELECT MAX(id_turismo)  FRO
         $pagina = $turismo->getPagina();
 
 
-        $sql = " UPDATE `riohurta_riohurtado`.`turismo` "
+        $sql = " UPDATE `riohurta_turismo`.`turismo` "
                 . " SET "
                 . " `tipo`='$tipo', "
                 . " `nombre`='$nombre', "
@@ -378,7 +378,7 @@ FROM riohurta_riohurtado.turismo where id_turismo = (SELECT MAX(id_turismo)  FRO
 
     public function update_turismo_foto($id, $parametro, $foto) {
 
-        $sql = " UPDATE `riohurta_riohurtado`.`turismo` "
+        $sql = " UPDATE `riohurta_turismo`.`turismo` "
                 . " SET "
                 . " `$parametro`='$foto' "
                 . " WHERE `id_turismo`='$id'; ";

@@ -29,17 +29,17 @@ class EmergenciaService {
      *      */
 
     public function create_emergencia($tipo, $ubicacion, $numero) {
-        $sql = "INSERT INTO `riohurta_riohurtado`.`emergencia` (`tipo`, `ubicacion`, `numero`) VALUES ('$tipo', '$ubicacion', '$numero');";
+        $sql = "INSERT INTO `riohurta_turismo`.`emergencia` (`tipo`, `ubicacion`, `numero`) VALUES ('$tipo', '$ubicacion', '$numero');";
         return $this->con->query($sql);
     }
 
     public function update_emergencia($idEmergencia, $tipo, $ubicacion, $numero) {
-        $sql = " UPDATE `riohurta_riohurtado`.`emergencia` SET `tipo`='$tipo', `ubicacion`='$ubicacion', `numero`='$numero' WHERE `id_emergencia`='$idEmergencia'; ";
+        $sql = " UPDATE `riohurta_turismo`.`emergencia` SET `tipo`='$tipo', `ubicacion`='$ubicacion', `numero`='$numero' WHERE `id_emergencia`='$idEmergencia'; ";
         return $this->con->query($sql);
     }
 
     public function delete_emergencia($idEmergencia) {
-        $sql = " DELETE FROM `riohurta_riohurtado`.`emergencia` WHERE `id_emergencia`='$idEmergencia';  ";
+        $sql = " DELETE FROM `riohurta_turismo`.`emergencia` WHERE `id_emergencia`='$idEmergencia';  ";
         return $this->con->query($sql);
     }
 
@@ -47,7 +47,7 @@ class EmergenciaService {
         $emergencias = array();
         $emergencia = null;
 
-        $sql = " SELECT id_emergencia, tipo, ubicacion, numero FROM riohurta_riohurtado.emergencia; ";
+        $sql = " SELECT id_emergencia, tipo, ubicacion, numero FROM riohurta_turismo.emergencia; ";
 
         $result = $this->con->query($sql);
 
@@ -67,7 +67,7 @@ class EmergenciaService {
         $emergencias = array();
         $emergencia = null;
 
-        $sql = " SELECT id_emergencia, tipo, ubicacion, numero FROM riohurta_riohurtado.emergencia WHERE tipo='$tipo'; ";
+        $sql = " SELECT id_emergencia, tipo, ubicacion, numero FROM riohurta_turismo.emergencia WHERE tipo='$tipo'; ";
 
         $result = $this->con->query($sql);
 
@@ -85,7 +85,7 @@ class EmergenciaService {
     public function read_emergencias_by_id($idEmergencia) {
 
      
-        $sql = " SELECT id_emergencia, tipo, ubicacion, numero FROM riohurta_riohurtado.emergencia WHERE id_emergencia=$idEmergencia; ";
+        $sql = " SELECT id_emergencia, tipo, ubicacion, numero FROM riohurta_turismo.emergencia WHERE id_emergencia=$idEmergencia; ";
 
         $result = $this->con->query($sql);
 

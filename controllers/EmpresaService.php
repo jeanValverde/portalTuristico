@@ -32,7 +32,7 @@ class EmpresaService {
      *      */
     public function create_empresa($nombre, $cantidadBuses, $contacto, $direccion, $rutaInicio, $rutaFin, $tipo) {
 
-        $sql = " INSERT INTO `riohurta_riohurtado`.`empresa` (`nombre`, `cantidad_buses`, `Contacto`, `direccion`, `ruta_inicio`, `ruta_fin`, `tipo`) 
+        $sql = " INSERT INTO `riohurta_turismo`.`empresa` (`nombre`, `cantidad_buses`, `Contacto`, `direccion`, `ruta_inicio`, `ruta_fin`, `tipo`) 
                  VALUES ('$nombre', $cantidadBuses , '$contacto', '$direccion', '$rutaInicio', '$rutaFin', '$tipo'); ";
 
         return $this->con->query($sql);
@@ -44,7 +44,7 @@ class EmpresaService {
         $empresas = array();
         $empresa = null;
 
-        $sql = " SELECT id_empresa  , nombre, cantidad_buses, Contacto, direccion, ruta_inicio, ruta_fin, tipo  FROM riohurta_riohurtado.empresa;";
+        $sql = " SELECT id_empresa  , nombre, cantidad_buses, Contacto, direccion, ruta_inicio, ruta_fin, tipo  FROM riohurta_turismo.empresa;";
 
         $result = $this->con->query($sql);
 
@@ -66,7 +66,7 @@ class EmpresaService {
     public function read_empresa_by_id($idEmpresa) {
 
         $sql = " SELECT id_empresa  , nombre, cantidad_buses, Contacto, direccion, ruta_inicio, ruta_fin, tipo  "
-                . " FROM riohurta_riohurtado.empresa where id_empresa = $idEmpresa   ";
+                . " FROM riohurta_turismo.empresa where id_empresa = $idEmpresa   ";
 
         $result = $this->con->query($sql);
 
@@ -91,7 +91,7 @@ class EmpresaService {
     
     public function update_empresa($idEmpresa , $nombre, $cantidadBuses, $contacto, $direccion, $rutaInicio, $rutaFin, $tipo) {
 
-        $sql = " UPDATE riohurta_riohurtado.empresa  SET 
+        $sql = " UPDATE riohurta_turismo.empresa  SET 
                  nombre='$nombre', 
                  cantidad_buses='$cantidadBuses', 
                  Contacto='$contacto', 
@@ -107,7 +107,7 @@ class EmpresaService {
     
 
     public function delete_empresa($idEmpresa) {
-        $sql = " DELETE FROM riohurta_riohurtado.empresa where id_empresa = $idEmpresa ; ";
+        $sql = " DELETE FROM riohurta_turismo.empresa where id_empresa = $idEmpresa ; ";
         return $this->con->query($sql);
     }
 
