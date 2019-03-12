@@ -140,7 +140,7 @@ if (isset($arrayTurismo)) {
                                 <?php if ($turismo->getPagina() != "") { ?>
                                     <br/><br/>
                                     <a  class="btn btn-icon btn-2 btn-primary text-white" >
-                                        <span class="btn-inner--icon">Página web</span><?= $turismo->getPagina() ?>
+                                        <span class="btn-inner--icon"></span><?= $turismo->getPagina() ?>
                                     </a>
                                 <?php } ?>
 
@@ -257,7 +257,7 @@ if (isset($arrayTurismo)) {
                                 <?php if ($turismo->getPagina() != "") { ?>
                                     <br/><br/>
                                     <a  class="btn btn-icon btn-2 btn-primary text-white" >
-                                        <span class="btn-inner--icon">Página web</span><?= $turismo->getPagina() ?>
+                                        <span class="btn-inner--icon"></span><?= $turismo->getPagina() ?>
                                     </a>
                                 <?php } ?>
 

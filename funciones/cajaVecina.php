@@ -45,6 +45,7 @@ if (isset($_GET['idTurismo'])) {
                     <h6 class="heading-small text-muted mb-4">Agrega o edita</h6>
                     <div class="pl-lg-4">
                         <input type="hidden" name="tipo" value="cajaVecina" />
+                        <input  type="hidden" name="paginaActiva" value="<?= $paginaActiva ?>" />
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -73,13 +74,10 @@ if (isset($_GET['idTurismo'])) {
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-first-name">Link Mapa</label>
-                                    <input name="mapa" value="<?php
-                                    
+                                    <textarea name="mapa" value="" rows="6"  id="input-first-name" class="form-control form-control-alternative" placeholder="https://www.google.com/maps/place/Minimarket+EL+AGRADO/@-30.4080404,-70.9468803,989m/data=!3m1!1e3!4m13!1m7!3m6!1s0x968fc4bd40e951c3:0x66c88b5a849d6c45!2sSamo+Alto,+R%C3%ADo+Hurtado,+Regi%C3%B3n+de+Coquimbo!3b1!8m2!3d-30.408194!4d-70.9367848!3m4!1s0x968fc59c627be4d5:0xaa774e3bb7255fcb!8m2!3d-30.4089017!4d-70.9460237"><?php
                                     if(isset($cajaVecina)){
                                         echo $cajaVecina->getMapa();
-                                    }
-                                    
-                                    ?>" type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="https://www.google.com/maps/place/Minimarket+EL+AGRADO/@-30.4080404,-70.9468803,989m/data=!3m1!1e3!4m13!1m7!3m6!1s0x968fc4bd40e951c3:0x66c88b5a849d6c45!2sSamo+Alto,+R%C3%ADo+Hurtado,+Regi%C3%B3n+de+Coquimbo!3b1!8m2!3d-30.408194!4d-70.9367848!3m4!1s0x968fc59c627be4d5:0xaa774e3bb7255fcb!8m2!3d-30.4089017!4d-70.9460237">
+                                    }?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +136,7 @@ if (isset($_GET['idTurismo'])) {
                                 <td><?= $turismo->getLongitud(); ?></td>
                                 <td>
                                     <a href="../admin/cajaVecina?idTurismo=<?= $turismo->getIdTurismo(); ?>" class="btn btn-warning" >Editar</a>
-                                    <a href="../../funciones/deleteTurismo.php?idTurismo=<?= $turismo->getIdTurismo(); ?>"   class="btn btn-danger" >Eliminar</a>
+                                    <a href="../../funciones/deleteTurismo.php?idTurismo=<?= $turismo->getIdTurismo(); ?>&paginaActiva=<?= $paginaActiva ?>"   class="btn btn-danger" >Eliminar</a>
                                     <a href="<?= $turismo->getMapa(); ?>" target="_black"   class="btn btn-success" >Mapa</a>
                                 </td>
                             </tr>

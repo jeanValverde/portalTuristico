@@ -38,9 +38,8 @@ if (!empty($_POST)) {
         
     
     
-    $contrasenaPaso = $servicio->get_password();
-    
-    $contrasena = sha1($contrasenaPaso); 
+    $contrasena = $servicio->get_password();
+     
     
     //1 activo - 0 inactivo
     $estado = 1;

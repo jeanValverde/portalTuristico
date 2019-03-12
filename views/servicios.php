@@ -137,123 +137,7 @@
         </style>
 
 
-        <script>
-
-            var map = L.map('map').setView([51.505, -0.09], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            map.scrollWheelZoom.disable();
-
-            L.marker([51.5, -0.09]).addTo(map)
-                    .bindPopup('A pretty CSS3 popup.<br> Easily customizable <br/> <a target="_black" href="https://www.openstreetmap.org/copyright">Ampiar mapa</a>.')
-                    .openPopup();
-
-
-        </script>
-
-
-        <?= $id = "map-2"; ?>
-
-        <script>
-
-            var map = L.map('<?= $id; ?>').setView([-30.4080404, -70.9468803, 989], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            map.scrollWheelZoom.disable();
-
-            L.marker([-30.4080404, -70.9468803, 989]).addTo(map)
-                    .bindPopup('Minemarket EL AGRADO <br/> <a target="_black" href="https://www.google.com/maps/place/Minimarket+EL+AGRADO/@-30.4080404,-70.9468803,989m/data=!3m1!1e3!4m13!1m7!3m6!1s0x968fc4bd40e951c3:0x66c88b5a849d6c45!2sSamo+Alto,+R%C3%ADo+Hurtado,+Regi%C3%B3n+de+Coquimbo!3b1!8m2!3d-30.408194!4d-70.9367848!3m4!1s0x968fc59c627be4d5:0xaa774e3bb7255fcb!8m2!3d-30.4089017!4d-70.9460237">Ampiar mapa</a>.')
-                    .openPopup();
-
-
-        </script>
-
-
-
-        <?= $id = "map-3"; ?>
-
-        <script>
-
-            var map = L.map('<?= $id; ?>').setView([51.505, -0.09], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            map.scrollWheelZoom.disable();
-
-            L.marker([51.5, -0.09]).addTo(map)
-                    .bindPopup('A pretty CSS3 popup.<br> Easily customizable <br/> <a target="_black" href="https://www.openstreetmap.org/copyright">Ampiar mapa</a>.')
-                    .openPopup();
-
-
-        </script>
-
-        <?= $id = "map-4"; ?>
-
-        <script>
-
-            var map = L.map('<?= $id; ?>').setView([51.505, -0.09], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            map.scrollWheelZoom.disable();
-
-            L.marker([51.5, -0.09]).addTo(map)
-                    .bindPopup('A pretty CSS3 popup.<br> Easily customizable <br/> <a target="_black" href="https://www.openstreetmap.org/copyright">Ampiar mapa</a>.')
-                    .openPopup();
-
-
-        </script>
-
-
-        <?= $id = "map-5"; ?>
-
-        <script>
-
-            var map = L.map('<?= $id; ?>').setView([51.505, -0.09], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            map.scrollWheelZoom.disable();
-
-            L.marker([51.5, -0.09]).addTo(map)
-                    .bindPopup('A pretty CSS3 popup.<br> Easily customizable <br/> <a target="_black" href="https://www.openstreetmap.org/copyright">Ampiar mapa</a>.')
-                    .openPopup();
-
-
-        </script>
-
-        <?= $id = "map-6"; ?>
-
-        <script>
-
-            var map = L.map('<?= $id; ?>').setView([51.505, -0.09], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            map.scrollWheelZoom.disable();
-
-            L.marker([51.5, -0.09]).addTo(map)
-                    .bindPopup('A pretty CSS3 popup.<br> Easily customizable <br/> <a target="_black" href="https://www.openstreetmap.org/copyright">Ampiar mapa</a>.')
-                    .openPopup();
-
-
-        </script>
-
-
+       
         <?php
         if (isset($arrayCajasVecinasMapa)) {
             while ($cajaVecinaMapa = array_shift($arrayCajasVecinasMapa)) {
@@ -269,10 +153,9 @@
 
                     map.scrollWheelZoom.disable();
 
-                    L.marker([<?= $cajaVecinaMapa->getLatitud(); ?>, <?= $cajaVecinaMapa->getLongitud(); ?>]).addTo(map)
-                            .bindPopup(' <?= $cajaVecinaMapa->getNombre(); ?> <br/> <a target="_black" href="<?= $cajaVecinaMapa->getMapa(); ?>">Ampiar mapa</a>.')
+                    L.marker([<?= $cajaVecinaMapa->getLatitud(); ?> , <?= $cajaVecinaMapa->getLongitud(); ?>]).addTo(map)
+                            .bindPopup('<?= $cajaVecinaMapa->getNombre(); ?> <br/> <a target="_black" href="<?php $mapa = $cajaVecinaMapa->getMapa(); $mapaFormat = str_replace("\'", "&#39;", $mapa ); echo $mapaFormat ?>">Ampiar mapa</a>.')
                             .openPopup();
-
 
                 </script>
 
@@ -280,6 +163,9 @@
         }
         ?>
 
+               
+
+           
 
 
     </body>

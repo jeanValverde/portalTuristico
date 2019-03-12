@@ -75,6 +75,28 @@ class TurismoService {
         return $this->con->query($sql);
     }
 
+    public function get_mapa_format($mapa) {
+
+        $mapa_format = str_replace("'", "&#39;",  $mapa);
+        
+        return $mapa_format;
+        
+    }
+    
+    public function create_turismo_caja_vecina($turismo) {
+
+        $tipo = $turismo->getTipo();
+        $nombre = $turismo->getNombre();
+        $latitud = $turismo->getLatitud();
+        $longitud = $turismo->getLongitud();
+        $mapa = $turismo->getMapa();
+        $localidad = $turismo->getLocalidad();
+        
+        $sql = "  INSERT INTO `riohurta_riohurtado`.`turismo` (`tipo`, `nombre`, `latitud`, `longitud`, `mapa`, `localidad`) "
+                . " VALUES ('$tipo', '$nombre', '$latitud', '$longitud', '$mapa', '$localidad');  ";
+
+        return $this->con->query($sql);
+    }
     
     public function read_turismos_by_tipo($tipo) {
         $turismos = array();
@@ -109,8 +131,61 @@ class TurismoService {
         }
         return $turismos;
     }
-    
-     public function read_turismos_by_max_id($tipo) {
+
+    public function read_turismos_by_tipos($tipos) {
+        $turismos = array();
+        $turismo = null;
+
+        $where = "";
+
+
+        //saco el numero de elementos
+        $longitud = count($tipos);
+        //Recorro todos los elementos
+        $andTipos = "";
+        
+        for ($i = 0; $i < $longitud; $i++) {
+            //saco el valor de cada elemento
+            if($i  == 0){
+                $where = " WHERE tipo='$tipos[$i]'";
+            }else{
+                $andTipos = $andTipos . " OR tipo='$tipos[$i]' ";
+            }
+        }
+        
+        $where = $where . " " . $andTipos;
+
+        $sql = " SELECT id_turismo , tipo, nombre, descripcion, latitud, longitud, mapa, contacto, fono, localidad, facebook, instagram, twiter, pagina, foto_1, foto_2, foto_3 "
+                . " FROM riohurta_riohurtado.turismo " . $where . " ;";
+
+        $result = $this->con->query($sql);
+
+        while ($fila = mysqli_fetch_array($result)) {
+
+            $turismo = new Turismo();
+            $turismo->setIdTurismo($fila['id_turismo']);
+            $turismo->setNombre($fila['nombre']);
+            $turismo->setDescripcion($fila['descripcion']);
+            $turismo->setLatitud($fila['latitud']);
+            $turismo->setLongitud($fila['longitud']);
+            $turismo->setMapa($fila['mapa']);
+            $turismo->setContacto($fila['contacto']);
+            $turismo->setFono($fila['fono']);
+            $turismo->setLocalidad($fila['localidad']);
+            $turismo->setFacebook($fila['facebook']);
+            $turismo->setInstagram($fila['instagram']);
+            $turismo->setTwiter($fila['twiter']);
+            $turismo->setPagina($fila['pagina']);
+            $turismo->setFoto1($fila['foto_1']);
+            $turismo->setFoto2($fila['foto_2']);
+            $turismo->setFoto3($fila['foto_3']);
+
+            array_push($turismos, $turismo);
+        }
+        return $turismos;
+    }
+
+    public function read_turismos_by_max_id($tipo) {
         $turismos = array();
         $turismo = null;
 
@@ -121,6 +196,7 @@ class TurismoService {
         $fila = mysqli_fetch_array($result);
         $turismo = new Turismo();
         $turismo->setIdTurismo($fila['id_turismo']);
+        $turismo->setTipo($fila['tipo']);
         $turismo->setNombre($fila['nombre']);
         $turismo->setDescripcion($fila['descripcion']);
         $turismo->setLatitud($fila['latitud']);
@@ -140,6 +216,48 @@ class TurismoService {
 
         return $turismo;
     }
+    
+     public function read_turismos_by_max_id_tipos($tipos) {
+        $turismos = array();
+        $turismo = null;
+        
+        $where =  "";
+        
+        $longitud = count($tipos);
+         for ($i = 0; $i < $longitud; $i++) {
+            //saco el valor de cada elemento
+            if($i == 0){
+                $where = " tipo='$tipos[$i] '"; 
+            }else{
+                $where = $where . " OR tipo='$tipos[$i]'";
+            }
+        }
+
+        $sql = " SELECT id_turismo , tipo, nombre, descripcion, latitud, longitud, mapa, contacto, fono, localidad, facebook, instagram, twiter, pagina, foto_1, foto_2, foto_3 
+FROM riohurta_riohurtado.turismo where id_turismo = (SELECT MAX(id_turismo)  FROM riohurta_riohurtado.turismo where $where); ";
+
+        $result = $this->con->query($sql);
+        $fila = mysqli_fetch_array($result);
+        $turismo = new Turismo();
+        $turismo->setIdTurismo($fila['id_turismo']);
+        $turismo->setTipo($fila['tipo']);
+        $turismo->setNombre($fila['nombre']);
+        $turismo->setDescripcion($fila['descripcion']);
+        $turismo->setLatitud($fila['latitud']);
+        $turismo->setLongitud($fila['longitud']);
+        $turismo->setMapa($fila['mapa']);
+        $turismo->setContacto($fila['contacto']);
+        $turismo->setFono($fila['fono']);
+        $turismo->setLocalidad($fila['localidad']);
+        $turismo->setFacebook($fila['facebook']);
+        $turismo->setInstagram($fila['instagram']);
+        $turismo->setTwiter($fila['twiter']);
+        $turismo->setPagina($fila['pagina']);
+        $turismo->setFoto1($fila['foto_1']);
+        $turismo->setFoto2($fila['foto_2']);
+        $turismo->setFoto3($fila['foto_3']);
+        return $turismo;
+    }
 
     public function deleteTurismo_by_id($idTurismo) {
         $sql = " DELETE FROM riohurta_riohurtado.turismo WHERE id_turismo='$idTurismo';  ";
@@ -155,6 +273,7 @@ class TurismoService {
         $fila = mysqli_fetch_array($result);
         $turismo = new Turismo();
         $turismo->setIdTurismo($fila['id_turismo']);
+        $turismo->setTipo($fila['tipo']);
         $turismo->setNombre($fila['nombre']);
         $turismo->setDescripcion($fila['descripcion']);
         $turismo->setLatitud($fila['latitud']);
@@ -218,7 +337,7 @@ class TurismoService {
 
         return $this->con->query($sql);
     }
-    
+
     public function update_turismo_without_foto($turismo) {
 
         $idTurismo = $turismo->getIdTurismo();
@@ -256,31 +375,29 @@ class TurismoService {
 
         return $this->con->query($sql);
     }
-    
-    public function update_turismo_foto($id, $parametro , $foto) {
+
+    public function update_turismo_foto($id, $parametro, $foto) {
 
         $sql = " UPDATE `riohurta_riohurtado`.`turismo` "
-                . " SET " 
+                . " SET "
                 . " `$parametro`='$foto' "
                 . " WHERE `id_turismo`='$id'; ";
 
         return $this->con->query($sql);
     }
 
-    
-     public function upload_imagen($uploadfile_temporal , $extencion , $ruta , $nombreNuevo) {
+    public function upload_imagen($uploadfile_temporal, $extencion, $ruta, $nombreNuevo) {
         $archivoFinal = null;
-        
+
         $uploadfile_nombre = $ruta . $nombreNuevo . '.' . $extencion;
 
         if (is_uploaded_file($uploadfile_temporal)) {
             move_uploaded_file($uploadfile_temporal, $uploadfile_nombre);
             $archivoFinal = $nombreNuevo . '.' . $extencion;
-        } 
+        }
         return $archivoFinal;
     }
-    
-    
+
     function gen_uuid() {
         $uuid = array(
             'time_low' => 0,
@@ -306,14 +423,9 @@ class TurismoService {
 
         return $uuid;
     }
-    
-    
-    public function delete_foto($direccion){
+
+    public function delete_foto($direccion) {
         unlink($direccion);
     }
-    
-    
-    
-    
-    
+
 }

@@ -6,10 +6,32 @@ include_once '../../models/Turismo.php';
 $servicio = new TurismoService();
 
 
+if ($tipo == "actividad") {
 
-$turismoMax = $servicio->read_turismos_by_max_id($tipo);
+    $tipos = array("Festival", "Artesanal", "Otro");
 
-$turismos = $servicio->read_turismos_by_tipo($tipo);
+    $turismos = $servicio->read_turismos_by_tipos($tipos);
+
+    $turismoMax = $servicio->read_turismos_by_max_id_tipos($tipos);
+    
+} else if ($tipo == "atractivo") {
+    
+    $tipos = array( "Ruta", "Monumento Natural");
+
+    $turismos = $servicio->read_turismos_by_tipos($tipos);
+
+    $turismoMax = $servicio->read_turismos_by_max_id_tipos($tipos);
+    
+    
+} else {
+
+    $turismoMax = $servicio->read_turismos_by_max_id($tipo);
+    $turismos = $servicio->read_turismos_by_tipo($tipo);
+    
+}
+
+
+
 
 $form = "agregar";
 
@@ -17,6 +39,7 @@ if (isset($_GET['views'])) {
 
     $turismoMax = $servicio->read_turismo_by_id($_GET['views']);
 }
+
 
 if (isset($_GET['idTurismo'])) {
     $form = "editar";
@@ -32,18 +55,17 @@ if (isset($_GET['idTurismo'])) {
                 <nav aria-label="...">
                     <br/>
                     <div class="row"  >
-                       
-                             <?php
-                    while ($turismo = array_shift($turismos)) {
-                        ?>
-                         <div class="col-md-4" >
-                        <ul class="pagination">
-                            <li class="page-item <?= ($turismoMax->getIdTurismo() == $turismo->getIdTurismo() ) ? 'active' : '' ?>" title="<?= $turismo->getNombre() ?>" >
-                                <a  href="../admin/restaurante?views=<?= $turismo->getIdTurismo(); ?>" class="badge badge-danger text-white"><?= $turismo->getNombre() ?></a>
-                            </li>
-                        </ul>
-                         </div>
-                    <?php } ?>
+                        <?php
+                        while ($turismo = array_shift($turismos)) {
+                            ?>
+                            <div class="col-md-4" >
+                                <ul class="pagination">
+                                    <li class="page-item <?= ($turismoMax->getIdTurismo() == $turismo->getIdTurismo() ) ? 'active' : '' ?>" title="<?= $turismo->getNombre() ?>" >
+                                        <a  href="../admin/<?= $tipo ?>?views=<?= $turismo->getIdTurismo(); ?>" class="badge badge-danger text-white"><?= $turismo->getNombre() ?></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        <?php } ?>
                     </div>
                 </nav>
             </div>
@@ -78,38 +100,41 @@ if (isset($_GET['idTurismo'])) {
                         <br/>
                         <div id="map-6" class="card-img-top" style="height: 200px;"></div>
                         <div class="card-body text-center">
+                            
                             <h3 class="text-primary text-uppercase text-justify"><?= $turismoMax->getNombre() ?></h3>
                             <p class="description text-justify"><?= $turismoMax->getDescripcion() ?></p>
 
                             <span class="badge badge-success"><?= 'Contacto: ' . $turismoMax->getContacto(); ?></span>
-
+                            
+                            <span   class="badge badge-info"><?= 'Tipo: ' .  $turismoMax->getTipo() ?></span>
+                            
                             <span class="badge badge-danger"><?= 'Fono: ' . $turismoMax->getFono(); ?></span>
                             <br/><br/>
                             <?php if ($turismoMax->getFacebook() != "") { ?>
-                                <a href="#" target="_black" class="btn btn-icon btn-2 btn-primary" >
+                                <a href="#facebook" class="btn btn-icon btn-2 btn-primary" >
                                     <span class="btn-inner--icon"><i class="ni ni-facebook"></i>Facebook: <?= $turismoMax->getFacebook(); ?></span>
                                 </a>
                             <?php } ?>
                             <?php if ($turismoMax->getTwiter() != "") { ?>
-                                <a href="#" target="_black" class="btn btn-icon btn-2 btn-info" >
+                                <a href="#twiter"  class="btn btn-icon btn-2 btn-info" >
                                     <span class="btn-inner--icon"><i class="ni ni-"></i>Twitter <?= $turismoMax->getTwiter(); ?></span>
                                 </a>
                             <?php } ?>
                             <?php if ($turismoMax->getInstagram() != "") { ?>
-                            <br><br>
-                                <a href="#" target="_black" class="btn btn-icon btn-2 btn-danger" >
+                                <br><br>
+                                <a href="#instagram"  class="btn btn-icon btn-2 btn-danger" >
                                     <span class="btn-inner--icon"><i class="ni ni-"></i>Instagram <?= $turismoMax->getInstagram(); ?></span>
                                 </a>
                             <?php } ?>
                             <?php if ($turismoMax->getPagina() != "") { ?>
-                            <a href="#" target="_black" class="btn btn-icon btn-2 btn-warning" >
+                                <a href="#pagina"  class="btn btn-icon btn-2 btn-warning" >
                                     <span class="btn-inner--icon">Web <?= $turismoMax->getPagina(); ?></span>
                                 </a>
                             <?php } ?>
                             <br><br>
                             <hr class="my-4">
                             <a href="../admin/<?= $tipo ?>?idTurismo=<?= $turismoMax->getIdTurismo(); ?>" class="btn btn-warning">Editar</a>
-                            <a href="../../funciones/deleteTurismo.php?idTurismo=<?= $turismoMax->getIdTurismo(); ?>&tipo=<?= $tipo ?>" class="btn btn-danger">Elminar</a>
+                            <a href="../../funciones/deleteTurismo.php?idTurismo=<?= $turismoMax->getIdTurismo(); ?>&paginaActiva=<?= $paginaActiva ?>" class="btn btn-danger">Elminar</a>
                         </div>
                     </div>
                 </div>
@@ -141,24 +166,68 @@ if (isset($_GET['idTurismo'])) {
                 }
                 ?>"  >
                     <h6 class="heading-small text-muted mb-4"><?= $tipo ?></h6>
-                    
-                    
-                    <input name="tipo" value="<?= $tipo ?>" type="hidden"  />
-                    
-                    
-                    
+                    <input name="paginaActiva" value="<?= $paginaActiva ?>" type="hidden"  />
                     <div class="pl-lg-4">
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="input-username">Nombre</label>
-                                    <input name="nombre" type="text" id="input-username" class="form-control form-control-alternative" placeholder="Noticia" value="<?php
-                                    if (isset($turismoEdit)) {
-                                        echo $turismoEdit->getNombre();
-                                    }
-                                    ?>">
+                            <?php if ($tipo == "actividad" || $tipo == "atractivo") { ?>
+                                
+                                <div class="col-md-3" >
+                                    <div class="form-group">
+                                        <label for="tipo">Tipos</label>
+                                        <select <?php if(isset($turismoEdit)){ echo "disabled"; } ?> name="tipo" class="form-control" id="tipo">
+                                            <option value="select" >Seleccione</option>
+                                            <?php
+                                            if (isset($turismoEdit)) {
+                                                foreach ($tipos as $tipoOpt) {
+                                                    if ($tipoOpt == $turismoEdit->getTipo()) {
+                                                        echo "<option value='$tipoOpt' selected='true' >$tipoOpt</option>";
+                                                    } else {
+                                                        echo "<option value='$tipoOpt'>$tipoOpt</option>";
+                                                    }
+                                                }
+                                            } else {
+                                                if (isset($tipos)) {
+                                                    foreach ($tipos as $tipoOpt) {
+                                                        echo "<option value='$tipoOpt'>$tipoOpt</option>";
+                                                    }
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
+                            
+                            <?php if(isset($turismoEdit)){ ?>
+                            <input type="hidden" name="tipo" value="<?= $turismoEdit->getTipo() ?>" />
+                            <?php } ?>
+                            
+                            
+
+
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="input-username">Nombre</label>
+                                        <input name="nombre" type="text" id="input-username" class="form-control form-control-alternative" placeholder="Nombre" value="<?php
+                                        if (isset($turismoEdit)) {
+                                            echo $turismoEdit->getNombre();
+                                        }
+                                        ?>">
+                                    </div>
+                                </div>
+
+                            <?php } else { ?>
+                                <div class="col-lg-6">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="input-username">Nombre</label>
+                                        <input name="nombre" type="text" id="input-username" class="form-control form-control-alternative" placeholder="Noticia" value="<?php
+                                        if (isset($turismoEdit)) {
+                                            echo $turismoEdit->getNombre();
+                                        }
+                                        ?>">
+                                    </div>
+                                </div>
+                                <input name="tipo" value="<?= $tipo ?>" type="hidden"  />
+                            <?php } ?>
 
                             <div class="col-lg-3">
                                 <div class="form-group focused">
@@ -184,6 +253,7 @@ if (isset($_GET['idTurismo'])) {
 
                         </div>
                     </div>
+
                     <hr class="my-4">
                     <!-- Description -->
                     <h6 class="heading-small text-muted mb-4">Descripción</h6>

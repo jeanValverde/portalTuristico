@@ -6,11 +6,15 @@ include_once '../models/Turismo.php';
 include_once '../controllers/EmergenciaService.php';
 include_once '../models/Emergencia.php';
 
+
+
 $servicio = new TurismoService();
 
 $arrayCajasVecinas = $servicio->read_turismos_by_tipo('cajaVecina');
 
 $arrayCajasVecinasMapa = $servicio->read_turismos_by_tipo('cajaVecina');
+
+
 
 $servicioEmergecia = new EmergenciaService();
 
@@ -45,7 +49,7 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bomberos
                                     while ($emergencia = array_shift($arrayEmergenciaCarabinero)) {
                                         ?>
                                         <h6 class="card-subtitle mb-2 text-muted"><br/><?= $emergencia->getUbicacion(); ?></h6>
-                                        <a href="tel:+34000000000" class="card-link" >+5698373837</a>
+                                        <a href="tel:<?= $emergencia->getNumero(); ?>" class="card-link" ><?= $emergencia->getNumero(); ?></a>
                                         <?php
                                     }
                                 }
@@ -65,7 +69,7 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bomberos
                                     while ($emergencia = array_shift($arrayEmergenciaSalud)) {
                                         ?>
                                         <h6 class="card-subtitle mb-2 text-muted"><br/><?= $emergencia->getUbicacion(); ?></h6>
-                                        <a href="tel:+34000000000" class="card-link" >+5698373837</a>
+                                        <a href="tel:<?= $emergencia->getNumero(); ?>" class="card-link" ><?= $emergencia->getNumero(); ?></a>
                                         <?php
                                     }
                                 }
@@ -86,7 +90,7 @@ $arrayEmergenciaBombero = $servicioEmergecia->read_emergencias_by_tipo('Bomberos
                                     while ($emergencia = array_shift($arrayEmergenciaBombero)) {
                                         ?>
                                         <h6 class="card-subtitle mb-2 text-muted"><br/><?= $emergencia->getUbicacion(); ?></h6>
-                                        <a href="tel:+34000000000" class="card-link" >+5698373837</a>
+                                        <a href="tel:<?= $emergencia->getNumero(); ?>" class="card-link" ><?= $emergencia->getNumero(); ?></a>
                                         <?php
                                     }
                                 }

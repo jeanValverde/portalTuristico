@@ -4,6 +4,7 @@ include_once '../models/Connection.php';
 include_once '../controllers/TurismoService.php';
 include_once '../models/Turismo.php';
 
+header("Content-Type: text/html;charset=utf-8");
 
 if (!empty($_POST)) {
 
@@ -22,17 +23,24 @@ if (!empty($_POST)) {
 
     $turismo = new Turismo();
 
+
+
+    $paginaActiva = $_POST['paginaActiva'];
+
     if ($tipo == "cajaVecina") {
 
-
+        $turismo = new Turismo();
+        $mapa_format = $service->get_mapa_format($mapa);
         $turismo->setTipo($tipo);
         $turismo->setNombre($nombre);
         $turismo->setLocalidad($localidad);
-        $turismo->setMapa($mapa);
+        $turismo->setMapa($mapa_format);
         $turismo->setLatitud($latitud);
         $turismo->setLongitud($longitud);
+        
 
-        $resultado = $service->create_turismo($turismo);
+        $resultado = $service->create_turismo_caja_vecina($turismo);
+        
         
     } else {
 
@@ -70,7 +78,8 @@ if (!empty($_POST)) {
         $turismo->setTipo($tipo);
         $turismo->setNombre($nombre);
         $turismo->setLocalidad($localidad);
-        $turismo->setMapa($mapa);
+        $mapaFormat = $service->get_mapa_format($mapa);
+        $turismo->setMapa($mapaFormat);
         $turismo->setLatitud($latitud);
         $turismo->setLongitud($longitud);
         $turismo->setDescripcion($descripcion);
@@ -103,7 +112,7 @@ if (!empty($_POST)) {
                 $nombreFoto2 = $service->gen_uuid();
                 $img2 = $service->upload_imagen($uploadfile_temporal2, $extencion2, $ruta, $nombreFoto2);
                 $turismo->setFoto2($img2);
-            }else{
+            } else {
                 $turismo->setFoto2('');
             }
 
@@ -112,7 +121,7 @@ if (!empty($_POST)) {
                 $nombreFoto3 = $service->gen_uuid();
                 $img3 = $service->upload_imagen($uploadfile_temporal3, $extencion3, $ruta, $nombreFoto3);
                 $turismo->setFoto3($img3);
-            }else{
+            } else {
                 $turismo->setFoto3('');
             }
         }
@@ -121,8 +130,9 @@ if (!empty($_POST)) {
     }
 
     if ($resultado) {
-        header("Location: ../views/admin/" . strtolower($tipo));
+        header("Location: ../views/admin/" . strtolower($paginaActiva));
     } else {
-        header("Location: ../views/admin/" . strtolower($tipo) . "?error");
+
+        header("Location: ../views/admin/" . strtolower($paginaActiva) . "?error");
     }
 }

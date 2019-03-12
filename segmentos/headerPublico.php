@@ -17,7 +17,6 @@
         <div class="container" >
             <img src="./assets/img/theme/isotipo_monotono_3.png" width="40"   >
             <a class="navbar-brand mr-lg-5" href="transporte" >
-
                 Portal turístico
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +61,7 @@
                                     </div>
                                     <div class="media-body ml-3">
                                         <h6 class="heading text-primary mb-md-1">Recorrido de Aseo Público</h6>
-                                        <p class="description d-none d-md-inline-block mb-0">Recorrido buses interurbano, Salida desde Terminal Buses Rurales Feria Modelo Ovalle</p>
+                                        <p class="description d-none d-md-inline-block mb-0">Recorrido de aseo comunal</p>
                                     </div>
                                 </a>
                                 <a href="turismo?tipo=Restaurante" class="media d-flex align-items-center">
@@ -71,7 +70,7 @@
                                     </div>
                                     <div class="media-body ml-3">
                                         <h6 class="heading text-primary mb-md-1">Restaurantes</h6>
-                                        <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p>
+                                        <p class="description d-none d-md-inline-block mb-0">Comidas típicas, menú a la carta, atención a delegaciones, salón de eventos y más.</p>
                                     </div>
                                 </a>
                                 <a href="turismo?tipo=Acampar" class="media d-flex align-items-center">
@@ -80,7 +79,7 @@
                                     </div>
                                     <div class="media-body ml-3">
                                         <h5 class="heading text-warning mb-md-1">Sitios para Acampar</h5>
-                                        <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
+                                        <p class="description d-none d-md-inline-block mb-0">Camping y agrocamping para acampar equipados de luz, agua potable, asaderas, baños, duchas, mesones, senderos y más.</p>
                                     </div>
                                 </a>
                                 <a href="turismo?tipo=Alojamiento" class="media d-flex align-items-center">
@@ -89,7 +88,7 @@
                                     </div>
                                     <div class="media-body ml-3">
                                         <h5 class="heading text-info mb-md-1">Alojamientos</h5>
-                                        <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
+                                        <p class="description d-none d-md-inline-block mb-0">Cabañas y habitaciones con estilo señorial equipados con quincho, piscina, servicios de alimentación y más.</p>
                                     </div>
                                 </a>
                                 <a href="Servicios" class="media d-flex align-items-center">
@@ -97,8 +96,8 @@
                                         <i class="ni ni-ui-04 fa fa-medkit "></i>
                                     </div>
                                     <div class="media-body ml-3">
-                                        <h5 class="heading text-danger mb-md-1">Servicios Publicos</h5>
-                                        <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
+                                        <h5 class="heading text-danger mb-md-1">Utilidad pública</h5>
+                                        <p class="description d-none d-md-inline-block mb-0">Datos de utilidad pública para emergencias y puntos de Caja Vecina.</p>
                                     </div>
                                 </a>
                             </div>
@@ -121,7 +120,7 @@
                             <span class="nav-link-inner--text">Atractivos Turísticos</span>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="turismo?tipo=MonumentoNatural" class="dropdown-item">Monumento Natural</a>
+                            <a href="turismo?tipo=Monumento Natural" class="dropdown-item">Monumento Natural</a>
                             <a href="turismo?tipo=Ruta" class="dropdown-item">Rutas Arqueológicas</a>
                         </div>
                     </li>

@@ -53,13 +53,14 @@
                 </div>
             </div>
             <div class="card-body">
-                <form>
+                <form method="POST" action="../../funciones/changePassword.php"  >
+                    <input type="hidden" value="<?= $usuario->getRut(); ?>" name="rut" />
                     <div class="pl-lg-12">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-username">Contraseña actual</label>
-                                    <input type="password" id="input-username"  class="form-control form-control-alternative" placeholder="" value="">
+                                    <input type="password" name="passwordAnterior" id="input-username"  class="form-control form-control-alternative" placeholder="" value="">
                                 </div>
                             </div>
                         </div>
@@ -75,7 +76,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-username">Repita la contraseña</label>
-                                    <input type="password" id="input-username" class="form-control form-control-alternative" placeholder="" value="">
+                                    <input type="password" name="password" id="input-username" class="form-control form-control-alternative" placeholder="" value="">
                                 </div>
                             </div>
                         </div>

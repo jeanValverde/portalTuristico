@@ -40,8 +40,10 @@ class UsuarioService {
 
     public function create_usuario($rut, $nombre, $apellido, $contrasena, $tipo, $area, $estado, $contraseniaRecuperar, $correo, $cargo) {
 
+        $contrasenaSha = sha1($contrasena);
+
         $sql = " INSERT INTO `riohurta_riohurtado`.`usuarios` (`rut`, `nombre`, `apellido`, `contrasena`, `tipo`, `area`, `estado`, `contrasena_recuperar`, `correo`, `cargo`) "
-                . "VALUES ('$rut', '$nombre', '$apellido', '$contrasena', '$tipo', '$area', '$estado', '$contraseniaRecuperar', '$correo', '$cargo'); ";
+                . "VALUES ('$rut', '$nombre', '$apellido', '$contrasenaSha', '$tipo', '$area', '$estado', '$contraseniaRecuperar', '$correo', '$cargo'); ";
 
         return $this->con->query($sql);
     }
@@ -92,10 +94,7 @@ class UsuarioService {
         $usuario->setContraseniaRecuperar($fila['contrasena_recuperar']);
         return $usuario;
     }
-    
-    
-    
-    
+
     public function read_usuario_by_rut($rut) {
 
         $sql = " SELECT id_usuarios ,  rut , nombre, apellido, tipo, area, estado, correo, cargo , contrasena_recuperar FROM riohurta_riohurtado.usuarios WHERE rut='$rut'; ";
@@ -115,8 +114,6 @@ class UsuarioService {
         $usuario->setContraseniaRecuperar($fila['contrasena_recuperar']);
         return $usuario;
     }
-    
-    
 
     public function update_usuario($isUsuario, $nombre, $apellido, $tipo, $area, $correo, $cargo) {
 
@@ -137,7 +134,9 @@ class UsuarioService {
     }
 
     public function start_session_usuario($rut, $password) {
-        
+
+        //$passwordSha1 = sha1($password);
+
         $passwordSha1 = sha1($password);
 
         $sql = "  SELECT id_usuarios , rut , nombre , apellido , tipo , area, estado  , correo , cargo FROM riohurta_riohurtado.usuarios "
@@ -158,7 +157,7 @@ class UsuarioService {
         $usuario->setCargo($fila["cargo"]);
         return $usuario;
     }
-    
+
     public function read_usuario_by_id_contrasena_recuperar($encode) {
 
         $sql = "  SELECT id_usuarios , rut , nombre , apellido , tipo , area, estado  , correo , cargo FROM riohurta_riohurtado.usuarios "
@@ -179,22 +178,20 @@ class UsuarioService {
         $usuario->setCargo($fila["cargo"]);
         return $usuario;
     }
-    
-    
-    
+
     public function start_session($rut, $password) {
 
-        $sql = "  SELECT COUNT(*) usuario FROM riohurta_riohurtado.usuarios WHERE rut = '$rut' and contrasena = '$password';  ";
+        $password2 = sha1($password);
+
+        $sql = "  SELECT COUNT(*) usuario FROM riohurta_riohurtado.usuarios WHERE rut = '$rut' and contrasena = '$password2';  ";
 
         $result = $this->con->query($sql);
 
         $fila = mysqli_fetch_array($result);
-        $usuario =  $fila["usuario"];
+        $usuario = $fila["usuario"];
         return $usuario;
     }
-    
-    
-    
+
     public function read_usuario_encode_contrasena($encode) {
 
         $sql = "  SELECT COUNT(*) usuario FROM riohurta_riohurtado.usuarios WHERE contrasena_recuperar = '$encode'   ";
@@ -202,30 +199,29 @@ class UsuarioService {
         $result = $this->con->query($sql);
 
         $fila = mysqli_fetch_array($result);
-        $usuario =  $fila["usuario"];
+        $usuario = $fila["usuario"];
         return $usuario;
     }
-    
-    
 
-    /*
+    public function change_password($password, $rut) {
 
+        $passwordE = sha1($password);
 
+        $sql = " UPDATE `riohurta_riohurtado`.`usuarios` SET `contrasena`='$passwordE' WHERE `rut`='$rut'; ";
 
+        return $this->con->query($sql);
+    }
 
-      public function change_password($password, $indexRecuperacion) {
-      $sql = "  ";
+    public function change_password_session($passwordAnterior, $password, $rut) {
 
-      return $this->con->query($sql);
-      }
+        $passwordAnteriorSh1 = sha1($passwordAnterior);
 
+        $passwordE = sha1($password);
 
+        $sql = " UPDATE `riohurta_riohurtado`.`usuarios` SET `contrasena`='$passwordE' WHERE `rut`='$rut' and `contrasena`='$passwordAnteriorSh1'; ";
 
-
-     * 
-     * 
-     * 
-     *      */
+        return $this->con->query($sql);
+    }
 
     function get_password($longitud = 8, $opcLetra = TRUE, $opcNumero = TRUE, $opcMayus = TRUE, $opcEspecial = TRUE) {
         $letras = "abcdefghijklmnopqrstuvwxyz";
@@ -248,7 +244,7 @@ class UsuarioService {
             $password .= $caracter;
             $listado = str_shuffle($listado);
         }
-        return $password;
+        return sha1($password);
     }
 
     function gen_uuid() {

@@ -32,6 +32,7 @@ class Connection {
     function __construct() {
         $this->link = mysqli_connect($this->server, $this->username, $this->password, $this->database);
         $this->link->set_charset("utf8");
+        
     }
 
     public function query($sql) {

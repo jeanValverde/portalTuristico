@@ -15,6 +15,8 @@ if (!empty($_POST)) {
     $latitud = $_POST['latitud'];
     $longitud = $_POST['longitud'];
     $idTurismo = $_POST['idTurismo'];
+    
+    $paginaActiva = $_POST['paginaActiva'];
 
     $service = new TurismoService();
 
@@ -27,7 +29,8 @@ if (!empty($_POST)) {
         $turismo->setTipo($tipo);
         $turismo->setNombre($nombre);
         $turismo->setLocalidad($localidad);
-        $turismo->setMapa($mapa);
+        $mapaFormat = $service->get_mapa_format($mapa);
+        $turismo->setMapa($mapaFormat);
         $turismo->setLatitud($latitud);
         $turismo->setLongitud($longitud);
         
@@ -47,7 +50,8 @@ if (!empty($_POST)) {
         $turismo->setTipo($tipo);
         $turismo->setNombre($nombre);
         $turismo->setLocalidad($localidad);
-        $turismo->setMapa($mapa);
+        $mapaFormat = $service->get_mapa_format($mapa);
+        $turismo->setMapa($mapaFormat);
         $turismo->setLatitud($latitud);
         $turismo->setLongitud($longitud);
         $turismo->setDescripcion($descripcion);
@@ -114,9 +118,9 @@ if (!empty($_POST)) {
 
 
     if ($resultado) {
-        header("Location: ../views/admin/" . $tipo);
+        header("Location: ../views/admin/" . $paginaActiva);
     } else {
-        header("Location: ../views/admin/" . $tipo);
+        header("Location: ../views/admin/" . $paginaActiva);
     }
 }
 

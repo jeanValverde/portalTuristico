@@ -46,13 +46,14 @@ if (isset($_GET['encode'])) {
                         <img src="assets/img/theme/isologotipo_full_color.png"  alt="" class="card-img-top" style="width: 50%;" />
                     </div>
                     <div class="card-body px-lg-5 py-lg-5">
-                        <form id="form"  method="POST"  action="../funcionesPublico/startSession.php" >
+                        <form id="form"  method="POST"  action="../funcionesPublico/changePassword.php" >
+                            <input name="rut" value="<?php if(isset($usuario)){ echo $usuario->getRut(); } ?>" type="hidden" />
                             <div class="form-group mb-3">
                                 <div class="input-group mb-4">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                     </div>
-                                    <input id="rut" name="rut" class="form-control" placeholder="Nueva Contraseña" type="password">
+                                    <input id="" name="pass" class="form-control" placeholder="Nueva Contraseña" type="password">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -75,8 +76,8 @@ if (isset($_GET['encode'])) {
                             </div>
                         </form>
                         <?php
-                        if (isset($error)) {
-                            echo $error;
+                        if (isset($mensaje)) {
+                            echo $mensaje;
                         }
                         ?>
                         <?php
