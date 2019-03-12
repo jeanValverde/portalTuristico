@@ -44,9 +44,9 @@ if (!empty($_GET)) {
     background-color: #1883ba;
     border-radius: 6px;
     border: 2px solid #0016b0;
-    ' href='https://transporte.riohurtado.cl/views/forgot?encode?=$encode'>
+    ' href='https://turismo.riohurtado.cl/views/forgot?encode?=$encode'>
     
-    <img src='http://transporte.riohurtado.cl/restablecer.jpg' style='width: 50%;' />
+    <img src='http://turismo.riohurtado.cl/restablecer.jpg' style='width: 50%;' />
     
     
     </a>
