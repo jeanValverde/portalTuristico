@@ -13,8 +13,8 @@
  */
 class Connection {
     private $server = "localhost:3306";
-    private $username = "root";
-    private $password = "root";
+    private $username = "riohurta_soporte";
+    private $password = "&S0p0rT319&";
     private $database = "riohurta_riohurtado";
     private $link;
     
