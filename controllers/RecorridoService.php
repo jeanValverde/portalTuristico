@@ -116,11 +116,11 @@ class RecorridoService {
         if($trayecto == "All"){
              $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
                  FROM riohurta_turismo.recorrido r
-                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia'  and trayecto_inicio NOT LIKE 'Ovalle' ";
+                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia'  and trayecto_inicio NOT LIKE 'Ovalle' and tipo='bus' ";
         }else{
              $sql = " SELECT id_recorrido , trayecto_inicio ,  trayeto_final , hora_salida, dia_recorrido, nombre , id_empresa , cantidad_buses , contacto, direccion, ruta_inicio , ruta_fin , tipo
                  FROM riohurta_turismo.recorrido r
-                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia' and trayecto_inicio='Ovalle' ";
+                 join riohurta_turismo.empresa e on e.id_empresa = r.id_empresaBus  where dia_recorrido='$dia' and trayecto_inicio='Ovalle' and tipo='bus' ";
         }
        
         $result = $this->con->query($sql);

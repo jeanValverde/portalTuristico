@@ -19,26 +19,21 @@ if (isset($_GET['idUsuario'])) {
 
     $usuarioViews = $service->read_usuario_by_id($idUsuario);
 }
-
-
-
-
-
 ?>
 <?php if (isset($_GET["mensaje"])) { ?>
-        <div class="alert alert-success alert-dismissible fade show " role="alert">
-            <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
-            <span class="alert-inner--text"><strong><?= $_GET["mensaje"] ?>!</strong></span>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    <?php } ?>
+    <div class="alert alert-success alert-dismissible fade show " role="alert">
+        <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
+        <span class="alert-inner--text"><strong><?= $_GET["mensaje"] ?>!</strong></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<?php } ?>
 
 
 <div class="row">
 
-    
+
 
     <div class="col-xl-8 order-xl-2 mb-5 mb-xl-0">
         <div class="card">
@@ -104,12 +99,12 @@ if (isset($_GET['idUsuario'])) {
             </div>
             <div class="card-body">
                 <form id="form" action="<?php
-                        if ($form == "agregar") {
-                            echo "../../funciones/addUsuario.php";
-                        } else {
-                            echo "../../funciones/editUsuario.php";
-                        }
-                        ?>" method="POST" >
+                if ($form == "agregar") {
+                    echo "../../funciones/addUsuario.php";
+                } else {
+                    echo "../../funciones/editUsuario.php";
+                }
+                ?>" method="POST" >
                     <h6 class="heading-small text-muted mb-4">Información del Usuario</h6>
                     <div class="pl-lg-4">
                         <div class="row">
@@ -117,10 +112,10 @@ if (isset($_GET['idUsuario'])) {
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-username">RUT</label>
                                     <input name="rut" type="text" id="rut" class="form-control form-control-alternative" placeholder="19.552.208-1" value="<?php
-                if (isset($usuarioViews)) {
-                    echo $usuarioViews->getRut();
-                }
-                        ?>"
+                                    if (isset($usuarioViews)) {
+                                        echo $usuarioViews->getRut();
+                                    }
+                                    ?>"
                                            <?php
                                            if (isset($usuarioViews)) {
                                                echo 'disabled';
@@ -133,10 +128,10 @@ if (isset($_GET['idUsuario'])) {
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-email">Email</label>
                                     <input name="correo" type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com" value="<?php
-                                           if (isset($usuarioViews)) {
-                                               echo $usuarioViews->getCorreo();
-                                           }
-                                           ?>" >
+                                    if (isset($usuarioViews)) {
+                                        echo $usuarioViews->getCorreo();
+                                    }
+                                    ?>" >
                                 </div>
                             </div>
                         </div>
@@ -148,7 +143,7 @@ if (isset($_GET['idUsuario'])) {
                                     if (isset($usuarioViews)) {
                                         echo $usuarioViews->getNombre();
                                     }
-                                           ?>">
+                                    ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -158,7 +153,7 @@ if (isset($_GET['idUsuario'])) {
                                     if (isset($usuarioViews)) {
                                         echo $usuarioViews->getApellido();
                                     }
-                                           ?>">
+                                    ?>">
                                 </div>
                             </div>
                         </div>
@@ -175,7 +170,7 @@ if (isset($_GET['idUsuario'])) {
                                     if (isset($usuarioViews)) {
                                         echo $usuarioViews->getCargo();
                                     }
-                                           ?>">
+                                    ?>">
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -185,7 +180,7 @@ if (isset($_GET['idUsuario'])) {
                                     if (isset($usuarioViews)) {
                                         echo $usuarioViews->getArea();
                                     }
-                                           ?>">
+                                    ?>">
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -194,27 +189,27 @@ if (isset($_GET['idUsuario'])) {
                                     <select name="tipo" class="form-control form-control-alternative" id="exampleFormControlSelect2">
                                         <option value="select" >Seleccione</option>
                                         <option value="Admin" <?php
-                                    if (isset($usuarioViews)) {
-                                        if ($usuarioViews->getTipo() == "Admin") {
-                                            echo 'selected';
+                                        if (isset($usuarioViews)) {
+                                            if ($usuarioViews->getTipo() == "Admin") {
+                                                echo 'selected';
+                                            }
                                         }
-                                    }
-                                           ?> >Administración</option>
+                                        ?> >Administración</option>
                                         <option value="Usuario" <?php
                                         if (isset($usuarioViews)) {
                                             if ($usuarioViews->getTipo() == "Usuario") {
                                                 echo 'selected';
                                             }
                                         }
-                                           ?> >Sin privilegios administrativos</option>
+                                        ?> >Sin privilegios administrativos</option>
                                     </select>
                                 </div>
                             </div>
                             <input type="hidden" name="idUsuario" value="<?php
-                                        if (isset($usuarioViews)) {
-                                            echo $usuarioViews->getIdUsuario();
-                                        }
-                                           ?>" />
+                            if (isset($usuarioViews)) {
+                                echo $usuarioViews->getIdUsuario();
+                            }
+                            ?>" />
                         </div>
 
                         <button type="submit" class="btn btn-primary" >
