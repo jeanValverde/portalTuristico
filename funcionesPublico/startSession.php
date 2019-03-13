@@ -26,11 +26,12 @@ if (!empty($_POST)) {
             session_start();
             $_SESSION["usuario"] = $usuario;
             
-            header("Location: ../views/admin/index");
+            header("Location: ../views/admin/noticias");
 
         } else {
             header("Location: ../views/login?errorV=2");
         }
+        
     } else {
         header("Location: ../views/login?error=2");
     }

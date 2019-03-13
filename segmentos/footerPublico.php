@@ -6,10 +6,10 @@
                 <h4 class="mb-0 font-weight-light">El valle de Río Hurtado es uno de los lugares por descubrir en el corazón de la Región de Coquimbo.</h4>
             </div>
             <div class="col-lg-6 text-lg-center btn-wrapper">
-                <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-neutral btn-icon-only btn-twitter btn-round btn-lg" data-toggle="tooltip" data-original-title="Follow us">
+                <a target="_blank" href="https://twitter.com/muniriohurtado?lang=es" class="btn btn-neutral btn-icon-only btn-twitter btn-round btn-lg" data-toggle="tooltip" data-original-title="Follow us">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a target="_blank" href="https://www.facebook.com/creativetim" class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" data-toggle="tooltip" data-original-title="Like us">
+                <a target="_blank" href="https://www.facebook.com/municipioriohurtado/" class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" data-toggle="tooltip" data-original-title="Like us">
                     <i class="fa fa-facebook-square"></i>
                 </a>
             </div>

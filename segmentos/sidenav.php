@@ -1,4 +1,6 @@
 
+
+
 <?php $nombreSofware = "" ?>
 
 <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main"   >
@@ -63,16 +65,6 @@
             </div>
             <!-- Navigation -->
             <ul class="navbar-nav">
-                <h4 class="ml-4">Análisis de datos</h4>
-                <li class="nav-item">
-                    <a class="nav-link <?php
-                    if ($paginaActiva == "index") {
-                        echo "active";
-                    }
-                    ?>" href="index">
-                        <i class="ni ni-tv-2 fas fa-tachometer-alt text-primary"></i> Dashboard
-                    </a>
-                </li>
                 <h4 class="ml-4">Noticias turísticas</h4>
                 <li class="nav-item">
                     <a class="nav-link <?php
@@ -204,17 +196,17 @@
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" target="_black"  > 
+                    <a class="nav-link" href="https://jeanvalverde.github.io/documentacion/turismoRioHurtado/index" target="_black"  > 
                         <i class="ni ni-spaceship fas fa-question"></i> Instrucciones
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"  target="_black"  >
+                    <a class="nav-link" href="https://jeanvalverde.github.io/documentacion/turismoRioHurtado/licencia"  target="_black"  >
                         <i class="ni ni-palette fas fa-cart-arrow-down"></i> Licencia
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" target="_black"  >
+                    <a class="nav-link" href="https://jeanvalverde.github.io/documentacion/turismoRioHurtado/componentes.html" target="_black"  >
                         <i class="ni ni-ui-04 fab fa-creative-commons-remix"></i> Components
                     </a>
                 </li>

@@ -1,3 +1,48 @@
+
+<?php
+
+
+switch ($_GET['tipo']) {
+    case 'Restaurante' :
+        $titulo = 'Restaurantes';
+        $mensaje = "Comidas típicas, menú a la carta, atención a delegaciones, salón de eventos y más.";
+        break;
+    case 'Acampar':
+        $titulo = "Sitios para Acampar";
+        $mensaje = "Camping y agrocamping para acampar equipados de luz, agua potable, asaderas, baños, duchas, mesones, senderos y más.";
+        break;
+    case 'Alojamiento':
+        $titulo = "Alojamientos";
+        $mensaje = "Cabañas y habitaciones con estilo señorial equipados con quincho, piscina, servicios de alimentación y más.";
+        break;
+    case 'Festival':
+        $titulo = "Festivales";
+        $mensaje = "Diversas actividades que se llevan a cabo en diferentes localidades de la comuna. ";
+        break;
+    case 'Artesanal':
+        $titulo = "Productos Artesanales";
+        $mensaje = "Agrupaciones y Talleres dedicados en la elaboración de artesanías en arcilla, piedra y tejidos.";
+        break;
+    case 'Otro':
+        $titulo = "Ferias, Rodeos y más";
+        $mensaje = "Actividades culturales y fiestas religiosas, venta de productos típicos, gastronomía criolla, folclore y juegos populares.";
+        break;
+    case 'Monumento Natural':
+        $titulo = "Monumentos Naturales";
+        $mensaje = "Espacios protegidos por el Sistema de Protección Nacional de Áreas Silvestres del Estado en donde se conservan vestigios de vegetación y fauna.";
+        break;
+    case 'Ruta':
+        $titulo = "Rutas";
+        $mensaje = "";
+        break;
+    default :
+        $titulo = "";
+        $mensaje = "";
+        break;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -46,9 +91,8 @@
                                 <div class="col-lg-6">
                                     <div class="card text-justify " >
                                         <div class="card-body text-justify">
-                                            <h5 class="card-title text-justify">Transporte público</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">Recorrido de buses Iterurbano Rio Hurtado</h6>
-                                            <p class="card-text">Salida desde Terminal Buses Rurales Feria Modelo.</p>
+                                            <h5 class="card-title text-justify"><?= $titulo ?></h5>
+                                            <p class="card-text"><?= $mensaje ?></p>
                                             <div class="btn-wrapper">
                                             </div>
                                         </div>

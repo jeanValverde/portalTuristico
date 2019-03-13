@@ -82,7 +82,7 @@ session_start();
     background-color: #1883ba;
     border-radius: 6px;
     border: 2px solid #0016b0;
-    ' href='https://turismo.riohurtado.cl/views/forgot?encode?=$contraseniaRecuperar'>
+    ' href='https://turismo.riohurtado.cl/views/forgot?encode=$contraseniaRecuperar'>
     
     <img src='https://turismo.riohurtado.cl/mail.jpg' style='width: 50%;' />
     
