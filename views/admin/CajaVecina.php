@@ -132,9 +132,6 @@ $tipo = "CajaVecina";
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
 
 
-
-
-
         <script>
             $('#emergencia').DataTable({
                 language: {

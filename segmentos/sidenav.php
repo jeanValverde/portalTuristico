@@ -32,7 +32,7 @@
                         <i class="ni ni-single-02"></i>
                         <span>My profile</span>
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="" class="dropdown-item">
                         <i class="ni ni-support-16"></i>
                         <span>Support</span>
                     </a>

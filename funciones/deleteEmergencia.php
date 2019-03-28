@@ -10,8 +10,11 @@ $idEmergencia = $_GET["idEmergencia"];
 
 $resul = new EmergenciaService();
 
+$resultado = $resul->delete_emergencia($idEmergencia);
 
-if ($resul->delete_emergencia($idEmergencia)) {//metodo agregar 
+
+
+if ($resultado) {//metodo agregar 
     header("Location: ../views/admin/emergencia?transporteAdd=1");
 } else {
     header("Location: ../views/admin/emergencia?transporteAdd=15");

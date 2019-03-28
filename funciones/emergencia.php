@@ -17,8 +17,6 @@ $tiposEmergencia = array(
 );
 
 
-
-
 if (isset($_GET["idEmergencia"])) {
 
 
@@ -101,7 +99,10 @@ if (isset($_GET["idEmergencia"])) {
                                 </div>
                             </div>
                         </div>
+                        <?php if (isset($emergencia)){?>
                         <input type="hidden" value="<?php if (isset($emergencia)){echo $emergencia->getIdEmergencia();} ?>" name="idEmergencia" />
+                        <?php } ?>
+                        
                         <button type="submit" class="btn btn-primary" >Agregar</button>
                     </div>
 
@@ -129,8 +130,8 @@ if (isset($_GET["idEmergencia"])) {
                                 <td><?= $emergencia->getUbicacion(); ?></td>
                                 <td><?= $emergencia->getNumero(); ?></td>
                                 <td>
-                                    <a href="../admin/emergencia.php?idEmergencia=<?= $emergencia->getIdEmergencia(); ?>" class="btn btn-warning" >Editar</a>
-                                    <a href="../../funciones/deleteEmergencia.php?idEmergencia=<?= $emergencia->getIdEmergencia(); ?>"   class="btn btn-danger" >Eliminar</a>
+                                    <a href="../admin/emergencia?idEmergencia=<?= $emergencia->getIdEmergencia(); ?>" class="btn btn-warning" >Editar</a>
+                                    <a href="../../funciones/deleteEmergencia?idEmergencia=<?= $emergencia->getIdEmergencia(); ?>"   class="btn btn-danger" >Eliminar</a>
                                 </td>
                             </tr>
                         <?php } ?>

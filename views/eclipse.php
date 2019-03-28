@@ -78,9 +78,9 @@
                             <div style="height: 150px;" ></div>
                             <div class="row">
                                 <div class="col-md-5" >
-                                    <h1 class="text-center text-white">
-                                        Eclipse total de sol
-                                        <br/> <small class="text-white">Dia 2 Julio</small>
+                                    <h1 class="text-center text-white text-uppercase">
+                                        Eclipse solar 100%
+                                        <br/> <small class="text-white">Día 2 Julio 2019</small>
                                     </h1>
                                 </div>
                                 <div class="col-lg-7">
@@ -185,7 +185,7 @@
         <script type="text/javascript" src="assets/CountDownTimer/jquery.downCount.js"></script> 
         <script  type="text/javascript">
                     $('.countdown').downCount({
-                        date: '07/02/2019 12:00:00',
+                        date: '07/02/2019 16:39:00',
                         offset: +10
                     }, function () {
                     });
@@ -194,7 +194,7 @@
 
         <script>
 
-            var map = L.map('mapa-1').setView([-30.4080404, -70.9468803, 989], 13);
+            var map = L.map('mapa-1').setView([-30.2894354,-70.7180153,15], 13);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright"></a> '
@@ -202,8 +202,8 @@
 
             map.scrollWheelZoom.disable();
 
-            L.marker([-30.4080404, -70.9468803, 989]).addTo(map)
-                    .bindPopup(' <br/> <a target="_black" href="https://www.google.com/maps/place/Minimarket+EL+AGRADO/@-30.4080404,-70.9468803,989m/data=!3m1!1e3!4m13!1m7!3m6!1s0x968fc4bd40e951c3:0x66c88b5a849d6c45!2sSamo+Alto,+R%C3%ADo+Hurtado,+Regi%C3%B3n+de+Coquimbo!3b1!8m2!3d-30.408194!4d-70.9367848!3m4!1s0x968fc59c627be4d5:0xaa774e3bb7255fcb!8m2!3d-30.4089017!4d-70.9460237">Ampiar mapa</a>.')
+            L.marker([-30.2894354,-70.7180153,15]).addTo(map)
+                    .bindPopup(' <br/> Localidad de Morrillos <br/> <a target="_black" href="https://www.google.cl/maps/place/Morrillos,+R%C3%ADo+Hurtado,+Regi%C3%B3n+de+Coquimbo/@-30.2894354,-70.7180153,15z/data=!3m1!4b1!4m5!3m4!1s0x968fe425b65ba859:0x177270475b29202e!8m2!3d-30.2894539!4d-70.7092604">Ampiar mapa</a>.')
                     .openPopup();
 
 

@@ -135,7 +135,7 @@ if (isset($_GET['idTurismo'])) {
                                 <td><?= $turismo->getLatitud(); ?></td>
                                 <td><?= $turismo->getLongitud(); ?></td>
                                 <td>
-                                    <a href="../admin/cajaVecina?idTurismo=<?= $turismo->getIdTurismo(); ?>" class="btn btn-warning" >Editar</a>
+                                    <a href="../admin/CajaVecina?idTurismo=<?= $turismo->getIdTurismo(); ?>" class="btn btn-warning" >Editar</a>
                                     <a href="../../funciones/deleteTurismo.php?idTurismo=<?= $turismo->getIdTurismo(); ?>&paginaActiva=<?= $paginaActiva ?>"   class="btn btn-danger" >Eliminar</a>
                                     <a href="<?= $turismo->getMapa(); ?>" target="_black"   class="btn btn-success" >Mapa</a>
                                 </td>

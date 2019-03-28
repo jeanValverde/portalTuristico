@@ -8,6 +8,8 @@ include_once '../../segmentos/session.php';
 
 
 $paginaActiva = "emergencia";
+
+
 ?>
 
 

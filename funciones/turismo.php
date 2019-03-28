@@ -58,13 +58,8 @@ if (isset($_GET['idTurismo'])) {
                         <?php
                         while ($turismo = array_shift($turismos)) {
                             ?>
-                            <div class="col-md-4" >
-                                <ul class="pagination">
-                                    <li class="page-item <?= ($turismoMax->getIdTurismo() == $turismo->getIdTurismo() ) ? 'active' : '' ?>" title="<?= $turismo->getNombre() ?>" >
-                                        <a  href="../admin/<?= $tipo ?>?views=<?= $turismo->getIdTurismo(); ?>" class="badge badge-danger text-white"><?= $turismo->getNombre() ?></a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <a  href="../admin/<?= $paginaActiva ?>?views=<?= $turismo->getIdTurismo(); ?>" class="badge badge-danger text-white mt-2" ><?= $turismo->getNombre() ?></a> &nbsp;&nbsp;
+                            
                         <?php } ?>
                     </div>
                 </nav>
@@ -133,7 +128,7 @@ if (isset($_GET['idTurismo'])) {
                             <?php } ?>
                             <br><br>
                             <hr class="my-4">
-                            <a href="../admin/<?= $tipo ?>?idTurismo=<?= $turismoMax->getIdTurismo(); ?>" class="btn btn-warning">Editar</a>
+                            <a href="../admin/<?= $paginaActiva ?>?idTurismo=<?= $turismoMax->getIdTurismo(); ?>" class="btn btn-warning">Editar</a>
                             <a href="../../funciones/deleteTurismo.php?idTurismo=<?= $turismoMax->getIdTurismo(); ?>&paginaActiva=<?= $paginaActiva ?>" class="btn btn-danger">Elminar</a>
                         </div>
                     </div>

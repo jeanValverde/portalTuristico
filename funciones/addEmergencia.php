@@ -6,7 +6,7 @@ include_once '../models/Emergencia.php';
 
 
 
-if(isset($_POST["tipo"])){
+if (!empty($_POST)) {
     
     $resul = new EmergenciaService();
     

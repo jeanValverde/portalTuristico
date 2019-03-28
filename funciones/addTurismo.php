@@ -130,9 +130,9 @@ if (!empty($_POST)) {
     }
 
     if ($resultado) {
-        header("Location: ../views/admin/" . strtolower($paginaActiva));
+        header("Location: ../views/admin/" . $paginaActiva);
     } else {
 
-        header("Location: ../views/admin/" . strtolower($paginaActiva) . "?error");
+        header("Location: ../views/admin/" . $paginaActiva . "?error");
     }
 }
